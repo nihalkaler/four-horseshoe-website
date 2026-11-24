@@ -1,0 +1,58 @@
+<!-- ==================================================================
+     OUR SPACES – dining rooms, Stable, garden, private dining
+     Edit the words between the tags. To swap a photo, change its src="…".
+     ================================================================== -->
+<style>
+/* four cards in a row on desktop, two on tablets, one on phones */
+.fhr .fhr-cards--4{grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.fhr .fhr-cards--4 .fhr-card__img{height:240px}
+.fhr .fhr-cards--4 .fhr-card__body{padding:24px 22px 28px}
+.fhr .fhr-cards--4 .fhr-h3{font-size:27px}
+@media (max-width:1100px){.fhr .fhr-cards--4{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.fhr .fhr-cards--4 .fhr-card__img{height:260px}.fhr .fhr-cards--4 .fhr-h3{font-size:30px}}
+@media (max-width:640px){.fhr .fhr-cards--4{grid-template-columns:1fr}}
+/* each photo opens the same page as the link under it */
+.fhr a.fhr-card__img{display:block;cursor:pointer}
+</style>
+<div class="fhr">
+  <section class="fhr-sec fhr-pattern" aria-labelledby="fhr-spaces-h">
+    <div class="fhr-wrap">
+      <div class="fhr-stack fhr-reveal" style="max-width:640px">
+        <h2 class="fhr-h2" id="fhr-spaces-h">Our Spaces</h2>
+      </div>
+      <ul class="fhr-cards fhr-cards--4">
+        <li class="fhr-card fhr-reveal">
+          <a class="fhr-card__img" href="/book" tabindex="-1" aria-hidden="true"><img src="https://images.squarespace-cdn.com/content/5b9e725896d455c71ef88dda/f35ae88a-9d88-4e3f-9ce2-b5475b52fe3e/20250115_194710.jpg?format=750w" alt="The dining room in the evening, with its long banquette and tables laid for dinner" loading="lazy" style="object-position:50% 30%"></a>
+          <div class="fhr-card__body">
+            <h3 class="fhr-h3">The dining rooms</h3>
+            <p class="fhr-card__text">From the front room overlooking the green to the back room with its own private terrace.</p>
+            <a class="fhr-more" href="/book">Book a table <span aria-hidden="true">→</span></a>
+          </div>
+        </li>
+        <li class="fhr-card fhr-reveal">
+          <a class="fhr-card__img" href="/the-stable" tabindex="-1" aria-hidden="true"><img src="https://images.squarespace-cdn.com/content/v1/5b9e725896d455c71ef88dda/1606695219038-N2UZOIUU6W7HRD66HEFV/STABLE.jpg?format=750w" alt="The Stable, a covered timber shelter with festoon lights and a stag's head" loading="lazy"></a>
+          <div class="fhr-card__body">
+            <h3 class="fhr-h3">The Stable &amp; Terrace</h3>
+            <p class="fhr-card__text">Covered, heated outdoor dining all year round.</p>
+            <a class="fhr-more" href="/the-stable">Explore the Stable <span aria-hidden="true">→</span></a>
+          </div>
+        </li>
+        <li class="fhr-card fhr-reveal">
+          <a class="fhr-card__img" href="/book" tabindex="-1" aria-hidden="true"><img src="https://images.squarespace-cdn.com/content/5b9e725896d455c71ef88dda/9361c86a-17e7-431c-94d5-29080ec76395/20260326_104440.jpg?format=750w" alt="Picnic benches and round tables on the lawn in the pub garden" loading="lazy" style="object-position:50% 62%"></a>
+          <div class="fhr-card__body">
+            <h3 class="fhr-h3">The garden</h3>
+            <p class="fhr-card__text">Picnic benches and big round tables on the lawn – made for long, sunny afternoons.</p>
+            <a class="fhr-more" href="/book">Book a table <span aria-hidden="true">→</span></a>
+          </div>
+        </li>
+        <li class="fhr-card fhr-reveal">
+          <a class="fhr-card__img" href="/party-group-tables" tabindex="-1" aria-hidden="true"><img src="https://images.squarespace-cdn.com/content/5b9e725896d455c71ef88dda/5ea03b34-a956-4d3c-b7f6-03c5e5dbd5e0/private-dining-room-enhanced.jpg?format=750w" alt="The private dining room laid for a group, with panelled walls, portraits and gingham napkins" loading="lazy" style="object-position:50% 55%"></a>
+          <div class="fhr-card__body">
+            <h3 class="fhr-h3">Private dining &amp; groups</h3>
+            <p class="fhr-card__text">A private dining room for 8 to 14, the main dining room for up to 34, and exclusive hire for up to 300.</p>
+            <a class="fhr-more" href="/party-group-tables">Plan an event <span aria-hidden="true">→</span></a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+</div>

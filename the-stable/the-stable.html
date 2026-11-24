@@ -1,0 +1,313 @@
+<!-- =====================================================================
+     THE FOUR HORSESHOES – THE STABLE & TERRACE PAGE
+     One Code Block holds the whole page, in the same style as the home page.
+     • To change the wording, edit the text between the tags.
+     • The big photo at the top: change its src="…".
+     • Photos further down: each photo is one line starting with
+       <a class="fhy-item" – delete a line to remove a photo, or copy a line
+       and change BOTH addresses (href="…" and src="…") to add one.
+       --r is the photo's shape (0.75 upright, 1.33 wide); the page measures
+       each photo as it loads, so it doesn't have to be exact.
+     Clicking a photo opens it full screen (arrows / swipe to move between them).
+     ===================================================================== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ---------- let this block run edge to edge (this section only) ---------- */
+.page-section:has(.fhr){padding-bottom:0 !important;min-height:0 !important;background:#FBF8EF !important}
+.page-section:has(.fhr) .section-border,.page-section:has(.fhr) .section-background{display:none !important}
+.page-section:has(.fhr) .content-wrapper{max-width:none !important;width:100% !important;padding:0 !important;margin:0 !important}
+.page-section:has(.fhr) .content,.page-section:has(.fhr) .sqs-layout{width:100% !important;max-width:none !important}
+.page-section:has(.fhr) .fluid-engine{display:block !important;padding:0 !important;margin:0 !important;width:100% !important}
+.page-section:has(.fhr) .fe-block{width:100% !important;max-width:none !important;margin:0 !important;padding:0 !important}
+.page-section:has(.fhr) .row,.page-section:has(.fhr) .col{width:100% !important;margin:0 !important;padding:0 !important}
+.page-section:has(.fhr) .sqs-layout .sqs-row .sqs-block:has(.fhr),.sqs-block:has(.fhr),.sqs-block:has(.fhr) .sqs-block-content{padding:0 !important;margin:0 !important}
+.page-section:has(.fhr):not(:first-child){padding-top:0 !important}
+
+/* ---------- design tokens (same as the home page) ---------- */
+.fhr{--ink:#1E262E;--cream:#FBF8EF;--card:#FFFDF7;--sand:#F3ECDB;--line:#E6DCC3;--line2:#CDBF9F;--gold:#7A5B1E;--gold-lt:#D9B66E;--body:#3A3934;--muted:#55524B;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;--sans:'Jost','Gill Sans','Trebuchet MS',sans-serif;
+  --pad:clamp(20px,4vw,48px);
+  font-family:var(--sans);font-size:17px;line-height:1.7;color:var(--body);background:var(--cream);
+  width:100%;max-width:100%;min-width:0;box-sizing:border-box;overflow-x:clip;-webkit-font-smoothing:antialiased;text-align:left}
+.fhr *,.fhr *::before,.fhr *::after{box-sizing:border-box}
+.fhr p,.fhr h1,.fhr h2{margin:0;padding:0}
+.fhr img{display:block;max-width:100%}
+.fhr a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.fhr .fhr-pattern{background-color:#FFFDF4;background-image:url(https://images.squarespace-cdn.com/content/v1/5b9e725896d455c71ef88dda/b6c35055-2aae-451f-8149-be0088a1d9ba/pub_background_full.png);background-repeat:repeat;background-size:2560px 2000px;background-position:0 0}
+.fhr .fhr-wrap{max-width:1180px;margin:0 auto}
+.fhr .fhr-eyebrow{font-family:var(--sans);font-size:13px;line-height:1.4;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.fhr .fhr-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;font-family:var(--sans);font-size:14px;line-height:1.2;letter-spacing:.14em;text-transform:uppercase;font-weight:500;text-decoration:none !important;border-radius:2px;border:1px solid var(--ink);background:var(--ink);color:var(--cream) !important;transition:background .2s,border-color .2s;white-space:nowrap}
+.fhr .fhr-btn:hover{background:#2E3A44;border-color:#2E3A44}
+
+/* ---------- 1. photo banner ---------- */
+.fhr .fhs-hero{position:relative;isolation:isolate;min-height:clamp(440px,64vh,660px);display:flex;align-items:center;justify-content:center;padding:96px var(--pad);text-align:center;overflow:hidden;background:var(--ink)}
+.fhr .fhs-hero__img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.fhr .fhs-hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,22,26,.30) 0%,rgba(18,22,26,.42) 45%,rgba(18,22,26,.62) 100%)}
+.fhr .fhs-hero__in{display:flex;flex-direction:column;align-items:center;gap:18px;max-width:820px}
+.fhr .fhs-hero .fhr-eyebrow{color:var(--gold-lt);text-shadow:0 1px 12px rgba(0,0,0,.35)}
+.fhr .fhs-h1{font-family:var(--serif);font-weight:600;font-size:clamp(50px,7vw,92px);line-height:1;letter-spacing:-.01em;text-transform:none;color:var(--cream);text-shadow:0 2px 24px rgba(0,0,0,.35);text-wrap:balance}
+.fhr .fhs-orn{display:flex;align-items:center;gap:16px;width:min(340px,72%);color:var(--gold-lt)}
+.fhr .fhs-orn::before,.fhr .fhs-orn::after{content:"";flex:1;height:1px;background:rgba(244,235,211,.55)}
+.fhr .fhs-orn svg{flex:none}
+
+/* ---------- 2. about the stable ---------- */
+.fhr .fhs-about{padding:104px var(--pad) 108px}
+.fhr .fhs-about__in{max-width:780px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center}
+.fhr .fhs-h2{font-family:var(--serif);font-weight:600;font-size:clamp(40px,4.6vw,60px);line-height:1.04;letter-spacing:-.005em;text-transform:none;color:var(--ink)}
+.fhr .fhs-text{font-size:18px;line-height:1.8;color:var(--body);margin-top:6px}
+.fhr .fhs-about .fhr-btn{margin-top:14px}
+
+/* ---------- 3. photos (rows fill edge to edge, photos never cropped) ---------- */
+.fhr .fhs-photos{background:var(--sand);padding:88px var(--pad) 104px}
+.fhr .fhy-rows{--h:300px;--gap:12px;display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;column-gap:var(--gap);row-gap:0}
+.fhr .fhy-item{--r:.75;display:block;position:relative;flex:var(--r) 1 calc(var(--r) * var(--h));max-width:calc(var(--r) * var(--h) * 1.6);min-width:0;aspect-ratio:var(--r);margin:0 0 var(--gap);border-radius:3px;overflow:hidden;background:var(--line);cursor:zoom-in;text-decoration:none !important;transform:translateZ(0)}
+.fhr .fhy-rows.is-laid .fhy-item{max-width:none}
+.fhr .fhy-br{flex:0 0 100%;height:0;margin:0;padding:0}
+.fhr .fhy-item img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.fhr .fhy-item::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(30,38,46,.38),rgba(30,38,46,0) 50%);opacity:0;transition:opacity .3s;pointer-events:none}
+.fhr .fhy-item:hover img{transform:scale(1.04)}
+.fhr .fhy-item:hover::after{opacity:1}
+
+/* ---------- full-screen photo viewer ---------- */
+html.fhy-lock{overflow:hidden}
+.fhy-lb{position:fixed;inset:0;z-index:100000;background:rgba(18,22,26,.95);opacity:0;transition:opacity .25s ease;font-family:'Jost','Gill Sans','Trebuchet MS',sans-serif}
+.fhy-lb[hidden]{display:none}
+.fhy-lb.is-open{opacity:1}
+.fhy-lb__stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:72px 96px}
+.fhy-lb__fig{margin:0;display:flex;flex-direction:column;align-items:center;gap:16px;max-width:100%;max-height:100%}
+.fhy-lb__img{display:block;max-width:100%;max-height:calc(100vh - 170px);width:auto;height:auto;border-radius:2px;box-shadow:0 30px 60px rgba(0,0,0,.45);opacity:0;transition:opacity .3s}
+.fhy-lb__img.is-ready{opacity:1}
+.fhy-lb__count{font-size:13px;letter-spacing:.22em;color:#D5CCB7}
+.fhy-lb button{position:absolute;display:grid;place-items:center;width:52px;height:52px;margin:0;padding:0;border-radius:50%;border:1px solid rgba(244,235,211,.35);background:rgba(30,38,46,.6);color:#FBF8EF;cursor:pointer;line-height:1;transition:background .2s,border-color .2s}
+.fhy-lb button:hover{background:rgba(244,235,211,.12);border-color:#D9B66E}
+.fhy-lb button:focus-visible{outline:2px solid #D9B66E;outline-offset:3px}
+.fhy-lb button svg{display:block}
+.fhy-lb__close{top:18px;right:18px}
+.fhy-lb__prev{left:22px;top:50%;margin-top:-26px !important}
+.fhy-lb__next{right:22px;top:50%;margin-top:-26px !important}
+
+@media (max-width:900px){
+  .fhr .fhy-rows{--h:240px}
+}
+@media (max-width:640px){
+  .fhr{font-size:16px}
+  .fhr .fhs-hero{min-height:420px;padding:72px var(--pad)}
+  .fhr .fhs-about{padding:60px var(--pad) 64px}
+  .fhr .fhs-text{font-size:16.5px}
+  .fhr .fhs-about .fhr-btn{width:100%}
+  .fhr .fhs-photos{padding:48px 14px 60px}
+  .fhr .fhy-rows{--h:170px;--gap:8px}
+  .fhr .fhy-item{border-radius:2px}
+  .fhy-lb__stage{padding:64px 10px 96px}
+  .fhy-lb__img{max-height:calc(100vh - 200px)}
+  .fhy-lb__prev,.fhy-lb__next{top:auto;bottom:20px;margin-top:0 !important}
+  .fhy-lb__prev{left:calc(50% - 66px)}
+  .fhy-lb__next{right:calc(50% - 66px)}
+}
+@media (prefers-reduced-motion:reduce){
+  .fhr .fhy-item img,.fhy-lb,.fhy-lb__img{transition:none}
+}
+</style>
+
+<div class="fhr">
+
+  <!-- ============ 1. PHOTO BANNER ============ -->
+  <section class="fhs-hero" aria-labelledby="fhs-h1">
+    <img class="fhs-hero__img" src="https://images.squarespace-cdn.com/content/v1/5b9e725896d455c71ef88dda/1606695219038-N2UZOIUU6W7HRD66HEFV/STABLE.jpg?format=2500w" alt="The Stable, a covered timber shelter with festoon lights and a stag's head" width="2369" height="1425">
+    <div class="fhs-hero__in">
+      <p class="fhr-eyebrow">Outside dining</p>
+      <h1 class="fhs-h1" id="fhs-h1">The Stable &amp; Terrace</h1>
+      <div class="fhs-orn" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 4.5v6.5a5.5 5.5 0 0 0 11 0V4.5"/><path d="M5 4.5h3M16 4.5h3"/><circle cx="7.6" cy="8.5" r=".6" fill="currentColor"/><circle cx="16.4" cy="8.5" r=".6" fill="currentColor"/><circle cx="8.6" cy="13.2" r=".6" fill="currentColor"/><circle cx="15.4" cy="13.2" r=".6" fill="currentColor"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. ABOUT THE STABLE ============ -->
+  <section class="fhr-pattern fhs-about" aria-labelledby="fhs-h2">
+    <div class="fhs-about__in">
+      <p class="fhr-eyebrow">The Stable &amp; Terrace</p>
+      <h2 class="fhs-h2" id="fhs-h2">Outdoor Dining</h2>
+      <p class="fhs-text">Our outdoor dining areas are covered and heated. The Stable offers an alternative area to dine. Whilst the area is covered &amp; heated, we advise all guests to dress appropriately for the UK weather. Feel free to bring your own blankets &amp; hot water bottles – and don’t forget your woolly hat! Our terrace has a porch area with awnings &amp; heaters, plus a couple of tables under a large parasol, also with heaters.</p>
+      <a class="fhr-btn" href="/book">Book a table</a>
+    </div>
+  </section>
+
+  <!-- ============ 3. PHOTOS – one line per photo ============ -->
+  <section class="fhs-photos" aria-label="Photos of the Stable and terrace">
+    <div class="fhr-wrap">
+      <div class="fhy-rows">
+        <a class="fhy-item" style="--r:1.23" href="https://images.squarespace-cdn.com/content/5b9e725896d455c71ef88dda/41d66250-e696-41ca-8e87-50752f73bad1/stable-terrace-long-table.jpg?format=1500w"><img src="https://images.squarespace-cdn.com/content/5b9e725896d455c71ef88dda/41d66250-e696-41ca-8e87-50752f73bad1/stable-terrace-long-table.jpg?format=1000w" alt="A long table on the covered terrace laid with lavender, menus and glasses" width="1079" height="876" loading="lazy"></a>
+        <a class="fhy-item" style="--r:1.33" href="https://images.squarespace-cdn.com/content/5b9e725896d455c71ef88dda/06bb053c-9432-4573-8b3c-4d269c3eb6dd/WhatsApp+Image+2026-10-21+at+10.36.42+AM.jpeg?format=1500w"><img src="https://images.squarespace-cdn.com/content/5b9e725896d455c71ef88dda/06bb053c-9432-4573-8b3c-4d269c3eb6dd/WhatsApp+Image+2026-10-21+at+10.36.42+AM.jpeg?format=1000w" alt="The terrace at dusk under festoon lights, with candles on the tables" width="1448" height="1086" loading="lazy"></a>
+        <a class="fhy-item" style="--r:1.06" href="https://images.squarespace-cdn.com/content/5b9e725896d455c71ef88dda/03514f3c-6b17-4f95-a295-b73017378205/stable-terrace-lavender-closeup.jpg?format=1500w"><img src="https://images.squarespace-cdn.com/content/5b9e725896d455c71ef88dda/03514f3c-6b17-4f95-a295-b73017378205/stable-terrace-lavender-closeup.jpg?format=1000w" alt="Lavender in a pot beside a menu and salt and pepper on a terrace table" width="499" height="469" loading="lazy"></a>
+        <a class="fhy-item" style="--r:1.33" href="https://images.squarespace-cdn.com/content/5b9e725896d455c71ef88dda/e35e6db4-480f-4c09-a56a-266fa2892661/WhatsApp+Image+2026-10-21+at+10.36.43+AM+%282%29.jpeg?format=1500w"><img src="https://images.squarespace-cdn.com/content/5b9e725896d455c71ef88dda/e35e6db4-480f-4c09-a56a-266fa2892661/WhatsApp+Image+2026-10-21+at+10.36.43+AM+%282%29.jpeg?format=1000w" alt="Tables laid on the covered terrace, ready for a party" width="1447" height="1087" loading="lazy"></a>
+        <a class="fhy-item" style="--r:1.22" href="https://images.squarespace-cdn.com/content/5b9e725896d455c71ef88dda/8548ecfa-e57d-4ddf-9e31-3122975ae5b2/stable-terrace-table-view.jpg?format=1500w"><img src="https://images.squarespace-cdn.com/content/5b9e725896d455c71ef88dda/8548ecfa-e57d-4ddf-9e31-3122975ae5b2/stable-terrace-table-view.jpg?format=1000w" alt="Tables laid along the covered terrace, looking out to the garden umbrellas" width="573" height="469" loading="lazy"></a>
+        <a class="fhy-item" style="--r:1.33" href="https://images.squarespace-cdn.com/content/5b9e725896d455c71ef88dda/7a719d11-95e5-4bb5-b7f7-36a72fdea23e/WhatsApp+Image+2026-10-21+at+10.36.43+AM.jpeg?format=1500w"><img src="https://images.squarespace-cdn.com/content/5b9e725896d455c71ef88dda/7a719d11-95e5-4bb5-b7f7-36a72fdea23e/WhatsApp+Image+2026-10-21+at+10.36.43+AM.jpeg?format=1000w" alt="Evening on the front terrace, with lanterns, parasols and blankets on the chairs" width="1079" height="811" loading="lazy"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- full-screen photo viewer (opens when a photo is clicked) -->
+  <div class="fhy-lb" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <div class="fhy-lb__stage">
+      <figure class="fhy-lb__fig">
+        <img class="fhy-lb__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="">
+        <figcaption class="fhy-lb__count"></figcaption>
+      </figure>
+    </div>
+    <button type="button" class="fhy-lb__close" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <button type="button" class="fhy-lb__prev" aria-label="Previous photo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button type="button" class="fhy-lb__next" aria-label="Next photo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+
+</div>
+
+<script>
+/* photo rows – picks where each row breaks so every row is filled edge to edge */
+(function () {
+  function shape(a) {
+    var img = a.querySelector('img');
+    if (img && img.naturalWidth) return img.naturalWidth / img.naturalHeight;
+    var r = parseFloat(a.style.getPropertyValue('--r'));
+    if (r > 0) return r;
+    if (img && img.getAttribute('width') && img.getAttribute('height')) return img.getAttribute('width') / img.getAttribute('height');
+    return 0.75;
+  }
+  function target(w) { return w >= 1000 ? 380 : w >= 700 ? 280 : 200; }
+  function layout(box) {
+    var W = box.clientWidth;
+    if (!W) return;
+    box.fhyW = W;
+    Array.prototype.forEach.call(box.querySelectorAll('.fhy-br'), function (b) { b.parentNode.removeChild(b); });
+    var items = Array.prototype.slice.call(box.querySelectorAll('a.fhy-item'));
+    var n = items.length;
+    if (!n) return;
+    var r = items.map(shape);
+    var g = parseFloat(getComputedStyle(box).columnGap) || 0;
+    var t = target(W), best = [0], prev = [0], i, j;
+    for (j = 1; j <= n; j++) {
+      best[j] = Infinity;
+      var R = 0;
+      for (i = j - 1; i >= 0; i--) {
+        R += r[i];
+        var h = (W - g * (j - i - 1)) / R;
+        if (h < 0.4 * t) break;
+        var c = Math.pow((h - t) / t, 2) + ((h < 0.65 * t || h > 1.5 * t) ? 50 : 0);
+        if (best[i] + c < best[j]) { best[j] = best[i] + c; prev[j] = i; }
+      }
+    }
+    var rows = [], k = n;
+    while (k > 0) { rows.unshift([prev[k], k]); k = prev[k]; }
+    rows.forEach(function (row, idx) {
+      var R = 0, m;
+      for (m = row[0]; m < row[1]; m++) R += r[m];
+      var h = (W - g * (row[1] - row[0] - 1)) / R, cap = 1.5 * t;
+      for (m = row[0]; m < row[1]; m++) {
+        items[m].style.setProperty('--r', r[m].toFixed(4));
+        items[m].style.flex = h > cap ? '0 0 ' + (r[m] * cap).toFixed(2) + 'px' : r[m].toFixed(4) + ' 1 0px';
+      }
+      if (idx < rows.length - 1) {
+        var br = document.createElement('span');
+        br.className = 'fhy-br';
+        br.setAttribute('aria-hidden', 'true');
+        box.insertBefore(br, items[row[1] - 1].nextSibling);
+      }
+    });
+    box.classList.add('is-laid');
+  }
+  function init() {
+    Array.prototype.forEach.call(document.querySelectorAll('.fhr .fhy-rows'), function (box) {
+      layout(box);
+      var timer;
+      function later() { clearTimeout(timer); timer = setTimeout(function () { layout(box); }, 60); }
+      Array.prototype.forEach.call(box.querySelectorAll('img'), function (img) {
+        function check() {
+          var a = img.parentNode, now = parseFloat(a.style.getPropertyValue('--r')) || 0;
+          if (img.naturalWidth && Math.abs(img.naturalWidth / img.naturalHeight - now) > 0.02) later();
+        }
+        if (img.complete) check(); else img.addEventListener('load', check);
+      });
+      function maybe() { if (box.clientWidth !== box.fhyW) later(); }
+      if ('ResizeObserver' in window) new ResizeObserver(maybe).observe(box);
+      window.addEventListener('resize', maybe);
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+
+/* full-screen photo viewer */
+(function () {
+  function init() {
+    var lb = document.querySelector('.fhy-lb');
+    var links = Array.prototype.slice.call(document.querySelectorAll('.fhr a.fhy-item'));
+    if (!lb || !links.length || window.self !== window.top) return;
+    document.body.appendChild(lb);
+    var img = lb.querySelector('.fhy-lb__img');
+    var count = lb.querySelector('.fhy-lb__count');
+    var btnClose = lb.querySelector('.fhy-lb__close');
+    var btnPrev = lb.querySelector('.fhy-lb__prev');
+    var btnNext = lb.querySelector('.fhy-lb__next');
+    var i = 0, lastFocus = null, startX = null;
+
+    function show(n) {
+      i = (n + links.length) % links.length;
+      var a = links[i], thumb = a.querySelector('img');
+      img.classList.remove('is-ready');
+      img.onload = function () { img.classList.add('is-ready'); };
+      img.src = a.href;
+      img.alt = thumb ? thumb.alt : '';
+      count.textContent = (i + 1) + ' / ' + links.length;
+      [i - 1, i + 1].forEach(function (k) { var p = new Image(); p.src = links[(k + links.length) % links.length].href; });
+    }
+    function open(n) {
+      lastFocus = document.activeElement;
+      show(n);
+      lb.hidden = false;
+      document.documentElement.classList.add('fhy-lock');
+      setTimeout(function () { lb.classList.add('is-open'); }, 10);
+      btnClose.focus();
+    }
+    function close() {
+      lb.classList.remove('is-open');
+      document.documentElement.classList.remove('fhy-lock');
+      setTimeout(function () { lb.hidden = true; }, 250);
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    links.forEach(function (a, n) {
+      a.addEventListener('click', function (e) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+        e.preventDefault();
+        open(n);
+      });
+    });
+    btnClose.addEventListener('click', close);
+    btnPrev.addEventListener('click', function () { show(i - 1); });
+    btnNext.addEventListener('click', function () { show(i + 1); });
+    lb.addEventListener('click', function (e) {
+      if (e.target === lb || e.target.classList.contains('fhy-lb__stage')) close();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (lb.hidden) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowLeft') show(i - 1);
+      else if (e.key === 'ArrowRight') show(i + 1);
+      else if (e.key === 'Tab') {
+        var f = [btnClose, btnPrev, btnNext], k = f.indexOf(document.activeElement);
+        e.preventDefault();
+        f[(k + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
+      }
+    });
+    lb.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', function (e) {
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 50) show(i + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>

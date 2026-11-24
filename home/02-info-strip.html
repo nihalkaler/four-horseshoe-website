@@ -1,0 +1,29 @@
+<!-- ==================================================================
+     FIND US / CALL US / OPENING HOURS strip
+     Its own section, so it can be moved up or down the page, or removed.
+     Address, phone and hours are plain text below – just edit the words.
+     ================================================================== -->
+<div class="fhr">
+  <style>
+    .fhr .fhr-infobar{padding:30px var(--pad)}
+    .fhr .fhr-infobar .fhr-info{padding:0}
+    /* hidden on phones – delete the next line to show it there too */
+    @media (max-width:767px){.page-section:has(.fhr-infobar){display:none}}
+  </style>
+  <section class="fhr-infobar fhr-pattern" aria-label="Address, phone and opening hours">
+    <div class="fhr-info">
+      <div class="fhr-info__item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7A5B1E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+        <span>13–15 Burrow Hill Green, Chobham, Surrey GU24 8QP<br><a href="https://goo.gl/maps/Z359o5D3yRF2" target="_blank" rel="noopener">Get directions</a></span>
+      </div>
+      <div class="fhr-info__item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7A5B1E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+        <span>Call us on <a href="tel:01276856257">01276 856 257</a><br>We're happy to help with bookings</span>
+      </div>
+      <div class="fhr-info__item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7A5B1E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <span>Open every day from 12 noon<br><a href="#footer-sections">Opening and kitchen hours</a></span>
+      </div>
+    </div>
+  </section>
+</div>

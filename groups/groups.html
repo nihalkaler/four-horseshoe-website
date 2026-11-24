@@ -1,0 +1,220 @@
+<!-- =====================================================================
+     THE FOUR HORSESHOES – GROUPS PAGE
+     One Code Block holds the whole page, in the same style as the new
+     home page. It replaces all the old blocks in this section.
+
+     To change:
+       • Words – edit the text between the tags (e.g. between <p> and </p>).
+       • Guest numbers – change them in the three boxes at the top AND in
+         the matching heading further down.
+       • Photos – change the src="…" of the <img>.
+       • Contact us buttons – the email address is in each href="mailto:…".
+     ===================================================================== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ---------- let this block run edge to edge (this section only) ---------- */
+.page-section:has(.fhr){padding-bottom:0 !important;min-height:0 !important;background:#FBF8EF !important}
+.page-section:has(.fhr) .section-border,.page-section:has(.fhr) .section-background{display:none !important}
+.page-section:has(.fhr) .content-wrapper{max-width:none !important;width:100% !important;padding:0 !important;margin:0 !important}
+.page-section:has(.fhr) .content,.page-section:has(.fhr) .sqs-layout{width:100% !important;max-width:none !important}
+.page-section:has(.fhr) .fluid-engine{display:block !important;padding:0 !important;margin:0 !important;width:100% !important}
+.page-section:has(.fhr) .fe-block{width:100% !important;max-width:none !important;margin:0 !important;padding:0 !important}
+.page-section:has(.fhr) .row,.page-section:has(.fhr) .col{width:100% !important;margin:0 !important;padding:0 !important}
+.page-section:has(.fhr) .sqs-layout .sqs-row .sqs-block:has(.fhr),.sqs-block:has(.fhr),.sqs-block:has(.fhr) .sqs-block-content{padding:0 !important;margin:0 !important}
+
+/* ---------- design tokens (same as the home page) ---------- */
+.fhr{--ink:#1E262E;--cream:#FBF8EF;--card:#FFFDF7;--sand:#F3ECDB;--line:#E6DCC3;--line2:#CDBF9F;--gold:#7A5B1E;--gold-lt:#D9B66E;--body:#3A3934;--muted:#55524B;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;--sans:'Jost','Gill Sans','Trebuchet MS',sans-serif;
+  --pad:clamp(20px,4vw,48px);
+  font-family:var(--sans);font-size:17px;line-height:1.65;color:var(--ink);background:var(--cream);
+  width:100%;max-width:100%;min-width:0;box-sizing:border-box;overflow-x:clip;-webkit-font-smoothing:antialiased;text-align:left}
+.fhr *,.fhr *::before,.fhr *::after{box-sizing:border-box}
+.fhr p,.fhr h1,.fhr h2,.fhr h3,.fhr ul,.fhr li,.fhr figure{margin:0;padding:0}
+.fhr ul{list-style:none}
+.fhr li::before{content:none !important}
+.fhr img{display:block;max-width:100%}
+.fhr a{color:var(--gold);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;transition:color .2s}
+.fhr a:hover{color:var(--ink);opacity:1}
+.fhr a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.fhr .fhr-pattern{background-color:#FFFDF4;background-image:url(https://images.squarespace-cdn.com/content/v1/5b9e725896d455c71ef88dda/b6c35055-2aae-451f-8149-be0088a1d9ba/pub_background_full.png);background-repeat:repeat;background-size:2560px 2000px;background-position:0 0}
+.fhr .fhr-wrap{max-width:1180px;margin:0 auto}
+.fhr .fhr-sec{padding:112px var(--pad)}
+.fhr .fhr-eyebrow{font-family:var(--sans);font-size:13px;line-height:1.4;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.fhr .fhr-h2{font-family:var(--serif);font-weight:600;font-size:clamp(38px,4.4vw,58px);line-height:1.04;letter-spacing:-.005em;text-transform:none;color:var(--ink);text-wrap:balance;font-variant-numeric:lining-nums}
+.fhr .fhr-lede{color:var(--body)}
+.fhr .fhr-stack{display:flex;flex-direction:column;gap:14px}
+.fhr .fhr-center{align-items:center;text-align:center;margin-left:auto;margin-right:auto}
+.fhr .fhr-btns{display:flex;flex-wrap:wrap;gap:12px}
+.fhr .fhr-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 26px;font-family:var(--sans);font-size:14px;line-height:1.2;letter-spacing:.14em;text-transform:uppercase;font-weight:500;text-decoration:none !important;border-radius:2px;border:1px solid var(--ink);transition:background .2s,color .2s,border-color .2s;white-space:nowrap}
+.fhr .fhr-btn--solid{background:var(--ink);color:var(--cream) !important}
+.fhr .fhr-btn--solid:hover{background:#2E3A44;border-color:#2E3A44;color:var(--cream) !important}
+.fhr .fhr-btn svg{flex:none}
+
+/* ---------- 1. intro + the three group sizes ---------- */
+.fhr .fhg-hero{padding-top:88px;padding-bottom:104px}
+.fhr .fhg-intro{max-width:900px;gap:18px}
+.fhr .fhg-h1{font-family:var(--serif);font-weight:600;font-size:clamp(40px,5.2vw,70px);line-height:1.05;letter-spacing:-.01em;text-transform:none;color:var(--ink);text-wrap:balance;font-variant-numeric:lining-nums}
+.fhr .fhg-orn{display:flex;align-items:center;gap:16px;width:min(340px,72%);color:var(--gold);margin-top:6px}
+.fhr .fhg-orn::before,.fhr .fhg-orn::after{content:"";flex:1;height:1px;background:var(--line2)}
+.fhr .fhg-orn svg{flex:none}
+.fhr .fhg-sizes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;max-width:980px;margin:56px auto 0}
+.fhr .fhg-size{display:flex;flex-direction:column;align-items:center;gap:4px;height:100%;padding:30px 20px 26px;background:var(--card);border:1px solid var(--line);border-radius:4px;text-align:center;text-decoration:none !important;color:var(--ink) !important;transition:transform .3s,box-shadow .3s,border-color .3s}
+.fhr .fhg-size:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(30,38,46,.12);border-color:var(--line2)}
+.fhr .fhg-size__n{font-family:var(--serif);font-weight:600;font-size:48px;line-height:1;color:var(--ink);font-variant-numeric:lining-nums;white-space:nowrap}
+.fhr .fhg-size__u{font-size:12px;line-height:1.4;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.fhr .fhg-size__t{width:100%;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-family:var(--serif);font-style:italic;font-weight:500;font-size:21px;line-height:1.25;color:var(--body)}
+
+/* ---------- 2. the three ways to book ---------- */
+.fhr .fhg-tier{scroll-margin-top:24px}
+.fhr .fhg-tier--sand{background:var(--sand)}
+.fhr .fhg-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px 88px;align-items:center}
+.fhr .fhg-tier--flip .fhg-img{order:2}
+.fhr .fhg-img{position:relative;isolation:isolate;margin:0}
+.fhr .fhg-img::before{content:"";position:absolute;inset:22px -22px -22px 22px;z-index:-1;border:1px solid var(--line2);border-radius:4px;pointer-events:none}
+.fhr .fhg-tier--flip .fhg-img::before{inset:22px 22px -22px -22px}
+.fhr .fhg-img img{width:100%;height:auto;aspect-ratio:5/4;object-fit:cover;border-radius:4px;border:1px solid var(--line);box-shadow:0 24px 48px -22px rgba(30,38,46,.45);background:var(--sand)}
+.fhr .fhg-copy{gap:18px;max-width:540px}
+.fhr .fhg-copy .fhr-btns{margin-top:10px}
+.fhr .fhg-note{display:flex;flex-direction:column;gap:6px;padding:20px 22px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--gold-lt);border-radius:2px}
+.fhr .fhg-note__k{font-size:12px;line-height:1.4;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.fhr .fhg-note p{font-size:16px;line-height:1.6;color:var(--body)}
+
+/* ---------- gentle reveal on scroll (only when scripts run) ---------- */
+html.fhr-js .fhr .fhr-reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+html.fhr-js .fhr .fhr-reveal.is-in{opacity:1;transform:none}
+
+/* ---------- smaller screens ---------- */
+@media (max-width:900px){
+  .fhr .fhg-split{grid-template-columns:1fr;gap:48px}
+  .fhr .fhg-tier--flip .fhg-img{order:0}
+  .fhr .fhg-img{max-width:620px}
+  .fhr .fhg-copy{max-width:640px}
+  .fhr .fhg-sizes{gap:14px}
+  .fhr .fhg-size{padding:24px 14px 22px}
+  .fhr .fhg-size__n{font-size:40px}
+  .fhr .fhg-size__t{font-size:19px}
+}
+@media (max-width:640px){
+  .fhr{font-size:16px}
+  .fhr .fhr-sec{padding-top:72px;padding-bottom:72px}
+  .fhr .fhg-hero{padding-top:48px;padding-bottom:72px}
+  .fhr .fhg-sizes{grid-template-columns:1fr;gap:12px;margin-top:40px;width:100%}
+  .fhr .fhg-size{display:grid;grid-template-columns:118px 1fr;grid-template-areas:"n t" "u t";column-gap:20px;row-gap:2px;align-items:center;padding:18px 20px;text-align:left}
+  .fhr .fhg-size__n{grid-area:n;font-size:36px}
+  .fhr .fhg-size__u{grid-area:u}
+  .fhr .fhg-size__t{grid-area:t;margin:0;padding:0 0 0 20px;border-top:0;border-left:1px solid var(--line);font-size:19px}
+  .fhr .fhg-split{gap:40px}
+  .fhr .fhg-img::before{inset:14px -10px -14px 10px}
+  .fhr .fhg-tier--flip .fhg-img::before{inset:14px 10px -14px -10px}
+  .fhr .fhr-btns .fhr-btn{flex:1 1 auto}
+}
+@media (prefers-reduced-motion:reduce){
+  html.fhr-js .fhr .fhr-reveal{opacity:1;transform:none;transition:none}
+  .fhr .fhg-size{transition:none}
+}
+</style>
+
+<div class="fhr">
+
+  <!-- ============ 1. INTRO + THE THREE GROUP SIZES ============ -->
+  <section class="fhr-sec fhr-pattern fhg-hero" aria-labelledby="fhg-h1">
+    <div class="fhr-wrap">
+      <div class="fhr-stack fhr-center fhg-intro fhr-reveal">
+        <p class="fhr-eyebrow">Group reservations</p>
+        <h1 class="fhg-h1" id="fhg-h1">“From an intimate dinner for 8 to a wedding for 100…”</h1>
+        <div class="fhg-orn" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 4.5v6.5a5.5 5.5 0 0 0 11 0V4.5"/><path d="M5 4.5h3M16 4.5h3"/><circle cx="7.6" cy="8.5" r=".6" fill="currentColor"/><circle cx="16.4" cy="8.5" r=".6" fill="currentColor"/><circle cx="8.6" cy="13.2" r=".6" fill="currentColor"/><circle cx="15.4" cy="13.2" r=".6" fill="currentColor"/></svg>
+        </div>
+      </div>
+
+      <!-- the three boxes jump down to the matching part of the page -->
+      <ul class="fhg-sizes fhr-reveal">
+        <li><a class="fhg-size" href="#fhg-private"><span class="fhg-size__n">8–14</span><span class="fhg-size__u">Guests</span><span class="fhg-size__t">Private dining room</span></a></li>
+        <li><a class="fhg-size" href="#fhg-main"><span class="fhg-size__n">10–34</span><span class="fhg-size__u">Guests</span><span class="fhg-size__t">Main dining room</span></a></li>
+        <li><a class="fhg-size" href="#fhg-events"><span class="fhg-size__n">35–300</span><span class="fhg-size__u">Guests</span><span class="fhg-size__t">Events &amp; exclusive hire</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 2a. DINING FOR 8 TO 14 ============ -->
+  <section class="fhr-sec fhg-tier" id="fhg-private" aria-labelledby="fhg-private-h">
+    <div class="fhr-wrap fhg-split">
+      <figure class="fhg-img fhr-reveal">
+        <img src="https://images.squarespace-cdn.com/content/5b9e725896d455c71ef88dda/5ea03b34-a956-4d3c-b7f6-03c5e5dbd5e0/private-dining-room-enhanced.jpg?format=1000w" alt="The private dining room with a long wooden table laid for a group dinner" width="1000" height="800" loading="lazy">
+      </figure>
+      <div class="fhr-stack fhg-copy fhr-reveal">
+        <p class="fhr-eyebrow">Private dining room</p>
+        <h2 class="fhr-h2" id="fhg-private-h">Dining for 8 to 14 guests</h2>
+        <p class="fhr-lede">For birthday celebrations or friends gathering, our private dining room offers the ideal location for lunch or dinner. With the option of a bespoke menu or choosing from our main à la carte menu, guests have the freedom to choose dishes to suit taste &amp; budget.</p>
+        <p class="fhr-lede">Personalised decorations &amp; cakes are available upon request.</p>
+        <div class="fhr-btns">
+          <a class="fhr-btn fhr-btn--solid" href="mailto:tfscpub@gmail.com?subject=Group%20reservation.">Contact us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2b. DINING FOR 13 TO 34 ============ -->
+  <section class="fhr-sec fhg-tier fhg-tier--sand fhg-tier--flip" id="fhg-main" aria-labelledby="fhg-main-h">
+    <div class="fhr-wrap fhg-split">
+      <figure class="fhg-img fhr-reveal">
+        <img src="https://images.squarespace-cdn.com/content/v1/5b9e725896d455c71ef88dda/1583165309840-VOTBRN8E4LWV8U3LU1W9/IMG_1727.jpg?format=1000w" alt="The main dining room set with long tables and gold and silver balloons for a party" width="1000" height="800" loading="lazy">
+      </figure>
+      <div class="fhr-stack fhg-copy fhr-reveal">
+        <p class="fhr-eyebrow">Main dining room</p>
+        <h2 class="fhr-h2" id="fhg-main-h">Dining for 10 to 34 guests</h2>
+        <p class="fhr-lede">For larger groups our main dining room can cater for all events, from the front room overlooking the green to the back room with its private terrace. Options on table sizes &amp; menu content can be discussed with a member of our senior team &amp; head chef.</p>
+        <div class="fhr-btns">
+          <a class="fhr-btn fhr-btn--solid" href="mailto:tfscpub@gmail.com?subject=Group%20Reservation.">Contact us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2c. EVENTS FOR 35 TO 300 ============ -->
+  <section class="fhr-sec fhg-tier" id="fhg-events" aria-labelledby="fhg-events-h">
+    <div class="fhr-wrap fhg-split">
+      <figure class="fhg-img fhr-reveal">
+        <img src="https://static1.squarespace.com/static/5b9e725896d455c71ef88dda/t/6adf2043cfbdf97fb75ce5c2/1793007683709/events_fhs.jpeg" alt="Prosecco on ice and glasses laid out for a celebration in the dining room" width="1000" height="800" loading="lazy" style="object-position:50% 75%">
+      </figure>
+      <div class="fhr-stack fhg-copy fhr-reveal">
+        <p class="fhr-eyebrow">Events &amp; exclusive hire</p>
+        <h2 class="fhr-h2" id="fhg-events-h">Events for 35 to 300 guests</h2>
+        <p class="fhr-lede">Having hosted a number of weddings, private parties &amp; corporate events, The Four Horseshoes is an ideal option to host any event. Corporate events &amp; private meetings, our pub &amp; dining room is available for total exclusive hire.</p>
+        <div class="fhg-note">
+          <p class="fhg-note__k">Film &amp; TV</p>
+          <p>For the ideal location for film &amp; TV production we offer excellent terms for the backdrop of a quintessential English pub. Ample outdoor parking for large vehicles &amp; three phase electrical supply amongst many benefits.</p>
+        </div>
+        <div class="fhr-btns">
+          <a class="fhr-btn fhr-btn--solid" href="mailto:tfscpub@gmail.com?subject=Reservation%20Enquiry">Contact us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* gentle fade-in as you scroll (skipped inside the Squarespace editor) */
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var inEditor = window.self !== window.top;
+  if (reduce || inEditor || !('IntersectionObserver' in window)) return;
+  document.documentElement.classList.add('fhr-js');
+  function go() {
+    var io = new IntersectionObserver(function (entries) {
+      var n = 0;
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        en.target.style.transitionDelay = (n++ * 0.08) + 's';
+        en.target.classList.add('is-in');
+        io.unobserve(en.target);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    Array.prototype.forEach.call(document.querySelectorAll('.fhr .fhr-reveal:not(.is-in)'), function (el) { io.observe(el); });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
+})();
+</script>

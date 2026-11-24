@@ -1,0 +1,48 @@
+<!-- ==================================================================
+     CHRISTMAS 2026 – seasonal panel
+     Seasonal: after Christmas, delete or disable this whole SECTION.
+     Button links point to the festive / Christmas Day menu PDFs.
+     To move the photo: change object-position below
+     (first number = left/right, second = up/down; 50% 50% = centre).
+     ================================================================== -->
+<style>
+/* Christmas panel: a light card that sits between the booking bar and the welcome section */
+.fhr .fhr-sec.fhr-xmas-sec{padding-top:64px;padding-bottom:8px}
+.fhr .fhr-xmas{max-width:1080px;margin:0 auto;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);background:var(--card);border:1px solid var(--line);border-top:3px solid var(--xmas);border-radius:4px;box-shadow:0 18px 40px rgba(30,38,46,.12)}
+.fhr .fhr-xmas__img{position:relative;min-height:400px;overflow:hidden}
+/* photo fills its box and is cropped from the centre */
+.fhr .fhr-xmas__img img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:50% 50%}
+.fhr .fhr-xmas__copy{padding:clamp(28px,4vw,52px);gap:16px}
+.fhr .fhr-xmas__copy .fhr-h3{font-size:clamp(28px,2.7vw,38px);line-height:1.1;letter-spacing:.02em}
+@media (max-width:900px){
+  .fhr .fhr-xmas{grid-template-columns:1fr}
+  .fhr .fhr-xmas__img{min-height:300px}
+}
+@media (max-width:640px){
+  .fhr .fhr-sec.fhr-xmas-sec{padding-top:48px;padding-bottom:0}
+  .fhr .fhr-xmas__img{min-height:240px}
+  .fhr .fhr-xmas__copy{padding:26px 22px 28px}
+}
+</style>
+<div class="fhr">
+  <section class="fhr-sec fhr-pattern fhr-xmas-sec" aria-label="Christmas at The Four Horseshoes">
+    <div class="fhr-wrap">
+      <div class="fhr-xmas fhr-reveal" id="fhr-christmas">
+        <div class="fhr-xmas__img">
+          <img src="https://static1.squarespace.com/static/5b9e725896d455c71ef88dda/t/6ad7129aea62793a893451ad/1792479898415/WhatsApp+Image+2026-10-17+at+1.36.44+AM+%281%29.jpeg" alt="A festive table with red wine, crackers and a candlelit Christmas centrepiece" loading="lazy" style="object-position:65% 50%">
+          <span class="fhr-xmas__tag"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#F3D58A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M12 2l-2.5 2.5M12 2l2.5 2.5M12 22l-2.5-2.5M12 22l2.5-2.5"/></svg>Christmas 2026</span>
+        </div>
+        <div class="fhr-xmas__copy">
+          <p class="fhr-eyebrow">Now taking bookings</p>
+          <h3 class="fhr-h3">CELEBRATE THE FESTIVE SEASON WITH US</h3>
+          <p class="fhr-lede">Make this festive season truly memorable at The Four Horseshoes. Whether you’re planning a cosy family gathering, a lively office party, or an intimate Christmas dinner, we offer the perfect setting for every occasion.</p>
+          <div class="fhr-btns" style="margin-top:4px">
+            <a class="fhr-btn fhr-btn--solid" href="https://static1.squarespace.com/static/5b9e725896d455c71ef88dda/t/6ad16c9980e2bb1cb0783c00/1792109721755/FOUR_HORSESHOES_FESTIVE_MENU_26_WEB.pdf" target="_blank" rel="noopener">Festive menu</a>
+            <a class="fhr-btn fhr-btn--line" href="https://static1.squarespace.com/static/5b9e725896d455c71ef88dda/t/6ad16ca7b3e136794659f3dd/1792109735785/FOUR_HORSESHOES_CHRISTMAS_DAY_26_WEB.pdf" target="_blank" rel="noopener">Christmas Day menu</a>
+          </div>
+          <a class="fhr-more" href="/festive-season">Everything about Christmas at The Shoes <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

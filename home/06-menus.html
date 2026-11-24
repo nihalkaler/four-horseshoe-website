@@ -1,0 +1,1160 @@
+<!-- =====================================================================
+     THE FOUR HORSESHOES – MENU BLOCKS (experiment)
+     One tile per menu. Click a tile to open that menu underneath it;
+     the Download button (top right of each menu) opens the PDF.
+     Drinks are grouped into drop-downs, one per type of drink.
+
+     Editing: every dish is one <li> line – name, price, then description.
+     Dietary marks like (v) or (gf, veo) at the end of a name are turned
+     into small badges automatically, and power the Filter buttons at the
+     top of each menu. Add  s  to mark a Sunday menu dish, e.g. (v, s) or (s).
+     On the drinks list, (fww) after a wine's name adds the bottle that marks
+     a Fine Wine Wednesday wine.
+
+     Font: the menus use Playfair Display, the closest free web font to
+     Miller Display used on the printed menus.
+
+     Download buttons: each one points straight at the menu's PDF file with
+     ?download=true on the end, which makes it download instead of opening.
+     New PDF? Upload it, open its file link, copy the address from the
+     browser bar (it starts https://static1.squarespace.com/…), paste it into
+     that menu's href="…" and add ?download=true on the end.
+
+     The outer <div class="fhr"> lets this block use the homepage's
+     full-width section styling (sand background, spacing) from the
+     Page Header Code Injection. Keep it.
+     ===================================================================== -->
+<style>
+/* "SAMPLE MENU" watermark across the Set Lunch Menu – delete this <style> block to remove it */
+.fhmb__panel--lunch .fhmb__pscroll::after{content:"SAMPLE MENU";position:absolute;left:50%;top:50%;z-index:3;transform:translate(-50%,-50%) rotate(-27deg);font-family:'Playfair Display',Georgia,'Times New Roman',serif;font-weight:600;font-size:clamp(34px,6vw,88px);letter-spacing:.14em;line-height:1;white-space:nowrap;color:rgba(30,38,46,.12);pointer-events:none;user-select:none}
+@media (max-width:640px){.fhmb__panel--lunch .fhmb__pscroll::after{font-size:44px;letter-spacing:.12em;transform:translate(-50%,-50%) rotate(-52deg)}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<div class="fhr">
+<div class="fhr-sec fhr-menus" id="fhr-menus">
+<div class="fhr-wrap">
+<section class="fhmb" id="fhmb" aria-labelledby="fhmb-heading">
+<style>
+.fhmb{--ink:#1E262E;--cream:#FBF8EF;--card:#FFFDF7;--sand:#F3ECDB;--line:#E6DCC3;--line2:#D8CBA8;--gold:#7A5B1E;--gold-lt:#C9A35A;--body:#3A3934;--muted:#66625A;--xmas:#A51E24;--festive:#1F3A2E;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;--sans:'Jost','Gill Sans','Trebuchet MS',sans-serif;
+  --menu:'Playfair Display',Georgia,'Times New Roman',serif;
+  font-family:var(--sans);font-size:16px;line-height:1.55;color:var(--ink);text-align:left;
+  width:100%;max-width:100%;min-width:0;box-sizing:border-box;-webkit-font-smoothing:antialiased}
+.fhmb *,.fhmb *::before,.fhmb *::after{box-sizing:border-box}
+.fhmb p,.fhmb h2,.fhmb h3,.fhmb h4,.fhmb ul,.fhmb li{margin:0;padding:0}
+.fhmb ul{list-style:none}
+.fhmb li::before{content:none !important}
+.fhmb img{display:block;max-width:100%}
+.fhmb button{font:inherit;color:inherit;letter-spacing:normal;text-transform:none}
+
+/* ---------- heading ---------- */
+.fhmb .fhmb__head{max-width:640px;margin:0 0 34px;display:flex;flex-direction:column;gap:12px}
+.fhmb .fhmb__eyebrow{font-size:13px;line-height:1.4;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.fhmb .fhmb__h2{font-family:var(--serif);font-weight:600;font-size:clamp(38px,4.4vw,58px);line-height:1.04;letter-spacing:-.005em;text-transform:none;color:var(--ink)}
+.fhmb .fhmb__lede{font-size:17px;color:var(--body)}
+
+/* ---------- tiles ---------- */
+.fhmb .fhmb__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:stretch}
+.fhmb .fhmb__tile{position:relative;display:flex;flex-direction:column;width:100%;margin:0;padding:0;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:4px;cursor:pointer;overflow:visible;
+  -webkit-appearance:none;appearance:none;transition:transform .3s ease,box-shadow .3s ease,border-color .2s}
+.fhmb .fhmb__tile:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(30,38,46,.12)}
+.fhmb .fhmb__tile:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.fhmb .fhmb__tile-img{position:relative;display:block;aspect-ratio:4/3;overflow:hidden;background:#F9F1DE;border-radius:3px 3px 0 0}
+.fhmb .fhmb__tile-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.fhmb .fhmb__tile:hover .fhmb__tile-img img{transform:scale(1.04)}
+.fhmb .fhmb__tag{position:absolute;top:12px;left:12px;display:inline-flex;align-items:center;gap:7px;background:var(--xmas);color:#FFF7E8;padding:7px 12px 7px 9px;border-radius:999px;border:1px solid rgba(255,247,232,.45);box-shadow:0 3px 10px rgba(120,16,22,.35);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;line-height:1}
+.fhmb .fhmb__tag svg{animation:fhmb-spin 12s linear infinite}
+@keyframes fhmb-spin{to{transform:rotate(360deg)}}
+.fhmb .fhmb__tile-body{flex:1;display:flex;flex-direction:column;gap:6px;padding:18px 20px 20px}
+.fhmb .fhmb__tile-when{font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.fhmb .fhmb__tile--xmas .fhmb__tile-when{color:var(--xmas)}
+.fhmb .fhmb__tile-name{font-family:var(--serif);font-size:28px;font-weight:600;line-height:1.1;color:var(--ink);margin-bottom:10px}
+.fhmb .fhmb__tile-cta{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:12px;border-top:1px solid var(--line);font-size:13px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.fhmb .fhmb__cta-close{display:none}
+.fhmb .fhmb__plus{position:relative;width:30px;height:30px;border-radius:50%;border:1px solid var(--ink);transition:background .2s,transform .35s ease}
+.fhmb .fhmb__plus::before,.fhmb .fhmb__plus::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;background:currentColor;transform:translate(-50%,-50%)}
+.fhmb .fhmb__plus::after{transform:translate(-50%,-50%) rotate(90deg)}
+.fhmb .fhmb__tile:hover .fhmb__plus{background:var(--ink);color:var(--cream)}
+/* open tile */
+.fhmb .fhmb__tile[aria-expanded="true"]{border-color:var(--ink);box-shadow:0 14px 30px rgba(30,38,46,.14);transform:none}
+.fhmb .fhmb__tile[aria-expanded="true"] .fhmb__plus{transform:rotate(45deg);background:var(--ink);color:var(--cream)}
+.fhmb .fhmb__tile[aria-expanded="true"] .fhmb__cta-open{display:none}
+.fhmb .fhmb__tile[aria-expanded="true"] .fhmb__cta-close{display:inline}
+.fhmb .fhmb__tile[aria-expanded="true"]::after{content:"";position:absolute;left:50%;bottom:-23px;width:16px;height:16px;background:var(--card);border-left:1px solid var(--line);border-top:1px solid var(--line);transform:translateX(-50%) rotate(45deg);z-index:2}
+
+/* ---------- menu panel ---------- */
+.fhmb .fhmb__panel{--px:clamp(22px,3.6vw,44px);grid-column:1 / -1;position:relative;flex-direction:column;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--ink);border-radius:4px;scroll-margin-top:110px}
+.fhmb .fhmb__panel--festive{border-top-color:var(--festive)}
+.fhmb .fhmb__panel--christmas{border-top-color:var(--xmas)}
+/* menus stay closed until a tile is clicked (the <noscript> fallback shows them all) */
+.fhmb .fhmb__panel{display:none}
+.fhmb.fhmb--js .fhmb__panel.is-open{display:flex;animation:fhmb-in .45s cubic-bezier(.2,.7,.2,1)}
+@keyframes fhmb-in{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+.fhmb .fhmb__phead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px 28px;padding:clamp(22px,3.2vw,38px) var(--px) 20px;border-bottom:1px solid var(--line)}
+.fhmb .fhmb__ptitles{display:flex;flex-direction:column;gap:6px;min-width:0}
+.fhmb .fhmb__pwhen{font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.fhmb .fhmb__panel--christmas .fhmb__pwhen,.fhmb .fhmb__panel--festive .fhmb__pwhen{color:var(--xmas)}
+.fhmb .fhmb__ptitle{font-family:var(--menu);font-weight:600;font-size:clamp(30px,3.2vw,42px);line-height:1.1;text-transform:none;letter-spacing:0;color:var(--ink);outline:none}
+.fhmb .fhmb__pprice{font-family:var(--menu);font-style:italic;font-size:19px;font-variant-numeric:lining-nums;color:var(--gold)}
+.fhmb .fhmb__pactions{display:flex;align-items:center;gap:10px;flex:none}
+.fhmb .fhmb__dl{display:inline-flex;align-items:center;gap:9px;min-height:46px;padding:0 20px;background:var(--ink);border:1px solid var(--ink);border-radius:2px;color:var(--cream) !important;text-decoration:none !important;font-size:13px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;transition:background .2s}
+.fhmb .fhmb__dl:hover{background:#2E3A44}
+.fhmb .fhmb__x{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;padding:0;border:1px solid var(--line2);border-radius:50%;background:transparent;color:var(--ink);cursor:pointer;transition:background .2s,border-color .2s}
+.fhmb .fhmb__x:hover{background:var(--sand);border-color:var(--ink)}
+.fhmb:not(.fhmb--js) .fhmb__x{display:none}
+.fhmb .fhmb__dl:focus-visible,.fhmb .fhmb__x:focus-visible,.fhmb .fhmb__drop summary:focus-visible,.fhmb .fhmb__book-btn:focus-visible,.fhmb .fhmb__book-more:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* the menu scrolls inside its own box – the title bar and the booking bar stay put */
+.fhmb .fhmb__pscroll{position:relative;min-height:0}
+.fhmb .fhmb__pbody{font-family:var(--menu);font-variant-numeric:lining-nums;max-height:max(280px,min(620px,calc(100vh - 330px)));max-height:max(280px,min(620px,calc(100svh - 330px)));overflow-y:auto;padding:28px var(--px) 24px;outline:none}
+.fhmb .fhmb__pbody:focus-visible{box-shadow:inset 0 0 0 2px var(--gold)}
+.fhmb .fhmb__pbody::-webkit-scrollbar{width:12px}
+.fhmb .fhmb__pbody::-webkit-scrollbar-track{background:#F3ECDB}
+.fhmb .fhmb__pbody::-webkit-scrollbar-thumb{background:#C2AE80;border:3px solid #F3ECDB;border-radius:12px;min-height:48px}
+.fhmb .fhmb__pbody::-webkit-scrollbar-thumb:hover{background:#7A5B1E}
+@supports not selector(::-webkit-scrollbar){.fhmb .fhmb__pbody{scrollbar-width:auto;scrollbar-color:#C2AE80 #F3ECDB}}
+.fhmb .fhmb__more{position:absolute;left:0;right:12px;bottom:0;height:76px;display:flex;align-items:flex-end;justify-content:center;gap:8px;padding-bottom:12px;background:linear-gradient(to bottom,rgba(255,253,247,0),var(--card) 72%);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);pointer-events:none;opacity:0;transition:opacity .25s}
+.fhmb .fhmb__more::after{content:"";width:7px;height:7px;margin-bottom:4px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg)}
+.fhmb .fhmb__pscroll.is-more .fhmb__more{opacity:1}
+
+/* booking bar at the foot of every menu */
+.fhmb .fhmb__book{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;padding:16px var(--px);border-top:1px solid var(--line);background:var(--sand);border-radius:0 0 3px 3px}
+.fhmb .fhmb__book-links{display:flex;align-items:center;flex-wrap:wrap;gap:12px 22px;margin-left:auto}
+.fhmb .fhmb__book-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 26px;background:var(--ink);border:1px solid var(--ink);border-radius:2px;color:var(--cream) !important;text-decoration:none !important;font-size:13px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;transition:background .2s}
+.fhmb .fhmb__book-btn:hover{background:#2E3A44}
+.fhmb .fhmb__book-more{font-size:14px;font-weight:500;color:var(--gold) !important;text-decoration:underline !important;text-underline-offset:3px}
+.fhmb .fhmb__book-more:hover{color:var(--ink) !important}
+
+/* sections + items */
+.fhmb .fhmb__cols{columns:2;column-gap:56px}
+.fhmb .fhmb__sec{break-inside:avoid;margin:0 0 34px}
+.fhmb .fhmb__sec-title{font-family:var(--menu);font-weight:700;font-size:23px;line-height:1.3;text-transform:uppercase;letter-spacing:.24em;color:var(--ink);padding-bottom:10px;margin-bottom:18px;border-bottom:2px solid var(--ink)}
+.fhmb .fhmb__note{font-size:15px;font-style:italic;color:var(--muted);margin:-4px 0 14px}
+.fhmb .fhmb__note--after{margin:12px 0 0}
+.fhmb .fhmb__items{display:flex;flex-direction:column;gap:14px}
+.fhmb .fhmb__item{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:14px;align-items:baseline}
+.fhmb .fhmb__name{font-weight:500;font-size:17.5px;line-height:1.35;color:#10161B}
+.fhmb .fhmb__price{font-weight:400;font-style:italic;font-size:16.5px;font-variant-numeric:lining-nums tabular-nums;white-space:nowrap;color:var(--ink)}
+.fhmb .fhmb__desc{grid-column:1 / -1;font-size:15px;font-style:italic;line-height:1.5;color:var(--muted);margin-top:2px}
+.fhmb .fhmb__diet{display:inline-block;margin-left:5px;padding:0 7px 1px;border:1px solid var(--line2);border-radius:999px;font-size:12.5px;font-style:italic;font-weight:400;letter-spacing:.02em;text-transform:none;line-height:1.35;color:var(--gold);text-decoration:none;vertical-align:2px;cursor:help}
+
+/* Sunday-menu S and Fine Wine Wednesday bottle, in front of the name */
+.fhmb .fhmb__sun{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;margin-right:8px;border-radius:50%;background:#4E3F48;color:#FFFDF7;font-family:var(--menu);font-size:11.5px;font-weight:700;font-style:normal;line-height:1;text-decoration:none;vertical-align:2px;cursor:help}
+.fhmb .fhmb__bottle{display:inline-block;width:8px;height:21px;margin-right:9px;vertical-align:-4px;color:#2C4A63}
+
+/* filter buttons between the title bar and the list */
+.fhmb .fhmb__filter{display:flex;align-items:center;gap:8px;padding:12px var(--px);border-bottom:1px solid var(--line);background:var(--cream);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.fhmb .fhmb__filter::-webkit-scrollbar{display:none}
+.fhmb .fhmb__filter-k{display:inline-flex;align-items:center;gap:6px;flex:none;margin-right:4px;font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.fhmb .fhmb__chip{flex:none;min-height:36px;padding:0 15px;border:1px solid var(--line2);border-radius:999px;background:var(--card);color:var(--ink);font-family:var(--sans);font-size:13.5px;letter-spacing:.04em;line-height:1;cursor:pointer;white-space:nowrap;transition:background .2s,border-color .2s,color .2s}
+.fhmb .fhmb__chip:hover{border-color:var(--ink)}
+.fhmb .fhmb__chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.fhmb .fhmb__chip:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.fhmb .fhmb__pbody .fhmb__item.is-hidden,.fhmb .fhmb__pbody .fhmb__sec.is-hidden{display:none !important}
+.fhmb .is-filtered .fhmb__intro{display:none}
+.fhmb .fhmb__nomatch{font-style:italic;color:var(--muted);text-align:center;padding:24px 0}
+
+/* Fine Wine Wednesdays box at the top of the drinks list */
+.fhmb .fhmb__fww{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 24px;margin-bottom:6px;border:1px solid #2C4A63;border-radius:4px;background:var(--card);color:#2C4A63;box-shadow:inset 0 0 0 4px var(--card),inset 0 0 0 5px rgba(44,74,99,.35)}
+.fhmb .fhmb__fww-text{display:flex;flex-direction:column;gap:6px;min-width:0}
+.fhmb .fhmb__fww-title{font-family:var(--menu);font-size:26px;font-weight:700;line-height:1.1;letter-spacing:.02em;text-transform:uppercase;color:#2C4A63}
+.fhmb .fhmb__fww-deal{font-family:var(--menu);font-style:italic;font-size:17px;line-height:1.45;color:var(--ink)}
+.fhmb .fhmb__fww-deal strong{font-style:normal;font-weight:700;color:#2C4A63}
+.fhmb .fhmb__fww-key{font-size:13px;color:var(--muted)}
+.fhmb .fhmb__fww-art{flex:none;width:104px;height:104px;color:#2C4A63}
+
+/* set menus: centred, printed-menu feel */
+.fhmb .fhmb__courses{max-width:720px;margin:0 auto;text-align:center}
+.fhmb .fhmb__courses .fhmb__intro{font-family:var(--menu);font-style:italic;font-size:18px;line-height:1.45;color:var(--body);margin:0 auto 30px;max-width:580px}
+.fhmb .fhmb__courses .fhmb__sec{margin-bottom:36px}
+.fhmb .fhmb__courses .fhmb__sec-title{display:flex;align-items:center;gap:18px;border:0;padding:0;margin-bottom:20px;font-size:23px;letter-spacing:.26em;text-transform:uppercase}
+.fhmb .fhmb__courses .fhmb__sec-title::before,.fhmb .fhmb__courses .fhmb__sec-title::after{content:"";flex:1;height:1px;background:var(--ink);opacity:.45}
+.fhmb .fhmb__courses .fhmb__note{margin:-8px 0 16px}
+.fhmb .fhmb__courses .fhmb__note--after{margin:16px 0 0}
+.fhmb .fhmb__courses .fhmb__item{display:block}
+.fhmb .fhmb__courses .fhmb__name{display:block;font-size:19px;font-weight:600}
+.fhmb .fhmb__courses .fhmb__price{display:inline;margin-left:8px;color:var(--gold);font-size:15px}
+.fhmb .fhmb__courses .fhmb__desc{display:block}
+.fhmb .fhmb__courses .fhmb__items{gap:16px}
+
+/* drinks: one drop-down per type */
+.fhmb .fhmb__drops{display:flex;flex-direction:column;gap:10px;max-width:900px;margin:0 auto}
+.fhmb .fhmb__drop{border:1px solid var(--line);border-radius:4px;background:var(--cream);transition:border-color .2s,background .2s}
+.fhmb .fhmb__drop[open]{border-color:var(--ink);background:var(--card)}
+.fhmb .fhmb__drop summary{display:flex;align-items:center;gap:12px;padding:15px 20px;cursor:pointer;list-style:none;-webkit-user-select:none;user-select:none}
+.fhmb .fhmb__drop summary::-webkit-details-marker{display:none}
+.fhmb .fhmb__drop summary::marker{content:""}
+.fhmb .fhmb__drop-label{flex:1;min-width:0;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+.fhmb .fhmb__drop-title{font-family:var(--menu);font-size:19px;font-weight:700;line-height:1.3;letter-spacing:.2em;text-transform:uppercase}
+.fhmb .fhmb__badge{font-size:13px;font-style:italic;font-weight:400;letter-spacing:.01em;color:var(--gold);border:1px solid var(--line2);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.fhmb .fhmb__chev{flex:none;transition:transform .3s ease}
+.fhmb .fhmb__drop[open] .fhmb__chev{transform:rotate(180deg)}
+.fhmb .fhmb__drop:hover summary .fhmb__drop-title{color:var(--gold)}
+.fhmb .fhmb__drop-body{padding:4px 20px 22px;border-top:1px solid var(--line)}
+.fhmb .fhmb__drop[open] .fhmb__drop-body{animation:fhmb-in .35s ease}
+.fhmb .fhmb__drop-body .fhmb__note{margin:14px 0 4px}
+.fhmb .fhmb__drop-body .fhmb__items{padding-top:14px}
+/* wine & fizz price columns */
+.fhmb .fhmb__items--glass{gap:12px}
+.fhmb .fhmb__glass-head,.fhmb .fhmb__item--glass{display:grid;grid-template-columns:minmax(0,1fr) repeat(var(--cols),64px);column-gap:10px;align-items:baseline}
+.fhmb .fhmb__glass-head{padding-bottom:8px;border-bottom:1px dashed var(--line2);font-size:13.5px;font-style:italic;font-weight:400;color:var(--gold)}
+.fhmb .fhmb__glass-head span{text-align:right}
+.fhmb .fhmb__item--glass .fhmb__name{grid-column:1;grid-row:1}
+.fhmb .fhmb__item--glass .fhmb__desc{grid-column:1;grid-row:2}
+.fhmb .fhmb__cells{display:contents}
+.fhmb .fhmb__cell{grid-row:1;text-align:right;font-weight:400;font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.fhmb .fhmb__foot{margin-top:6px;padding-top:18px;border-top:1px solid var(--line);font-size:13.5px;font-style:italic;line-height:1.6;color:var(--muted)}
+
+/* ---------- smaller screens ---------- */
+@media (max-width:900px){
+  .fhmb .fhmb__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .fhmb .fhmb__cols{columns:1}
+}
+@media (max-width:600px){
+  .fhmb .fhmb__grid{gap:12px}
+  .fhmb .fhmb__tile-body{padding:12px 12px 14px;gap:4px}
+  /* every card the same size: room for two lines of date and two lines of name */
+  .fhmb .fhmb__tile-when{font-size:10.5px;letter-spacing:.12em;line-height:1.5;min-height:3em;display:flex;align-items:flex-end}
+  .fhmb .fhmb__tile-name{font-size:21px;min-height:2.2em;margin-bottom:6px}
+  .fhmb .fhmb__tile-cta{padding-top:10px;font-size:11px;letter-spacing:.1em}
+  .fhmb .fhmb__plus{width:26px;height:26px}
+  .fhmb .fhmb__tag{top:8px;left:8px;padding:5px 9px 5px 7px;font-size:9.5px}
+  .fhmb .fhmb__tile[aria-expanded="true"]::after{bottom:-19px;width:14px;height:14px}
+  .fhmb .fhmb__panel{--px:16px}
+  .fhmb .fhmb__phead{gap:12px;padding:18px var(--px) 14px}
+  .fhmb .fhmb__ptitle{font-size:30px}
+  .fhmb .fhmb__pbody{max-height:max(260px,calc(100vh - 290px));max-height:max(260px,calc(100svh - 290px));padding:20px var(--px)}
+  .fhmb .fhmb__pbody::-webkit-scrollbar{width:8px}
+  .fhmb .fhmb__pbody::-webkit-scrollbar-thumb{border-width:2px}
+  .fhmb .fhmb__more{right:8px}
+  .fhmb .fhmb__book{padding:12px var(--px);gap:10px 16px}
+  .fhmb .fhmb__book-links{flex:1;justify-content:flex-end;gap:10px 14px}
+  .fhmb .fhmb__panel--festive .fhmb__book-links,.fhmb .fhmb__panel--christmas .fhmb__book-links{justify-content:space-between}
+  .fhmb .fhmb__book-more{font-size:13px}
+  .fhmb .fhmb__book-btn{min-height:44px;padding:0 18px;font-size:12px;letter-spacing:.1em}
+  .fhmb .fhmb__dl{min-height:42px;padding:0 13px;gap:7px;font-size:12px;letter-spacing:.1em}
+  .fhmb .fhmb__x{width:42px;height:42px}
+  .fhmb .fhmb__pprice{font-size:19px}
+  .fhmb .fhmb__drop summary{padding:13px 14px;gap:8px}
+  .fhmb .fhmb__drop-title{font-size:16.5px;letter-spacing:.16em}
+  .fhmb .fhmb__sec-title{font-size:20px;letter-spacing:.2em}
+  .fhmb .fhmb__courses .fhmb__sec-title{font-size:20px;letter-spacing:.2em;gap:12px}
+  .fhmb .fhmb__drop-body{padding:2px 14px 18px}
+  .fhmb .fhmb__filter{padding:10px var(--px);gap:6px;flex-wrap:wrap;overflow:visible}
+  .fhmb .fhmb__filter-k{font-size:11px;letter-spacing:.14em}
+  .fhmb .fhmb__chip{min-height:34px;padding:0 12px;font-size:13px}
+  .fhmb .fhmb__fww{padding:16px;gap:12px}
+  .fhmb .fhmb__fww-title{font-size:21px}
+  .fhmb .fhmb__fww-deal{font-size:15.5px}
+  .fhmb .fhmb__fww-art{width:72px;height:72px}
+  /* wine prices go under the name, each with its glass size */
+  .fhmb .fhmb__glass-head{display:none}
+  .fhmb .fhmb__item--glass{display:block}
+  .fhmb .fhmb__item--glass .fhmb__name,.fhmb .fhmb__item--glass .fhmb__desc{display:block}
+  .fhmb .fhmb__cells{display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));gap:6px;margin-top:8px}
+  .fhmb .fhmb__cell{display:flex;flex-direction:column;gap:1px;text-align:left;font-size:15px}
+  .fhmb .fhmb__cell::before{content:attr(data-size);font-size:12.5px;font-style:italic;font-weight:400;color:var(--gold)}
+  .fhmb .fhmb__cell.is-none{visibility:hidden}
+}
+@media (max-width:420px){
+  .fhmb .fhmb__dl span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .fhmb .fhmb__dl{width:42px;padding:0;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){
+  .fhmb .fhmb__tile,.fhmb .fhmb__tile-img img,.fhmb .fhmb__plus,.fhmb .fhmb__chev{transition:none}
+  .fhmb.fhmb--js .fhmb__panel.is-open,.fhmb .fhmb__drop[open] .fhmb__drop-body{animation:none}
+  .fhmb .fhmb__tag svg{animation:none}
+}
+</style>
+<noscript><style>.fhmb .fhmb__panel{display:flex;margin-top:8px}</style></noscript>
+
+  <div class="fhmb__head">
+    <h2 class="fhmb__h2" id="fhmb-heading">Our Menus</h2>
+  </div>
+
+  <div class="fhmb__grid">
+    <!-- MAIN MENU -->
+    <button type="button" class="fhmb__tile" id="menu-main" data-menu="main" aria-expanded="false" aria-controls="fhmb-main">
+      <span class="fhmb__tile-img"><img src="https://static1.squarespace.com/static/5b9e725896d455c71ef88dda/t/6ad00ed0d21dd2340a4ec156/1792020176628/main_menucard_horse.jpg" alt="" loading="lazy"></span>
+      <span class="fhmb__tile-body">
+        <span class="fhmb__tile-when">Served daily from 12 noon</span>
+        <span class="fhmb__tile-name">Main Menu</span>
+        <span class="fhmb__tile-cta"><span class="fhmb__cta-open">View menu</span><span class="fhmb__cta-close">Close menu</span><span class="fhmb__plus" aria-hidden="true"></span></span>
+      </span>
+    </button>
+    <!-- SET LUNCH MENU -->
+    <button type="button" class="fhmb__tile" id="menu-lunch" data-menu="lunch" aria-expanded="false" aria-controls="fhmb-lunch">
+      <span class="fhmb__tile-img"><img src="https://static1.squarespace.com/static/5b9e725896d455c71ef88dda/t/6ad00f05b4c88523eb0c811a/1792020229043/set_lunch_horse.jpg" alt="" loading="lazy"></span>
+      <span class="fhmb__tile-body">
+        <span class="fhmb__tile-when">Monday – Friday</span>
+        <span class="fhmb__tile-name">Set Lunch Menu</span>
+        <span class="fhmb__tile-cta"><span class="fhmb__cta-open">View menu</span><span class="fhmb__cta-close">Close menu</span><span class="fhmb__plus" aria-hidden="true"></span></span>
+      </span>
+    </button>
+    <!-- DRINKS MENU -->
+    <button type="button" class="fhmb__tile" id="menu-drinks" data-menu="drinks" aria-expanded="false" aria-controls="fhmb-drinks">
+      <span class="fhmb__tile-img"><img src="https://static1.squarespace.com/static/5b9e725896d455c71ef88dda/t/6ad00f25a0f3136130e97274/1792020261890/drinks_menucard_horse.jpg" alt="" loading="lazy"></span>
+      <span class="fhmb__tile-body">
+        <span class="fhmb__tile-when">Cocktails, wine &amp; more</span>
+        <span class="fhmb__tile-name">Drinks Menu</span>
+        <span class="fhmb__tile-cta"><span class="fhmb__cta-open">View menu</span><span class="fhmb__cta-close">Close menu</span><span class="fhmb__plus" aria-hidden="true"></span></span>
+      </span>
+    </button>
+    <!-- KIDS MENU -->
+    <button type="button" class="fhmb__tile" id="menu-kids" data-menu="kids" aria-expanded="false" aria-controls="fhmb-kids">
+      <span class="fhmb__tile-img"><img src="https://static1.squarespace.com/static/5b9e725896d455c71ef88dda/t/6ad00f7abaec7e6f2969b83f/1792020346293/kids_menucard_horse.jpg" alt="" loading="lazy"></span>
+      <span class="fhmb__tile-body">
+        <span class="fhmb__tile-when">For younger guests</span>
+        <span class="fhmb__tile-name">Kids Menu</span>
+        <span class="fhmb__tile-cta"><span class="fhmb__cta-open">View menu</span><span class="fhmb__cta-close">Close menu</span><span class="fhmb__plus" aria-hidden="true"></span></span>
+      </span>
+    </button>
+    <!-- FESTIVE MENU -->
+    <button type="button" class="fhmb__tile fhmb__tile--xmas" id="menu-festive" data-menu="festive" aria-expanded="false" aria-controls="fhmb-festive">
+      <span class="fhmb__tile-img"><img src="https://static1.squarespace.com/static/5b9e725896d455c71ef88dda/t/6ad011d20fbda446600ca19f/1792020946103/festive_menucard_horse.jpg" alt="" loading="lazy"><span class="fhmb__tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F3D58A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M12 2l-2.5 2.5M12 2l2.5 2.5M12 22l-2.5-2.5M12 22l2.5-2.5"/></svg>Christmas 2026</span></span>
+      <span class="fhmb__tile-body">
+        <span class="fhmb__tile-when">19 Nov – 23 Dec</span>
+        <span class="fhmb__tile-name">Festive Menu</span>
+        <span class="fhmb__tile-cta"><span class="fhmb__cta-open">View menu</span><span class="fhmb__cta-close">Close menu</span><span class="fhmb__plus" aria-hidden="true"></span></span>
+      </span>
+    </button>
+    <!-- CHRISTMAS DAY MENU -->
+    <button type="button" class="fhmb__tile fhmb__tile--xmas" id="menu-christmas" data-menu="christmas" aria-expanded="false" aria-controls="fhmb-christmas">
+      <span class="fhmb__tile-img"><img src="https://static1.squarespace.com/static/5b9e725896d455c71ef88dda/t/6ad012318232fc26faa98e87/1792021042002/christmas_menucard_horse.jpg" alt="" loading="lazy"><span class="fhmb__tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F3D58A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M12 2l-2.5 2.5M12 2l2.5 2.5M12 22l-2.5-2.5M12 22l2.5-2.5"/></svg>Christmas 2026</span></span>
+      <span class="fhmb__tile-body">
+        <span class="fhmb__tile-when">25 December 2026</span>
+        <span class="fhmb__tile-name">Christmas Day Menu</span>
+        <span class="fhmb__tile-cta"><span class="fhmb__cta-open">View menu</span><span class="fhmb__cta-close">Close menu</span><span class="fhmb__plus" aria-hidden="true"></span></span>
+      </span>
+    </button>
+
+    <!-- MAIN MENU – items -->
+    <div class="fhmb__panel fhmb__panel--main" id="fhmb-main" data-menu="main" role="region" aria-labelledby="fhmb-main-title">
+      <div class="fhmb__phead">
+        <div class="fhmb__ptitles">
+          <p class="fhmb__pwhen">Served daily from 12 noon</p>
+          <h3 class="fhmb__ptitle" id="fhmb-main-title" tabindex="-1">Main Menu</h3>
+        </div>
+        <div class="fhmb__pactions">
+          <a class="fhmb__dl" href="https://static1.squarespace.com/static/5b9e725896d455c71ef88dda/t/6ab516897309b265f2e0da04/1790252681632/FOUR+HORSESHOES+MENU+26+WEB.pdf?download=true" download aria-label="Download the Main Menu as a PDF"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span>Download</span></a>
+          <button type="button" class="fhmb__x" aria-label="Close the Main Menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        </div>
+      </div>
+      <div class="fhmb__pscroll">
+      <div class="fhmb__pbody" tabindex="0" role="region" aria-label="Main Menu – full list">
+      <div class="fhmb__cols">
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">While you wait</h4>
+          <p class="fhmb__note">Olives &amp; focaccia, halloumi fries and padron peppers – all three for £19</p>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Green olives &amp; focaccia (ve, s)</span><span class="fhmb__price">7.95</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Halloumi fries (v, s)</span><span class="fhmb__price">8.50</span><span class="fhmb__desc">spiced tomato chutney, za&#x27;atar</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Padron peppers (ve, s)</span><span class="fhmb__price">5.25</span><span class="fhmb__desc">smoked sea salt</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Crispy polenta chips (ve, s)</span><span class="fhmb__price">7.50</span><span class="fhmb__desc">arrabbiata &amp; rosemary salt</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Korean fried cauliflower (v, s)</span><span class="fhmb__price">8.50</span><span class="fhmb__desc">sweet &amp; spicy gochujang sauce, spring onion &amp; chilli</span></li>
+          </ul>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">To start</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Salt &amp; pepper squid (s)</span><span class="fhmb__price">9.50</span><span class="fhmb__desc">kimchi, garlic mayo, lemon &amp; spiced rub</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Pulled bbq pork bao buns (s)</span><span class="fhmb__price">10.50</span><span class="fhmb__desc">soused red cabbage, coriander &amp; sesame seeds</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">&#x27;Nduja scotch egg (s)</span><span class="fhmb__price">9.00</span><span class="fhmb__desc">calabrian spicy sausage, smoked pepper &amp; lemon emulsion</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Hot-smoked salmon pâté (gfo, s)</span><span class="fhmb__price">9.50</span><span class="fhmb__desc">pickled cucumber, horseradish cream cheese, capers &amp; crusty bread</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Loaded hummus (gfo, s)</span><span class="fhmb__price">8.75</span><span class="fhmb__desc">spiced lamb kofta, stone baked flatbread, za&#x27;atar</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Smooth duck liver parfait (gfo, s)</span><span class="fhmb__price">9.00</span><span class="fhmb__desc">spiced plum compote, pickled walnuts &amp; toasted brioche</span></li>
+          </ul>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Perfect to share</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Hot honey baked camembert (gfo, s)</span><span class="fhmb__price">18.95</span><span class="fhmb__desc">caramelised fig marmalade, roasted nuts &amp; cranberries, pickled gherkins, toasted house breads</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">The farmhouse charcuterie (gfo, s)</span><span class="fhmb__price">22.50</span><span class="fhmb__desc">san daniele prosciutto, salami finocchiona, pistachio mortadella, hummus, olives, crudités &amp; stone-baked flatbread</span></li>
+          </ul>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Mains</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Chestnut mushroom &amp; spinach risotto (gf, veo)</span><span class="fhmb__price">17.50</span><span class="fhmb__desc">toasted sunflower seeds, fragrant garlic &amp; chilli oil</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">1/2 country roast chicken (gf)</span><span class="fhmb__price">19.50</span><span class="fhmb__desc">buttery mash, crispy kale, wild mushroom &amp; mustard sauce</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Braised beef shin, horseradish &amp; jerusalem artichoke (gf)</span><span class="fhmb__price">22.50</span><span class="fhmb__desc">slow-cooked beef shin, buttery horseradish mash, crisp jerusalem artichokes, garlic spinach &amp; rich red wine gravy</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Brixham market fish &amp; chips (gfo, s)</span><span class="fhmb__price">18.50</span><span class="fhmb__desc">ale battered fish, koffmann&#x27;s chips, chunky tartar sauce, mushy peas &amp; curry sauce</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">The proper shepherd&#x27;s pie (gf)</span><span class="fhmb__price">18.50</span><span class="fhmb__desc">slow-braised british lamb, rich gravy, mature cheddar mash &amp; flame-charred seasonal greens</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Roasted cornish cod loin (gf)</span><span class="fhmb__price">21.50</span><span class="fhmb__desc">saffron seafood chowder, braised fennel &amp; preserved lemon</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Thick-cut pork chop (gf)</span><span class="fhmb__price">22.50</span><span class="fhmb__desc">roast new potatoes, silky celeriac purée, crushed green peppercorn &amp; brandy cream sauce</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Roasted pavé of salmon (gf)</span><span class="fhmb__price">19.50</span><span class="fhmb__desc">warm lentil &amp; chorizo stew, baby spinach &amp; buttered tenderstem broccoli</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Jumbo “king prawns” &amp; south coast mussel stew</span><span class="fhmb__price">23.95</span><span class="fhmb__desc">succulent prawns &amp; mussels cooked with nduja, tomatoes &amp; basil, aioli &amp; crusty sourdough</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">The butcher&#x27;s sausage &amp; mash</span><span class="fhmb__price">18.95</span><span class="fhmb__desc">butcher&#x27;s pork sausages, creamy mash, rosemary-roasted winter squash, crispy onions &amp; proper pub gravy</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">The shoes caesar (gfo, s)</span><span class="fhmb__price">12.50</span><span class="fhmb__desc">dressed gem &amp; romaine lettuce, parmesan shavings, anchovies &amp; grande croutons — add smoked salmon or crispy chicken +£4.5</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Roasted squash, artichoke &amp; burrata orzo (s)</span><span class="fhmb__price">18.50</span><span class="fhmb__desc">rosemary-roasted squash, artichoke hearts, baby spinach, caramelised red onions</span></li>
+          </ul>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Steaks</h4>
+          <p class="fhmb__note">Our Aberdeen Angus and Hereford cross beef is 28-day dry-aged on the bone using Himalayan salt. Served with Koffmann&#x27;s chips, roast tomato, onion rings and watercress.</p>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Rump 300g (gfo)</span><span class="fhmb__price">25.50</span><span class="fhmb__desc">packed full of flavour, a lean juicy steak</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Ribeye 250g (gfo)</span><span class="fhmb__price">29.95</span><span class="fhmb__desc">highly marbled with lots of fat, full on beefy flavour</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Fillet 180g (gfo)</span><span class="fhmb__price">31.95</span><span class="fhmb__desc">the most tender cut of beef, very buttery &amp; exceptionally lean</span></li>
+          </ul>
+          <p class="fhmb__note fhmb__note--after">Add a sauce – classic peppercorn, parsley &amp; garlic butter or proper jus – 3.50</p>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Burgers</h4>
+          <p class="fhmb__note">All served with skin-on fries or mixed leaf salad. Gluten-free buns available.</p>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">The shoes smashed burger (gfo, s)</span><span class="fhmb__price">17.00</span><span class="fhmb__desc">juicy ground steak patty, beef tomato, matured cheddar, lettuce &amp; gherkin relish — make it a big boy with bacon &amp; chilli beef +£3.50</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Korean fried chicken (s)</span><span class="fhmb__price">16.50</span><span class="fhmb__desc">crispy buttermilk chicken, kimchi emulsion, pickled jalapeños &amp; crunchy lettuce</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">The smoke-house pulled pork (s)</span><span class="fhmb__price">18.50</span><span class="fhmb__desc">slow-braised pulled pork, sticky bourbon bbq sauce, jalapeños, bread &amp; butter pickles &amp; crispy onions</span></li>
+          </ul>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">On the side</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Market leaf salad (ve, gf, s)</span><span class="fhmb__price">4.95</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Skin-on chips (gfo, s)</span><span class="fhmb__price">4.95</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Mac n cheese (s)</span><span class="fhmb__price">6.25</span><span class="fhmb__desc">add truffle +£2.50</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Buttery mash potato (gf, s)</span><span class="fhmb__price">5.50</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Sweet potato fries (gfo, s)</span><span class="fhmb__price">5.25</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Seasonal greens (gf, ve, s)</span><span class="fhmb__price">4.95</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Battered onion rings (v, s)</span><span class="fhmb__price">6.00</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Truffled chips, dusted parmesan (s)</span><span class="fhmb__price">6.25</span></li>
+          </ul>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">The Sunday roasts</h4>
+          <p class="fhmb__note">Sundays only. All served with seasonal vegetables, roast potatoes, Yorkshire pudding &amp; proper roast gravy.</p>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Roast sirloin of grass-fed Surrey Hills beef, horseradish cream (gfo, s)</span><span class="fhmb__price">20.95</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Leg of Cole Valley lamb, mint sauce (gfo, s)</span><span class="fhmb__price">20.50</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Country roast chicken, bread sauce (gfo, s)</span><span class="fhmb__price">18.95</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Autumnal squash, spinach &amp; lentil puff (v, s)</span><span class="fhmb__price">17.50</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Mixed roast (beef &amp; lamb) (s)</span><span class="fhmb__price">23.50</span></li>
+          </ul>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Sunday sides</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Cheesy cauliflower, mature cheddar (v, gf, s)</span><span class="fhmb__price">5.95</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Mac &amp; cheese, gruyère &amp; crumbs (v, s)</span><span class="fhmb__price">6.25</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Truffle chips, dusted parmesan (v, s)</span><span class="fhmb__price">6.25</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Pigs in blankets (s)</span><span class="fhmb__price">6.95</span></li>
+          </ul>
+          <p class="fhmb__note fhmb__note--after">Still hungry? Just ask if you&#x27;d like more roasties, Yorkshire puds or gravy.</p>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Puddings</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Spiced pear &amp; braeburn apple crumble (ve, gf, s)</span><span class="fhmb__price">7.95</span><span class="fhmb__desc">served with vanilla ice cream or warm custard</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Proper sticky toffee pudding (s)</span><span class="fhmb__price">7.95</span><span class="fhmb__desc">muscovado butterscotch sauce, vanilla bean ice cream</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Rhubarb crème brûlée (gfo, s)</span><span class="fhmb__price">7.95</span><span class="fhmb__desc">rich baked vanilla custard, poached rhubarb &amp; buttery shortbread</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Pistachio &amp; lemon curd pavlova (v, gf, s)</span><span class="fhmb__price">7.95</span><span class="fhmb__desc">whipped citrus lemon curd &amp; pistachio drizzle</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Black forest chocolate brownie (gf, s)</span><span class="fhmb__price">7.95</span><span class="fhmb__desc">warm chocolate sauce, vanilla bean ice cream &amp; cherry compote</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Farmhouse cheese board (s)</span><span class="fhmb__price">10.95</span><span class="fhmb__desc">spiced apricot chutney, crackers, vintage lincolnshire poacher, colston bassett blue, dazel ash goat&#x27;s cheese</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Affogato (v, s)</span><span class="fhmb__price">6.50</span><span class="fhmb__desc">vanilla bean ice cream, kimbo espresso, little biscuit — add a shot of cream liqueur</span></li>
+          </ul>
+        </section>
+      </div>
+      <p class="fhmb__foot">S – Sunday menu dishes · (v) vegetarian · (ve) vegan · (gf) gluten free · (gfo) gluten-free option · (veo) vegan option. Food is prepared in kitchens where nuts, gluten and other allergens may be present – please tell us about any allergies before ordering; full allergen information is available. A discretionary 12% service charge is added to your bill.</p>
+      <!-- end of the scrolling list -->
+      </div>
+      <span class="fhmb__more" aria-hidden="true">Scroll for more</span>
+      </div>
+      <div class="fhmb__book">
+        <div class="fhmb__book-links">
+          <a class="fhmb__book-btn" href="/book">Book a table</a>
+        </div>
+      </div>
+    </div>
+    <!-- SET LUNCH MENU – items -->
+    <div class="fhmb__panel fhmb__panel--lunch" id="fhmb-lunch" data-menu="lunch" role="region" aria-labelledby="fhmb-lunch-title">
+      <div class="fhmb__phead">
+        <div class="fhmb__ptitles">
+          <p class="fhmb__pwhen">The Pantry Menu · Monday – Friday, 12 noon – 3pm</p>
+          <h3 class="fhmb__ptitle" id="fhmb-lunch-title" tabindex="-1">Set Lunch Menu</h3>
+          <p class="fhmb__pprice">Two courses £20 · Three courses £25</p>
+        </div>
+        <div class="fhmb__pactions">
+          <a class="fhmb__dl" href="https://static1.squarespace.com/static/5b9e725896d455c71ef88dda/t/6aa27b86d825490ecfdc14ce/1789033350602/lunch_sample_set_menu.pdf?download=true" download aria-label="Download the Set Lunch Menu as a PDF"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span>Download</span></a>
+          <button type="button" class="fhmb__x" aria-label="Close the Set Lunch Menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        </div>
+      </div>
+      <div class="fhmb__pscroll">
+      <div class="fhmb__pbody" tabindex="0" role="region" aria-label="Set Lunch Menu – full list">
+      <div class="fhmb__courses">
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Starters</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Soup of the day, sea salt focaccia (v)</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Crispy courgette fries, ripened tomato chutney</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Chicken liver pâté, chutney &amp; toasted bread</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Devonshire crab cake, citrus butter sauce</span></li>
+          </ul>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Mains</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Mediterranean orzo salad</span><span class="fhmb__desc">with fire-roasted vegetables &amp; crumbled feta</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Spiced lamb meatballs</span><span class="fhmb__desc">tzatziki, mint &amp; flatbread</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Honey-glazed ham</span><span class="fhmb__desc">free-range fried egg, skin on chips</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Prawn &amp; english pea risotto</span><span class="fhmb__desc">lemon &amp; aged parmesan</span></li>
+          </ul>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Puddings</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Vanilla baked cheesecake, summer berries</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Strawberry &amp; yoghurt panna cotta</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Vanilla bean ice cream</span><span class="fhmb__desc">kimbo espresso, little biscuit</span></li>
+          </ul>
+        </section>
+      </div>
+      <p class="fhmb__foot">This is a sample menu – dishes change with the seasons. (v) vegetarian · (ve) vegan · (gf) gluten free · (gfo) gluten-free option · (veo) vegan option. Food is prepared in kitchens where nuts, gluten and other allergens may be present – please tell us about any allergies before ordering; full allergen information is available. A discretionary 12% service charge is added to your bill.</p>
+      <!-- end of the scrolling list -->
+      </div>
+      <span class="fhmb__more" aria-hidden="true">Scroll for more</span>
+      </div>
+      <div class="fhmb__book">
+        <div class="fhmb__book-links">
+          <a class="fhmb__book-btn" href="/book">Book a table</a>
+        </div>
+      </div>
+    </div>
+    <!-- DRINKS MENU – items -->
+    <div class="fhmb__panel fhmb__panel--drinks" id="fhmb-drinks" data-menu="drinks" role="region" aria-labelledby="fhmb-drinks-title">
+      <div class="fhmb__phead">
+        <div class="fhmb__ptitles">
+          <p class="fhmb__pwhen">Cocktails, spritzes, wine, coffee &amp; more</p>
+          <h3 class="fhmb__ptitle" id="fhmb-drinks-title" tabindex="-1">Drinks Menu</h3>
+        </div>
+        <div class="fhmb__pactions">
+          <a class="fhmb__dl" href="https://static1.squarespace.com/static/5b9e725896d455c71ef88dda/t/6aa2815cda928b4911acd264/1789034844586/FOUR+HORSESHOES+DRINKS+MAY+26.pdf?download=true" download aria-label="Download the Drinks Menu as a PDF"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span>Download</span></a>
+          <button type="button" class="fhmb__x" aria-label="Close the Drinks Menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        </div>
+      </div>
+      <div class="fhmb__pscroll">
+      <div class="fhmb__pbody" tabindex="0" role="region" aria-label="Drinks Menu – full list">
+      <div class="fhmb__drops">
+        <div class="fhmb__fww">
+          <div class="fhmb__fww-text">
+            <p class="fhmb__fww-title">Fine Wine Wednesdays</p>
+            <p class="fhmb__fww-deal">Every Wednesday enjoy <strong>£5 off</strong> any of our selected bottle-only wines.</p>
+            <p class="fhmb__fww-key"><svg class="fhmb__bottle" viewBox="0 0 12 32" aria-hidden="true"><path fill="currentColor" d="M4.4 0h3.2v1.4h-.2v7.2c0 1.6 3.1 2.6 3.1 5.6v16.4c0 .8-.6 1.4-1.4 1.4H2.9c-.8 0-1.4-.6-1.4-1.4V14.2c0-3 3.1-4 3.1-5.6V1.4h-.2z"/></svg>Look for the bottle in the wine lists below.</p>
+          </div>
+          <svg class="fhmb__fww-art" viewBox="0 0 112 112" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M44 34h22c0 17-4.5 26-11 26s-11-9-11-26z" fill="#FFFDF7"/><path d="M45.6 44h18.8c-.9 8.6-4.3 13.4-9.4 13.4s-8.5-4.8-9.4-13.4z" fill="#8E2B3A" stroke="none" opacity=".88"/><path d="M55 60v26M47 87.5c2.6-1.4 13.4-1.4 16 0"/><path d="M14 44h26c0 19-5.4 29-13 29s-13-10-13-29z" fill="#FFFDF7"/><path d="M15.8 55h22.4c-1 9.4-5 14.6-11.2 14.6s-10.2-5.2-11.2-14.6z" fill="#8E2B3A" stroke="none" opacity=".88"/><path d="M27 73v28M18 102.5c3-1.6 15-1.6 18 0"/><path d="M79 6h10v4h-1v22c0 6 10 9 10 19v55a4 4 0 0 1-4 4H74a4 4 0 0 1-4-4V51c0-10 10-13 10-19V10h-1z" fill="#FFFDF7"/><path d="M80 10h8v9h-8z" fill="currentColor"/><rect x="73" y="64" width="22" height="25" rx="1.5" fill="#FBF8EF" stroke-width="1"/><path d="M77 71h14M78.5 76h11M77 82h14" stroke-width="1"/></svg>
+        </div>
+        <details class="fhmb__drop">
+          <summary><span class="fhmb__drop-label"><span class="fhmb__drop-title">Cocktails</span><span class="fhmb__badge">Any two for 16</span></span><svg class="fhmb__chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="fhmb__drop-body">
+            <ul class="fhmb__items">
+              <li class="fhmb__item"><span class="fhmb__name">Margarita (classic / spicy)</span><span class="fhmb__price">8.95 / 9.95</span><span class="fhmb__desc">tequila, liqueurs, agave syrup &amp; fresh lime with salt / sugar rim</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Mojito (classic / raspberry)</span><span class="fhmb__price">9.25 / 9.75</span><span class="fhmb__desc">havana rum, mint, lime, dark sugar, soda</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Daiquiri (classic / strawberry)</span><span class="fhmb__price">8.95 / 9.95</span><span class="fhmb__desc">havana rum, fresh mint, fruit puree, lime juice &amp; sweet syrup</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Negroni (classic / whiskey)</span><span class="fhmb__price">10.25 / 11.25</span><span class="fhmb__desc">campari, sweet vermouth &amp; orange twist (or whiskey)</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Mule (classic / passionfruit)</span><span class="fhmb__price">9.25 / 9.75</span><span class="fhmb__desc">absolut vodka, ginger beer and lime juice or passionfruit, mint</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Sour (whiskey / amaretto)</span><span class="fhmb__price">10.50</span><span class="fhmb__desc">bulleit bourbon or amaretto, lemon juice, angostura bitters, sugar syrup</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Pimm&#x27;s No 1</span><span class="fhmb__price">8.25</span><span class="fhmb__desc">lemonade, crushed ice, summer fruits &amp; mint sprig</span></li>
+            </ul>
+          </div>
+        </details>
+        <details class="fhmb__drop">
+          <summary><span class="fhmb__drop-label"><span class="fhmb__drop-title">Spritz</span></span><svg class="fhmb__chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="fhmb__drop-body">
+            <ul class="fhmb__items">
+              <li class="fhmb__item"><span class="fhmb__name">Aperol spritz</span><span class="fhmb__price">9.00</span><span class="fhmb__desc">prosecco, aperol, soda</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Hugo spritz</span><span class="fhmb__price">9.50</span><span class="fhmb__desc">prosecco, elderflower with a splash of sparkling water &amp; fresh mint</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Limoncello spritz</span><span class="fhmb__price">9.25</span><span class="fhmb__desc">limoncello, prosecco, strawberry &amp; soda water</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Paloma spritz</span><span class="fhmb__price">9.50</span><span class="fhmb__desc">silver tequila topped pink grapefruit soda, fresh lime &amp; grapefruit</span></li>
+            </ul>
+          </div>
+        </details>
+        <details class="fhmb__drop">
+          <summary><span class="fhmb__drop-label"><span class="fhmb__drop-title">Sparkling cocktails</span></span><svg class="fhmb__chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="fhmb__drop-body">
+            <ul class="fhmb__items">
+              <li class="fhmb__item"><span class="fhmb__name">Kir royale</span><span class="fhmb__price">8.75</span><span class="fhmb__desc">creme de cassis &amp; prosecco</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Mimosa</span><span class="fhmb__price">10.50</span><span class="fhmb__desc">champagne, orange juice</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Strawberry &amp; raspberry bellini</span><span class="fhmb__price">10.50</span><span class="fhmb__desc">prosecco, chambord, strawberry puree</span></li>
+            </ul>
+          </div>
+        </details>
+        <details class="fhmb__drop">
+          <summary><span class="fhmb__drop-label"><span class="fhmb__drop-title">Martinis</span></span><svg class="fhmb__chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="fhmb__drop-body">
+            <ul class="fhmb__items">
+              <li class="fhmb__item"><span class="fhmb__name">Espresso martini</span><span class="fhmb__price">9.75</span><span class="fhmb__desc">smirnoff vodka, blended with coffee &amp; chocolate bitters</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Pornstar martini</span><span class="fhmb__price">9.95</span><span class="fhmb__desc">smirnoff vodka with passion fruit liqueurs &amp; prosecco</span></li>
+            </ul>
+          </div>
+        </details>
+        <details class="fhmb__drop">
+          <summary><span class="fhmb__drop-label"><span class="fhmb__drop-title">Mocktails</span><span class="fhmb__badge">Alcohol-free</span></span><svg class="fhmb__chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="fhmb__drop-body">
+            <ul class="fhmb__items">
+              <li class="fhmb__item"><span class="fhmb__name">Passionfruit &amp; elderflower spritz</span><span class="fhmb__price">7.50</span><span class="fhmb__desc">passionfruit puree, elderflower syrup, mint, sour mix &amp; lemonade</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Berry lime burst</span><span class="fhmb__price">7.50</span><span class="fhmb__desc">raspberry puree, cranberry juice, fresh lime &amp; soda</span></li>
+            </ul>
+          </div>
+        </details>
+        <details class="fhmb__drop">
+          <summary><span class="fhmb__drop-label"><span class="fhmb__drop-title">Prosecco &amp; champagne</span></span><svg class="fhmb__chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="fhmb__drop-body">
+            <p class="fhmb__note">Fine Wine Wednesdays – £5 off the bottles marked with a bottle, every Wednesday.</p>
+            <ul class="fhmb__items fhmb__items--glass" style="--cols:2">
+              <li class="fhmb__glass-head" aria-hidden="true"><span></span><span>125ml</span><span>Bottle</span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">NV Monopolio prosecco spumante organic, Veneto, Italy (fww)</span><span class="fhmb__desc">delicate fruity notes of white pear and peach</span><span class="fhmb__cells"><span class="fhmb__cell" data-size="125ml">7.10</span><span class="fhmb__cell" data-size="Bottle">34.95</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Famiglia Botter, prosecco rosé, Veneto, Italy</span><span class="fhmb__desc">fruity and fragrant, hints of strawberry and cherry</span><span class="fhmb__cells"><span class="fhmb__cell is-none" data-size="125ml">–</span><span class="fhmb__cell" data-size="Bottle">36.50</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">NV Grand Réserve brut, Sophie Baron, Champagne, France</span><span class="fhmb__desc">meunier-dominant blend, crisp and lively</span><span class="fhmb__cells"><span class="fhmb__cell is-none" data-size="125ml">–</span><span class="fhmb__cell" data-size="Bottle">58.00</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">NV Classic Cuvée multi vintage, Nyetimber, Southern England (fww)</span><span class="fhmb__desc">honey, almond, pastry and baked apple</span><span class="fhmb__cells"><span class="fhmb__cell" data-size="125ml">10.95</span><span class="fhmb__cell" data-size="Bottle">65.00</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Moet Chandon brut NV, Champagne, France</span><span class="fhmb__desc">crisp green apple and lemon, white blossom and minerality</span><span class="fhmb__cells"><span class="fhmb__cell is-none" data-size="125ml">–</span><span class="fhmb__cell" data-size="Bottle">95.50</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">NV Brut Réserve Pol Roger, Champagne, France</span><span class="fhmb__desc">white flowers, green apple, brioche and minerality</span><span class="fhmb__cells"><span class="fhmb__cell is-none" data-size="125ml">–</span><span class="fhmb__cell" data-size="Bottle">85.00</span></span></li>
+            </ul>
+          </div>
+        </details>
+        <details class="fhmb__drop">
+          <summary><span class="fhmb__drop-label"><span class="fhmb__drop-title">Rosé wine</span></span><svg class="fhmb__chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="fhmb__drop-body">
+            <p class="fhmb__note">Fine Wine Wednesdays – £5 off the bottles marked with a bottle, every Wednesday.</p>
+            <ul class="fhmb__items fhmb__items--glass" style="--cols:4">
+              <li class="fhmb__glass-head" aria-hidden="true"><span></span><span>125ml</span><span>175ml</span><span>250ml</span><span>Bottle</span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">I Castelli pinot grigio rosé, Venezie, Italy (fww)</span><span class="fhmb__desc">slightly mineral, soft and persistent, fruity notes</span><span class="fhmb__cells"><span class="fhmb__cell" data-size="125ml">5.60</span><span class="fhmb__cell" data-size="175ml">7.45</span><span class="fhmb__cell" data-size="250ml">10.60</span><span class="fhmb__cell" data-size="Bottle">30.95</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Luberon rosé, Famille Perrin, Southern Rhône, France</span><span class="fhmb__desc">pale pink, wild strawberry and white nectarine</span><span class="fhmb__cells"><span class="fhmb__cell" data-size="125ml">6.80</span><span class="fhmb__cell" data-size="175ml">8.95</span><span class="fhmb__cell" data-size="250ml">11.90</span><span class="fhmb__cell" data-size="Bottle">35.50</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Côtes de Provence rosé, Marius Peyol, Provence, France (fww)</span><span class="fhmb__desc">pale and crisp with peach, strawberry and a mineral edge</span><span class="fhmb__cells"><span class="fhmb__cell is-none" data-size="125ml">–</span><span class="fhmb__cell is-none" data-size="175ml">–</span><span class="fhmb__cell is-none" data-size="250ml">–</span><span class="fhmb__cell" data-size="Bottle">40.00</span></span></li>
+            </ul>
+          </div>
+        </details>
+        <details class="fhmb__drop">
+          <summary><span class="fhmb__drop-label"><span class="fhmb__drop-title">White wine</span></span><svg class="fhmb__chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="fhmb__drop-body">
+            <p class="fhmb__note">Fine Wine Wednesdays – £5 off the bottles marked with a bottle, every Wednesday.</p>
+            <ul class="fhmb__items fhmb__items--glass" style="--cols:4">
+              <li class="fhmb__glass-head" aria-hidden="true"><span></span><span>125ml</span><span>175ml</span><span>250ml</span><span>Bottle</span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">I Castelli pinot grigio, Venezie, Italy (fww)</span><span class="fhmb__desc">straw colour, delicate aromatics, fruity and fresh</span><span class="fhmb__cells"><span class="fhmb__cell" data-size="125ml">5.20</span><span class="fhmb__cell" data-size="175ml">6.95</span><span class="fhmb__cell" data-size="250ml">9.80</span><span class="fhmb__cell" data-size="Bottle">28.50</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Writers Block chenin blanc, Western Cape, SA</span><span class="fhmb__desc">vibrant and zesty, pineapple, nectarine, honeysuckle</span><span class="fhmb__cells"><span class="fhmb__cell" data-size="125ml">5.20</span><span class="fhmb__cell" data-size="175ml">6.95</span><span class="fhmb__cell" data-size="250ml">9.80</span><span class="fhmb__cell" data-size="Bottle">28.50</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Garganega / Trebbiano, Saveroni, Veneto, Italy</span><span class="fhmb__desc">lively and crisp, touch of marzipan and honey</span><span class="fhmb__cells"><span class="fhmb__cell" data-size="125ml">4.90</span><span class="fhmb__cell" data-size="175ml">6.60</span><span class="fhmb__cell" data-size="250ml">9.30</span><span class="fhmb__cell" data-size="Bottle">27.50</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Lago Vinho Verde, Portugal (fww)</span><span class="fhmb__desc">bright freshness, tropical fruit and citrus</span><span class="fhmb__cells"><span class="fhmb__cell" data-size="125ml">5.60</span><span class="fhmb__cell" data-size="175ml">7.45</span><span class="fhmb__cell" data-size="250ml">10.60</span><span class="fhmb__cell" data-size="Bottle">30.95</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Sauvignon blanc, Long White Cloud, Marlborough, NZ</span><span class="fhmb__desc">zingy and aromatic, passionfruit, lime and fresh herbs</span><span class="fhmb__cells"><span class="fhmb__cell" data-size="125ml">6.80</span><span class="fhmb__cell" data-size="175ml">8.95</span><span class="fhmb__cell" data-size="250ml">11.90</span><span class="fhmb__cell" data-size="Bottle">35.50</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Chardonnay, 16 Stops, South Australia (fww)</span><span class="fhmb__desc">orange peel, oleander flower and prickly pear</span><span class="fhmb__cells"><span class="fhmb__cell" data-size="125ml">5.60</span><span class="fhmb__cell" data-size="175ml">7.45</span><span class="fhmb__cell" data-size="250ml">10.60</span><span class="fhmb__cell" data-size="Bottle">30.95</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Gavi di Gavi, Terre Antiche, Piemonte, Italy</span><span class="fhmb__desc">delicate and fresh, white blossom and citrus</span><span class="fhmb__cells"><span class="fhmb__cell" data-size="125ml">7.10</span><span class="fhmb__cell" data-size="175ml">9.60</span><span class="fhmb__cell" data-size="250ml">13.20</span><span class="fhmb__cell" data-size="Bottle">38.50</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Picpoul de Pinet, Domaine de Castelnau Garenne, Languedoc, France</span><span class="fhmb__desc">vibrant citrus aromas of lemon and floral notes</span><span class="fhmb__cells"><span class="fhmb__cell is-none" data-size="125ml">–</span><span class="fhmb__cell is-none" data-size="175ml">–</span><span class="fhmb__cell is-none" data-size="250ml">–</span><span class="fhmb__cell" data-size="Bottle">34.95</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Entreflores Albariño, Rias Baixas, Spain (fww)</span><span class="fhmb__desc">pineapple, mint and white flowers</span><span class="fhmb__cells"><span class="fhmb__cell is-none" data-size="125ml">–</span><span class="fhmb__cell is-none" data-size="175ml">–</span><span class="fhmb__cell is-none" data-size="250ml">–</span><span class="fhmb__cell" data-size="Bottle">42.50</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Riesling, Wakefield Estate, Clare Valley, Australia</span><span class="fhmb__desc">crisp lime, apple and a refreshing hint of sweetness</span><span class="fhmb__cells"><span class="fhmb__cell is-none" data-size="125ml">–</span><span class="fhmb__cell is-none" data-size="175ml">–</span><span class="fhmb__cell is-none" data-size="250ml">–</span><span class="fhmb__cell" data-size="Bottle">45.00</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Bacchus, Chapel Down, Kent, UK</span><span class="fhmb__desc">aromatic and vibrant, elderflower, gooseberry and citrus</span><span class="fhmb__cells"><span class="fhmb__cell is-none" data-size="125ml">–</span><span class="fhmb__cell is-none" data-size="175ml">–</span><span class="fhmb__cell is-none" data-size="250ml">–</span><span class="fhmb__cell" data-size="Bottle">48.50</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Sancerre, Domaine Sautereau, Loire, France</span><span class="fhmb__desc">grapefruit, mango and white flowers, long finish</span><span class="fhmb__cells"><span class="fhmb__cell is-none" data-size="125ml">–</span><span class="fhmb__cell is-none" data-size="175ml">–</span><span class="fhmb__cell is-none" data-size="250ml">–</span><span class="fhmb__cell" data-size="Bottle">50.00</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Chablis, Les Hauts de Milly, Burgundy, France (fww)</span><span class="fhmb__desc">bright lemon and grapefruit, hints of apricot</span><span class="fhmb__cells"><span class="fhmb__cell is-none" data-size="125ml">–</span><span class="fhmb__cell is-none" data-size="175ml">–</span><span class="fhmb__cell is-none" data-size="250ml">–</span><span class="fhmb__cell" data-size="Bottle">56.00</span></span></li>
+            </ul>
+          </div>
+        </details>
+        <details class="fhmb__drop">
+          <summary><span class="fhmb__drop-label"><span class="fhmb__drop-title">Red wine</span></span><svg class="fhmb__chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="fhmb__drop-body">
+            <p class="fhmb__note">Fine Wine Wednesdays – £5 off the bottles marked with a bottle, every Wednesday.</p>
+            <ul class="fhmb__items fhmb__items--glass" style="--cols:4">
+              <li class="fhmb__glass-head" aria-hidden="true"><span></span><span>125ml</span><span>175ml</span><span>250ml</span><span>Bottle</span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Merlot, El Dueto, Central Valley, Chile (fww)</span><span class="fhmb__desc">soft and smooth, plum, blackberry and gentle spice</span><span class="fhmb__cells"><span class="fhmb__cell" data-size="125ml">4.90</span><span class="fhmb__cell" data-size="175ml">6.60</span><span class="fhmb__cell" data-size="250ml">9.30</span><span class="fhmb__cell" data-size="Bottle">27.50</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Carignan IGP Côtes de Thau, Baron de Badassière, Languedoc, France</span><span class="fhmb__desc">crushed cherries, blackberry, blueberry and raspberry</span><span class="fhmb__cells"><span class="fhmb__cell" data-size="125ml">5.20</span><span class="fhmb__cell" data-size="175ml">6.95</span><span class="fhmb__cell" data-size="250ml">9.80</span><span class="fhmb__cell" data-size="Bottle">28.50</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Shiraz, Overland, SE Australia</span><span class="fhmb__desc">rich and warming, dark fruit, pepper and spice</span><span class="fhmb__cells"><span class="fhmb__cell" data-size="125ml">5.50</span><span class="fhmb__cell" data-size="175ml">7.10</span><span class="fhmb__cell" data-size="250ml">9.95</span><span class="fhmb__cell" data-size="Bottle">29.50</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Rioja Tempranillo, Carlos Serres (organic), Rioja, Spain (fww)</span><span class="fhmb__desc">smooth and balanced, red fruit, vanilla and soft oak</span><span class="fhmb__cells"><span class="fhmb__cell" data-size="125ml">5.70</span><span class="fhmb__cell" data-size="175ml">7.30</span><span class="fhmb__cell" data-size="250ml">10.30</span><span class="fhmb__cell" data-size="Bottle">30.50</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Baron Philippe de Rothschild pinot noir, Pays d&#x27;Oc, France</span><span class="fhmb__desc">cherry red, violets and wild strawberries</span><span class="fhmb__cells"><span class="fhmb__cell" data-size="125ml">5.50</span><span class="fhmb__cell" data-size="175ml">7.10</span><span class="fhmb__cell" data-size="250ml">9.95</span><span class="fhmb__cell" data-size="Bottle">29.50</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Organic Primitivo Era Salento, Puglia, Italy</span><span class="fhmb__desc">full bodied and fruity, blackberry and plum</span><span class="fhmb__cells"><span class="fhmb__cell" data-size="125ml">5.90</span><span class="fhmb__cell" data-size="175ml">8.20</span><span class="fhmb__cell" data-size="250ml">11.65</span><span class="fhmb__cell" data-size="Bottle">34.50</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Mendoza Malbec, Kaiken Clásico, Argentina (fww)</span><span class="fhmb__desc">plum and blackberry, black pepper and clove</span><span class="fhmb__cells"><span class="fhmb__cell" data-size="125ml">5.70</span><span class="fhmb__cell" data-size="175ml">7.90</span><span class="fhmb__cell" data-size="250ml">11.45</span><span class="fhmb__cell" data-size="Bottle">33.50</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Côtes-du-Rhône rouge, Les Terres du Roy, Southern Rhône, France</span><span class="fhmb__desc">garnet red, savoury and dark fruits, spicy depth</span><span class="fhmb__cells"><span class="fhmb__cell is-none" data-size="125ml">–</span><span class="fhmb__cell is-none" data-size="175ml">–</span><span class="fhmb__cell is-none" data-size="250ml">–</span><span class="fhmb__cell" data-size="Bottle">37.00</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Cabernet Sauvignon, Franschhoek Cellar, Western Cape, SA</span><span class="fhmb__desc">bold, blackcurrant, spice and structured tannins</span><span class="fhmb__cells"><span class="fhmb__cell is-none" data-size="125ml">–</span><span class="fhmb__cell is-none" data-size="175ml">–</span><span class="fhmb__cell is-none" data-size="250ml">–</span><span class="fhmb__cell" data-size="Bottle">38.00</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Barbera Appassimento, Villa Pani, Piedmont, Italy (fww)</span><span class="fhmb__desc">rich and intense, dark cherry, chocolate and spice</span><span class="fhmb__cells"><span class="fhmb__cell is-none" data-size="125ml">–</span><span class="fhmb__cell is-none" data-size="175ml">–</span><span class="fhmb__cell is-none" data-size="250ml">–</span><span class="fhmb__cell" data-size="Bottle">40.95</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Chianti Classico, Fontodi, Tuscany, Italy</span><span class="fhmb__desc">ripe plum and sour cherry, toasty oak notes</span><span class="fhmb__cells"><span class="fhmb__cell is-none" data-size="125ml">–</span><span class="fhmb__cell is-none" data-size="175ml">–</span><span class="fhmb__cell is-none" data-size="250ml">–</span><span class="fhmb__cell" data-size="Bottle">52.00</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Châteauneuf-du-Pape, Château Beauchêne, Rhône, France (fww)</span><span class="fhmb__desc">voluptuous, jammy red fruits and spice</span><span class="fhmb__cells"><span class="fhmb__cell is-none" data-size="125ml">–</span><span class="fhmb__cell is-none" data-size="175ml">–</span><span class="fhmb__cell is-none" data-size="250ml">–</span><span class="fhmb__cell" data-size="Bottle">54.50</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Chateau Cantin St Emilion Grand Cru, Bordeaux, France</span><span class="fhmb__desc">full bodied, blackberries, chocolate and floral notes</span><span class="fhmb__cells"><span class="fhmb__cell is-none" data-size="125ml">–</span><span class="fhmb__cell is-none" data-size="175ml">–</span><span class="fhmb__cell is-none" data-size="250ml">–</span><span class="fhmb__cell" data-size="Bottle">60.00</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Amarone della Valpolicella, Corte Giara, Veneto, Italy</span><span class="fhmb__desc">black cherry and black pepper, balsamic nuances</span><span class="fhmb__cells"><span class="fhmb__cell is-none" data-size="125ml">–</span><span class="fhmb__cell is-none" data-size="175ml">–</span><span class="fhmb__cell is-none" data-size="250ml">–</span><span class="fhmb__cell" data-size="Bottle">68.50</span></span></li>
+              <li class="fhmb__item fhmb__item--glass"><span class="fhmb__name">Barolo ‘Albe’, G.D. Vajra, Piemonte, Italy</span><span class="fhmb__desc">elegant, pristine red fruit and floral character</span><span class="fhmb__cells"><span class="fhmb__cell is-none" data-size="125ml">–</span><span class="fhmb__cell is-none" data-size="175ml">–</span><span class="fhmb__cell is-none" data-size="250ml">–</span><span class="fhmb__cell" data-size="Bottle">75.00</span></span></li>
+            </ul>
+          </div>
+        </details>
+        <details class="fhmb__drop">
+          <summary><span class="fhmb__drop-label"><span class="fhmb__drop-title">Nightcaps &amp; liqueurs</span></span><svg class="fhmb__chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="fhmb__drop-body">
+            <ul class="fhmb__items">
+              <li class="fhmb__item"><span class="fhmb__name">Kahlua (20%)</span><span class="fhmb__price">3.10</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Baileys (50ml, 17%)</span><span class="fhmb__price">4.00</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Taylors 10yr old tawny port (100ml, 20%)</span><span class="fhmb__price">5.10</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Remy Martin VSOP (40%)</span><span class="fhmb__price">4.00</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Amaretto (28%)</span><span class="fhmb__price">3.40</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Limoncello (28%)</span><span class="fhmb__price">3.30</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Courvoisier V.S cognac (40%)</span><span class="fhmb__price">3.65</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Grand Marnier (40%)</span><span class="fhmb__price">3.60</span></li>
+            </ul>
+          </div>
+        </details>
+        <details class="fhmb__drop">
+          <summary><span class="fhmb__drop-label"><span class="fhmb__drop-title">Tea &amp; coffee</span></span><svg class="fhmb__chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="fhmb__drop-body">
+            <ul class="fhmb__items">
+              <li class="fhmb__item"><span class="fhmb__name">Americano</span><span class="fhmb__price">4.00</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Flat white</span><span class="fhmb__price">4.20</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Espresso / double espresso</span><span class="fhmb__price">2.50 / 3.50</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Macchiato / double macchiato</span><span class="fhmb__price">2.70 / 4.20</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Mocha</span><span class="fhmb__price">3.20</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Cappuccino</span><span class="fhmb__price">4.20</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Latte</span><span class="fhmb__price">4.20</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Hot chocolate</span><span class="fhmb__price">4.20</span></li>
+              <li class="fhmb__item"><span class="fhmb__name">Pot of tea for one</span><span class="fhmb__price">3.75</span></li>
+            </ul>
+          </div>
+        </details>
+      </div>
+      <!-- end of the scrolling list -->
+      </div>
+      <span class="fhmb__more" aria-hidden="true">Scroll for more</span>
+      </div>
+      <div class="fhmb__book">
+        <div class="fhmb__book-links">
+          <a class="fhmb__book-btn" href="/book">Book a table</a>
+        </div>
+      </div>
+    </div>
+    <!-- KIDS MENU – items -->
+    <div class="fhmb__panel fhmb__panel--kids" id="fhmb-kids" data-menu="kids" role="region" aria-labelledby="fhmb-kids-title">
+      <div class="fhmb__phead">
+        <div class="fhmb__ptitles">
+          <p class="fhmb__pwhen">The same great quality, simplified for your excited little folk</p>
+          <h3 class="fhmb__ptitle" id="fhmb-kids-title" tabindex="-1">Kids Menu</h3>
+        </div>
+        <div class="fhmb__pactions">
+          <a class="fhmb__dl" href="https://static1.squarespace.com/static/5b9e725896d455c71ef88dda/t/6ab516c45062bf60a0578364/1790252740175/FOUR+HORSESHOES+KIDS+26+%281%29.pdf?download=true" download aria-label="Download the Kids Menu as a PDF"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span>Download</span></a>
+          <button type="button" class="fhmb__x" aria-label="Close the Kids Menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        </div>
+      </div>
+      <div class="fhmb__pscroll">
+      <div class="fhmb__pbody" tabindex="0" role="region" aria-label="Kids Menu – full list">
+      <div class="fhmb__cols">
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">To start</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Hummus &amp; garden veggie sticks (ve)</span><span class="fhmb__price">4.50</span></li>
+          </ul>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Mains</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Cheeseburger &amp; fries</span><span class="fhmb__price">8.50</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Mac &amp; cheese, gruyere &amp; crumbs</span><span class="fhmb__price">8.50</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Pigs in blankets, mash &amp; peas</span><span class="fhmb__price">8.50</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Battered fish, chips &amp; peas</span><span class="fhmb__price">8.50</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Crispy herb crusted chicken, chips &amp; peas</span><span class="fhmb__price">8.50</span></li>
+          </ul>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Crusty flatbread</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Margherita (v)</span><span class="fhmb__price">8.50</span><span class="fhmb__desc">fior di latte mozzarella, tomato sauce, basil</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Pepperoni</span><span class="fhmb__price">9.00</span><span class="fhmb__desc">pepperoni, tomato sauce &amp; fior di latte mozzarella</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Chicken &amp; pepper</span><span class="fhmb__price">9.00</span><span class="fhmb__desc">free-range chicken, tomato sauce &amp; mozzarella</span></li>
+          </ul>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Little Sunday roasts</h4>
+          <p class="fhmb__note">Served with seasonal vegetables, roast potatoes, Yorkshire pudding &amp; proper roast gravy.</p>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Beef, lamb, pork or chicken</span><span class="fhmb__price">11.95</span></li>
+          </ul>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Pudding</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Chocolate belgian waffles</span><span class="fhmb__price">5.50</span><span class="fhmb__desc">vanilla pod ice-cream, gooey chocolate</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Selection of ice cream &amp; sorbet</span><span class="fhmb__price">2.00</span><span class="fhmb__desc">ask your server for today&#x27;s flavours (per scoop) (gf)</span></li>
+          </ul>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Drinks</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Glass of juice</span><span class="fhmb__price">2.00</span><span class="fhmb__desc">apple / orange / pineapple</span></li>
+          </ul>
+        </section>
+      </div>
+      <p class="fhmb__foot">If your child has a food allergy or intolerance, please ask a member of our team before ordering.</p>
+      <!-- end of the scrolling list -->
+      </div>
+      <span class="fhmb__more" aria-hidden="true">Scroll for more</span>
+      </div>
+      <div class="fhmb__book">
+        <div class="fhmb__book-links">
+          <a class="fhmb__book-btn" href="/book">Book a table</a>
+        </div>
+      </div>
+    </div>
+    <!-- FESTIVE MENU – items -->
+    <div class="fhmb__panel fhmb__panel--festive" id="fhmb-festive" data-menu="festive" role="region" aria-labelledby="fhmb-festive-title">
+      <div class="fhmb__phead">
+        <div class="fhmb__ptitles">
+          <p class="fhmb__pwhen">Available 19 November – 23 December 2026 (excluding Sundays)</p>
+          <h3 class="fhmb__ptitle" id="fhmb-festive-title" tabindex="-1">Festive Menu</h3>
+          <p class="fhmb__pprice">Two courses 30 · Three courses 36</p>
+        </div>
+        <div class="fhmb__pactions">
+          <a class="fhmb__dl" href="https://static1.squarespace.com/static/5b9e725896d455c71ef88dda/t/6ad16c9980e2bb1cb0783c00/1792109721755/FOUR_HORSESHOES_FESTIVE_MENU_26_WEB.pdf?download=true" download aria-label="Download the Festive Menu as a PDF"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span>Download</span></a>
+          <button type="button" class="fhmb__x" aria-label="Close the Festive Menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        </div>
+      </div>
+      <div class="fhmb__pscroll">
+      <div class="fhmb__pbody" tabindex="0" role="region" aria-label="Festive Menu – full list">
+      <div class="fhmb__courses">
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Festive drinks – 10 each</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Buck&#x27;s fizz</span><span class="fhmb__desc">champagne, orange juice &amp; zesty peel</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Amaretto spritz</span><span class="fhmb__desc">orange juice, amaretto</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Crick&#x27;s spritz</span><span class="fhmb__desc">blood orange gin, aperol, prosecco &amp; soda</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Salted caramel espresso martini</span><span class="fhmb__desc">tequila, salted caramel, tia maria &amp; espresso</span></li>
+          </ul>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Starters</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Classic freshwater prawn cocktail (gfo)</span><span class="fhmb__desc">succulent prawns, marie rose &amp; crunchy baby gem</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Smooth duck liver parfait (gfo)</span><span class="fhmb__desc">spiced plum compote, pickled walnuts &amp; toasted brioche</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Roasted parsnip &amp; sage soup (ve, gfo)</span><span class="fhmb__desc">curried oil, crispy onions &amp; toasted focaccia</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Hot-smoked salmon pâté (gfo)</span><span class="fhmb__desc">pickled cucumber, horseradish cream cheese, capers &amp; crusty bread</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Korean fried cauliflower (v)</span><span class="fhmb__desc">sweet &amp; spicy gochujang sauce, spring onion &amp; chilli</span></li>
+          </ul>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Mains</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Roast breast of turkey (gfo)</span><span class="fhmb__desc">honey-glazed parsnips, sage &amp; chestnut stuffing, traditional trimmings &amp; cranberry sauce</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Chestnut mushroom &amp; spinach risotto (gf, veo)</span><span class="fhmb__desc">delicious risotto, toasted sunflower seeds, fragrant garlic &amp; chilli oil</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Braised beef shin, horseradish &amp; jerusalem artichoke (gf)</span><span class="fhmb__desc">slow-cooked beef shin, buttery horseradish mash, crisp jerusalem artichokes, garlic spinach &amp; rich red wine gravy</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Roasted pavé of salmon (gf)</span><span class="fhmb__desc">warm lentil &amp; chorizo stew, baby spinach &amp; buttered tenderstem broccoli</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Roasted cornish cod loin (gf)</span><span class="fhmb__desc">saffron seafood chowder, braised fennel &amp; preserved lemon</span></li>
+          </ul>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Desserts</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Black forest chocolate brownie (gf)</span><span class="fhmb__desc">warm chocolate sauce, vanilla bean ice cream, cherry compote &amp; golden honeycomb</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Spiced pear &amp; braeburn apple crumble (ve, gf)</span><span class="fhmb__desc">vanilla ice cream or warm custard</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Proper boozy Xmas pudding (gfo)</span><span class="fhmb__desc">classic brandy butter sauce &amp; redcurrants</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Pistachio &amp; lemon curd pavlova (v, gf)</span><span class="fhmb__desc">whipped citrus lemon curd &amp; pistachio drizzle</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Artisan festive cheese (gfo)</span><span class="fhmb__price">+3.00</span><span class="fhmb__desc">sourdough crackers, mulled wine-spiced fig chutney, grapes &amp; walnuts</span></li>
+          </ul>
+        </section>
+      </div>
+      <p class="fhmb__foot">A £10 per person deposit is required to confirm all reservations. The deposit is refunded in full if you cancel at least two weeks before your booking, but is non-refundable for cancellations made less than two weeks before. (v) vegetarian · (ve) vegan · (gf) gluten free · (gfo) gluten-free option · (veo) vegan option. Food is prepared in kitchens where nuts, gluten and other allergens may be present – please tell us about any allergies before ordering; full allergen information is available. A discretionary 12% service charge is added to your bill.</p>
+      <!-- end of the scrolling list -->
+      </div>
+      <span class="fhmb__more" aria-hidden="true">Scroll for more</span>
+      </div>
+      <div class="fhmb__book">
+        <div class="fhmb__book-links">
+          <a class="fhmb__book-more" href="/festive-season">Christmas booking details</a>
+          <a class="fhmb__book-btn" href="/book">Book a table</a>
+        </div>
+      </div>
+    </div>
+    <!-- CHRISTMAS DAY MENU – items -->
+    <div class="fhmb__panel fhmb__panel--christmas" id="fhmb-christmas" data-menu="christmas" role="region" aria-labelledby="fhmb-christmas-title">
+      <div class="fhmb__phead">
+        <div class="fhmb__ptitles">
+          <p class="fhmb__pwhen">Friday 25 December 2026</p>
+          <h3 class="fhmb__ptitle" id="fhmb-christmas-title" tabindex="-1">Christmas Day Menu</h3>
+          <p class="fhmb__pprice">Adult 115 · Child (under 10) 50</p>
+        </div>
+        <div class="fhmb__pactions">
+          <a class="fhmb__dl" href="https://static1.squarespace.com/static/5b9e725896d455c71ef88dda/t/6ad16ca7b3e136794659f3dd/1792109735785/FOUR_HORSESHOES_CHRISTMAS_DAY_26_WEB.pdf?download=true" download aria-label="Download the Christmas Day Menu as a PDF"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span>Download</span></a>
+          <button type="button" class="fhmb__x" aria-label="Close the Christmas Day Menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        </div>
+      </div>
+      <div class="fhmb__pscroll">
+      <div class="fhmb__pbody" tabindex="0" role="region" aria-label="Christmas Day Menu – full list">
+      <div class="fhmb__courses">
+        <p class="fhmb__intro">A complimentary glass of Champagne (or juice for children) on arrival, with a little taste of our delicious festive nibbles to start your celebration in style.</p>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Starters</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Crayfish, avocado &amp; quail egg cocktail (gfo)</span><span class="fhmb__desc">crayfish tails, creamy avocado, soft-boiled quail eggs, preserved lemon, dill &amp; bloody mary dressing</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Roasted squash &amp; sage soup (ve, gfo)</span><span class="fhmb__desc">harissa drizzle, sunflower seed pesto, crispy onions &amp; toasted focaccia</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Oak chip smoked salmon (gfo)</span><span class="fhmb__desc">horseradish pancake, dill crème fraîche, pickled beetroot, capers</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Barbary duck &amp; chicken terrine (gfo)</span><span class="fhmb__desc">spiced plum chutney, cornichons, toasted brioche</span></li>
+          </ul>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Mains</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Traditional three-bird Christmas roast (gfo)</span><span class="fhmb__desc">honey-glazed parsnips, sage &amp; chestnut stuffing, traditional trimmings &amp; cranberry sauce</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Dry-aged beef fillet &amp; braised beef rib en croûte</span><span class="fhmb__desc">château potatoes, caramelised onion purée, glazed winter vegetables &amp; madeira-morel jus</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Artichoke en croûte (v)</span><span class="fhmb__desc">morel mushroom &amp; butter bean stew, roast squash &amp; sorrel</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Pan-roasted wild stone bass (gf)</span><span class="fhmb__desc">creamy spinach &amp; leeks, potatoes, crayfish &amp; caper butter</span></li>
+          </ul>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Desserts</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Raspberry &amp; chocolate pot (gf)</span><span class="fhmb__desc">vanilla bean chantilly, mint &amp; raspberry sorbet</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Clementine panna cotta (gfo)</span><span class="fhmb__desc">cointreau, gingerbread crumbs &amp; candied fruits</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Sticky date &amp; toffee pudding</span><span class="fhmb__desc">warm date &amp; winter-spiced sponge, brandy butterscotch sauce, candied pecans &amp; clotted cream ice cream</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Proper boozy Xmas pudding (gfo)</span><span class="fhmb__desc">classic brandy butter sauce &amp; redcurrants</span></li>
+          </ul>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Cheese</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Artisan festive cheeseboard (gfo)</span><span class="fhmb__desc">sourdough crackers, mulled wine-spiced fig chutney, grapes &amp; walnuts</span></li>
+          </ul>
+          <p class="fhmb__note fhmb__note--after">To wrap it up – handcrafted mince pies.</p>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Kids&#x27; starters</h4>
+          <p class="fhmb__note">For children under 10, with a complimentary fruit juice on arrival.</p>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Classic creamy tomato soup (v)</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Sausage roll</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Atlantic cod goujons</span></li>
+          </ul>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Kids&#x27; mains</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Free-range crispy chicken</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Traditional roast turkey</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Cheesy macaroni (v)</span></li>
+          </ul>
+        </section>
+        <section class="fhmb__sec">
+          <h4 class="fhmb__sec-title">Kids&#x27; desserts</h4>
+          <ul class="fhmb__items">
+            <li class="fhmb__item"><span class="fhmb__name">Kid&#x27;s Christmas pudding (gf)</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Pear &amp; berry crumble</span></li>
+            <li class="fhmb__item"><span class="fhmb__name">Belgian waffle</span></li>
+          </ul>
+        </section>
+      </div>
+      <p class="fhmb__foot">(v) vegetarian · (ve) vegan · (gf) gluten free · (gfo) gluten-free option · (veo) vegan option. Food is prepared in kitchens where nuts, gluten and other allergens may be present – please tell us about any allergies before ordering; full allergen information is available. A discretionary 12% service charge is added to your bill.</p>
+      <!-- end of the scrolling list -->
+      </div>
+      <span class="fhmb__more" aria-hidden="true">Scroll for more</span>
+      </div>
+      <div class="fhmb__book">
+        <div class="fhmb__book-links">
+          <a class="fhmb__book-more" href="/festive-season">Christmas booking details</a>
+          <a class="fhmb__book-btn" href="/book">Book a table</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+(function () {
+  var root = document.getElementById('fhmb');
+  if (!root || root.getAttribute('data-ready')) return;
+  root.setAttribute('data-ready', '1');
+  root.classList.add('fhmb--js');
+
+  var tiles = Array.prototype.slice.call(root.querySelectorAll('.fhmb__tile'));
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var openKey = null;
+
+  function tileFor(key) { return root.querySelector('.fhmb__tile[data-menu="' + key + '"]'); }
+  function panelFor(key) { return root.querySelector('.fhmb__panel[data-menu="' + key + '"]'); }
+
+  /* marks in brackets at the end of a name, e.g. (v), (gf, veo), (ve, s), (fww):
+     dietary marks become small badges, s adds the Sunday-menu S and fww adds the wine bottle */
+  var DIET = { v: 'vegetarian', ve: 'vegan', gf: 'gluten free', gfo: 'gluten-free option', veo: 'vegan option' };
+  var BOTTLE = root.querySelector('.fhmb__fww-key .fhmb__bottle');
+  Array.prototype.forEach.call(root.querySelectorAll('.fhmb__name'), function (el) {
+    var tags = [];
+    el.innerHTML = el.innerHTML.replace(/\s*\(((?:v|ve|gf|gfo|veo|s|fww)(?:\s*,\s*(?:v|ve|gf|gfo|veo|s|fww))*)\)\s*$/i, function (m, list) {
+      tags = list.toLowerCase().split(/\s*,\s*/);
+      return tags.filter(function (t) { return DIET[t]; }).map(function (t) {
+        return '<abbr class="fhmb__diet" title="' + DIET[t] + '">' + t + '</abbr>';
+      }).join('');
+    });
+    if (tags.indexOf('s') > -1) el.insertAdjacentHTML('afterbegin', '<abbr class="fhmb__sun" title="Sunday menu dish">S</abbr>');
+    if (tags.indexOf('fww') > -1 && BOTTLE) {
+      var b = BOTTLE.cloneNode(true); b.setAttribute('role', 'img'); b.setAttribute('aria-label', 'Fine Wine Wednesday wine ');
+      el.insertBefore(b, el.firstChild);
+    }
+    var li = el.parentNode;
+    if (li && li.classList.contains('fhmb__item')) li.setAttribute('data-tags', tags.join(' '));
+  });
+
+  /* Filter buttons at the top of each food menu (only the ones that menu has dishes for) */
+  var FILTERS = [
+    { k: 'all', label: 'All dishes' },
+    { k: 'veg', label: 'Vegetarian', tags: ['v', 've', 'veo'] },
+    { k: 'vegan', label: 'Vegan', tags: ['ve', 'veo'] },
+    { k: 'gf', label: 'Gluten free', tags: ['gf', 'gfo'] },
+    { k: 'sun', label: 'Sunday menu', tags: ['s'] }
+  ];
+  var FUNNEL = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18l-7 8.5V19l-4 2v-7.5z"/></svg>';
+  function has(li, f) {
+    var t = (li.getAttribute('data-tags') || '').split(' ');
+    return f.tags.some(function (x) { return t.indexOf(x) > -1; });
+  }
+  Array.prototype.forEach.call(root.querySelectorAll('.fhmb__panel'), function (p) {
+    if (p.querySelector('.fhmb__drops')) return;
+    var items = Array.prototype.slice.call(p.querySelectorAll('.fhmb__pbody .fhmb__item'));
+    var use = FILTERS.filter(function (f) { return !f.tags || items.some(function (li) { return has(li, f); }); });
+    if (use.length < 2) return;
+    var bar = document.createElement('div');
+    bar.className = 'fhmb__filter';
+    bar.setAttribute('role', 'group');
+    bar.setAttribute('aria-label', 'Filter the dishes');
+    bar.innerHTML = '<span class="fhmb__filter-k">' + FUNNEL + 'Filter</span>' + use.map(function (f) {
+      return '<button type="button" class="fhmb__chip" data-f="' + f.k + '" aria-pressed="' + (f.k === 'all') + '">' + f.label + '</button>';
+    }).join('');
+    var box = p.querySelector('.fhmb__pscroll'), body = p.querySelector('.fhmb__pbody');
+    p.insertBefore(bar, box);
+    var none = document.createElement('p');
+    none.className = 'fhmb__nomatch';
+    none.textContent = 'No dishes on this menu match all of the filters you have chosen.';
+    none.hidden = true;
+    body.insertBefore(none, body.firstChild);
+    /* tap filters to switch them on or off – with more than one on, a dish has to match all of them */
+    bar.addEventListener('click', function (e) {
+      var btn = e.target.closest ? e.target.closest('.fhmb__chip') : null;
+      if (!btn) return;
+      var chips = Array.prototype.slice.call(bar.querySelectorAll('.fhmb__chip'));
+      var allBtn = bar.querySelector('.fhmb__chip[data-f="all"]');
+      if (btn === allBtn) {
+        chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c === allBtn)); });
+      } else {
+        btn.setAttribute('aria-pressed', String(btn.getAttribute('aria-pressed') !== 'true'));
+      }
+      var on = [];
+      chips.forEach(function (c) {
+        var k = c.getAttribute('data-f');
+        if (k !== 'all' && c.getAttribute('aria-pressed') === 'true') FILTERS.forEach(function (x) { if (x.k === k) on.push(x); });
+      });
+      allBtn.setAttribute('aria-pressed', String(on.length === 0));
+      items.forEach(function (li) {
+        li.classList.toggle('is-hidden', !on.every(function (f) { return has(li, f); }));
+      });
+      var shown = 0;
+      Array.prototype.forEach.call(p.querySelectorAll('.fhmb__sec'), function (sec) {
+        var any = sec.querySelector('.fhmb__item:not(.is-hidden)');
+        sec.classList.toggle('is-hidden', !any);
+        if (any) shown++;
+      });
+      none.hidden = shown > 0;
+      p.classList.toggle('is-filtered', on.length > 0);
+      body.scrollTop = 0;
+      fit(p);
+      more(box);
+    });
+  });
+
+  /* "Scroll for more" shows while there is more of the menu below */
+  function more(box) {
+    var b = box.querySelector('.fhmb__pbody');
+    box.classList.toggle('is-more', b.scrollHeight - b.scrollTop - b.clientHeight > 8);
+  }
+  Array.prototype.forEach.call(root.querySelectorAll('.fhmb__pscroll'), function (box) {
+    box.querySelector('.fhmb__pbody').addEventListener('scroll', function () { more(box); }, { passive: true });
+  });
+
+  /* opening a drink type near the bottom of the box scrolls it up into view */
+  Array.prototype.forEach.call(root.querySelectorAll('.fhmb__drop'), function (d) {
+    d.addEventListener('toggle', function () {
+      var b = d.parentNode; while (b && !(b.classList && b.classList.contains('fhmb__pbody'))) b = b.parentNode;
+      if (!b) return;
+      if (d.open) {
+        var top = d.getBoundingClientRect().top - b.getBoundingClientRect().top;
+        if (top > b.clientHeight * 0.45) b.scrollTo({ top: b.scrollTop + top - 12, behavior: reduce ? 'auto' : 'smooth' });
+      }
+      more(b.parentNode);
+    });
+  });
+
+  /* height of the site header if it stays on screen, so menus aren't hidden under it */
+  function headerGap() {
+    var h = document.querySelector('#header, header.header'), gap = 16;
+    if (h) {
+      var pos = getComputedStyle(h).position;
+      if (pos === 'fixed' || pos === 'sticky') gap = Math.max(16, h.getBoundingClientRect().bottom + 12);
+    }
+    return gap;
+  }
+
+  /* size the scrolling box so the title bar and the booking bar both fit on screen */
+  function fit(p) {
+    var b = p.querySelector('.fhmb__pbody');
+    var room = window.innerHeight - headerGap() - (p.offsetHeight - b.offsetHeight) - 28;
+    b.style.maxHeight = Math.max(240, Math.min(620, room)) + 'px';
+  }
+
+  /* put the open menu straight after the row of tiles it belongs to */
+  function place(panel, tile) {
+    var top = tile.offsetTop, last = tile;
+    tiles.forEach(function (t) { if (Math.abs(t.offsetTop - top) < 4) last = t; });
+    last.parentNode.insertBefore(panel, last.nextSibling);
+  }
+
+  function close(returnFocus) {
+    if (!openKey) return;
+    var t = tileFor(openKey), p = panelFor(openKey);
+    p.classList.remove('is-open');
+    t.setAttribute('aria-expanded', 'false');
+    openKey = null;
+    if (returnFocus) t.focus();
+  }
+
+  function open(key) {
+    var t = tileFor(key), p = panelFor(key);
+    if (!t || !p) return;
+    close(false);
+    place(p, t);
+    p.classList.add('is-open');
+    t.setAttribute('aria-expanded', 'true');
+    openKey = key;
+    var box = p.querySelector('.fhmb__pscroll');
+    fit(p);
+    box.querySelector('.fhmb__pbody').scrollTop = 0;
+    more(box);
+    /* scroll the page so the whole menu box is on screen */
+    var gap = headerGap(), r = p.getBoundingClientRect();
+    if (r.top < gap || r.bottom > window.innerHeight) {
+      window.scrollTo({ top: window.pageYOffset + r.top - gap, behavior: reduce ? 'auto' : 'smooth' });
+    }
+    var title = p.querySelector('.fhmb__ptitle');
+    if (title) { try { title.focus({ preventScroll: true }); } catch (e) {} }
+  }
+
+  tiles.forEach(function (t) {
+    t.addEventListener('click', function () {
+      var key = t.getAttribute('data-menu');
+      if (openKey === key) close(false); else open(key);
+    });
+  });
+  Array.prototype.forEach.call(root.querySelectorAll('.fhmb__x'), function (b) {
+    b.addEventListener('click', function () { close(true); });
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Escape' || e.key === 'Esc') && openKey) close(true);
+  });
+
+  /* keep the open menu under the right row when the screen size changes */
+  var rt;
+  window.addEventListener('resize', function () {
+    clearTimeout(rt);
+    rt = setTimeout(function () {
+      if (!openKey) return;
+      var p = panelFor(openKey), active = document.activeElement, inside = p.contains(active);
+      p.classList.remove('is-open');
+      place(p, tileFor(openKey));
+      p.classList.add('is-open');
+      fit(p);
+      more(p.querySelector('.fhmb__pscroll'));
+      if (inside) { try { active.focus({ preventScroll: true }); } catch (e) {} }
+    }, 150);
+  });
+
+  /* links like …/#menu-drinks open that menu straight away */
+  var m = (location.hash || '').match(/^#menu-(\w+)/);
+  if (m && panelFor(m[1])) open(m[1]);
+})();
+</script>
+</section>
+</div>
+</div>
+</div>

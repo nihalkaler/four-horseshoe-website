@@ -1,0 +1,91 @@
+<!-- =====================================================================
+     THE FOUR HORSESHOES – POLICIES PAGE
+     One Code Block holds the whole page, in the same style as the home page.
+     The wording is exactly as it was on the old page (only the e-mail
+     address changed). To change the wording, edit the text between
+     <p> and </p>. The head-office address is at the bottom, one line each.
+     ===================================================================== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ---------- let this block run edge to edge (this section only) ---------- */
+.page-section:has(.fhr){padding-bottom:0 !important;min-height:0 !important;background:#FBF8EF !important}
+.page-section:has(.fhr) .section-border,.page-section:has(.fhr) .section-background{display:none !important}
+.page-section:has(.fhr) .content-wrapper{max-width:none !important;width:100% !important;padding:0 !important;margin:0 !important}
+.page-section:has(.fhr) .content,.page-section:has(.fhr) .sqs-layout{width:100% !important;max-width:none !important}
+.page-section:has(.fhr) .fluid-engine{display:block !important;padding:0 !important;margin:0 !important;width:100% !important}
+.page-section:has(.fhr) .fe-block{width:100% !important;max-width:none !important;margin:0 !important;padding:0 !important}
+.page-section:has(.fhr) .row,.page-section:has(.fhr) .col{width:100% !important;margin:0 !important;padding:0 !important}
+.page-section:has(.fhr) .sqs-layout .sqs-row .sqs-block:has(.fhr),.sqs-block:has(.fhr),.sqs-block:has(.fhr) .sqs-block-content{padding:0 !important;margin:0 !important}
+.page-section:has(.fhr):not(:first-child){padding-top:0 !important}
+
+/* ---------- design tokens (same as the home page) ---------- */
+.fhr{--ink:#1E262E;--cream:#FBF8EF;--card:#FFFDF7;--sand:#F3ECDB;--line:#E6DCC3;--line2:#CDBF9F;--gold:#7A5B1E;--gold-lt:#D9B66E;--body:#3A3934;--muted:#55524B;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;--sans:'Jost','Gill Sans','Trebuchet MS',sans-serif;
+  --pad:clamp(20px,4vw,48px);
+  font-family:var(--sans);font-size:17px;line-height:1.75;color:var(--body);background:var(--cream);
+  width:100%;max-width:100%;min-width:0;box-sizing:border-box;overflow-x:clip;-webkit-font-smoothing:antialiased;text-align:left}
+.fhr *,.fhr *::before,.fhr *::after{box-sizing:border-box}
+.fhr p,.fhr h1,.fhr address{margin:0;padding:0}
+.fhr a{color:var(--gold);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;transition:color .2s}
+.fhr a:hover{color:var(--ink)}
+.fhr a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.fhr .fhr-pattern{background-color:#FFFDF4;background-image:url(https://images.squarespace-cdn.com/content/v1/5b9e725896d455c71ef88dda/b6c35055-2aae-451f-8149-be0088a1d9ba/pub_background_full.png);background-repeat:repeat;background-size:2560px 2000px;background-position:0 0}
+
+/* ---------- 1. heading ---------- */
+.fhr .fhp-hero{padding:96px var(--pad) 88px;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}
+.fhr .fhp-h1{font-family:var(--serif);font-weight:600;font-size:clamp(50px,6.4vw,84px);line-height:1;letter-spacing:-.01em;text-transform:none;color:var(--ink)}
+.fhr .fhp-orn{display:flex;align-items:center;gap:16px;width:min(340px,72%);color:var(--gold)}
+.fhr .fhp-orn::before,.fhr .fhp-orn::after{content:"";flex:1;height:1px;background:var(--line2)}
+.fhr .fhp-orn svg{flex:none}
+
+/* ---------- 2. the policy text ---------- */
+.fhr .fhp-body{background:var(--sand);padding:88px var(--pad) 112px}
+.fhr .fhp-card{max-width:820px;margin:0 auto;padding:72px clamp(24px,7vw,84px) 64px;background:var(--card);border:1px solid var(--line);border-radius:4px;box-shadow:0 24px 48px -30px rgba(30,38,46,.28);position:relative}
+.fhr .fhp-card::before{content:"";position:absolute;top:0;left:50%;width:72px;height:3px;margin-left:-36px;background:var(--gold-lt);border-radius:0 0 2px 2px}
+.fhr .fhp-text{display:flex;flex-direction:column;gap:22px}
+.fhr .fhp-text p{color:var(--body);overflow-wrap:break-word}
+.fhr .fhp-text p:first-child{font-family:var(--serif);font-size:24px;line-height:1.5;font-weight:500;color:var(--ink)}
+.fhr .fhp-text p:first-child::first-letter{float:left;font-family:var(--serif);font-weight:600;font-size:76px;line-height:.82;color:var(--gold);margin:7px 12px 0 -2px}
+.fhr .fhp-addr{margin-top:44px;padding-top:30px;border-top:1px solid var(--line2);font-style:normal;font-size:14px;line-height:2;letter-spacing:.2em;color:var(--ink);text-align:center}
+
+@media (max-width:640px){
+  .fhr{font-size:16px}
+  .fhr .fhp-hero{padding:56px var(--pad) 52px}
+  .fhr .fhp-body{padding:40px 14px 64px}
+  .fhr .fhp-card{padding:44px 22px 40px}
+  .fhr .fhp-text{gap:18px}
+  .fhr .fhp-text p:first-child{font-size:21px}
+  .fhr .fhp-text p:first-child::first-letter{font-size:62px;margin-top:6px}
+  .fhr .fhp-addr{margin-top:34px;padding-top:24px;font-size:13px;letter-spacing:.16em}
+}
+</style>
+
+<div class="fhr">
+
+  <!-- ============ 1. HEADING ============ -->
+  <section class="fhr-pattern fhp-hero" aria-labelledby="fhp-h1">
+    <h1 class="fhp-h1" id="fhp-h1">Policies</h1>
+    <div class="fhp-orn" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 4.5v6.5a5.5 5.5 0 0 0 11 0V4.5"/><path d="M5 4.5h3M16 4.5h3"/><circle cx="7.6" cy="8.5" r=".6" fill="currentColor"/><circle cx="16.4" cy="8.5" r=".6" fill="currentColor"/><circle cx="8.6" cy="13.2" r=".6" fill="currentColor"/><circle cx="15.4" cy="13.2" r=".6" fill="currentColor"/></svg>
+    </div>
+  </section>
+
+  <!-- ============ 2. THE POLICY TEXT ============ -->
+  <section class="fhp-body">
+    <div class="fhp-card">
+      <div class="fhp-text">
+        <p>As a company Peppercorn Pubs is committed to protecting your personal information, and in turn your privacy. Any information you provide to this web site will only be used in accordance with this privacy statement. Occasionally in order to improve our privacy protection measures we may amend this privacy policy. It is therefore your responsibility to check this page occasionally to make sure you are still happy with this privacy policy.</p>
+        <p>We may collect the following information from you: Your full name, your full address, your date of birth, your sex, your age, your contact telephone numbers, your contact fax numbers, your e-mail address, your preferences in relation to our company and other information which is specific to any surveys or offers we are running.</p>
+        <p>We try our best to keep your information as secure as possible by putting in place suitable electronic, physical and managerial procedures to keep your information secure. The information you provide us with will only be used for the following purposes: To help you with a query, to improve our products and services and to send you promotional offers and information which you may find of interest – using either the mobile phone number or the e-mail address you have provided us. These offers and information are provided free of charge, unless otherwise stated.</p>
+        <p>This web site uses web tracking logs and cookies in order to allow us to identify which pages are being used most frequently, and how you are arriving at our web site. A cookie is a simple file placed on your PC, and cookies are a normal common part of the Internet. By default your web browser will allow us to store a cookie on your computer, if you wish, you may consult your browser documentation to block our cookies. This will in no way impair your experience of our web site.</p>
+        <p>In reference to this web sites Terms Of Use, we take no responsibility for any information collected by web sites or sources of information to which you have arrived at via a link from our site. We have no control over these web sites or sources of information, and are in no way liable for their use of any personal information they may collect from you.</p>
+        <p>When providing us with information via web site forms, you may have the option of informing us that you don’t want your personal information collecting. In these situations please look for a tick box or radio box within the form, stating that you don’t wish for us to contact you in the future. If this option is not present, please assume that your data will be stored, collected and used by us. You have the right at any time to have your personal information removed from our database. Simply email:&nbsp;<a href="mailto:tfscpub@gmail.com">tfscpub@gmail.com</a> with your name and e-mail address and we will remove you from our database at the earliest opportunity. Alternately you may write to us at our head offices address at the bottom of this document.</p>
+        <p>As a company it is not our policy to pass on, sell or lease your personal information to third parties unless required to by law, or as part of a promotion that clearly states we will share you information with a named third party. Under the Data Protection Act 1998 you may request details of the information we hold on you. A small fee may be payable. If you would like a copy of the information write to us at our head office address:</p>
+      </div>
+      <address class="fhp-addr">PEPPERCORN PUB CO LTD<br>54A CHURCH ROAD<br>ASHFORD<br>TW15 2TS</address>
+    </div>
+  </section>
+
+</div>

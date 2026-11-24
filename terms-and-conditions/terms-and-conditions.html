@@ -1,0 +1,121 @@
+<!-- =====================================================================
+     THE FOUR HORSESHOES – TERMS + CONDITIONS PAGE
+     One Code Block holds the whole page, in the same style as the home page.
+     The wording is exactly as it was on the old page. To change it, edit
+     the text between the tags. Each condition is one <li> … </li>.
+     ===================================================================== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ---------- let this block run edge to edge (this section only) ---------- */
+.page-section:has(.fhr){padding-bottom:0 !important;min-height:0 !important;background:#FBF8EF !important}
+.page-section:has(.fhr) .section-border,.page-section:has(.fhr) .section-background{display:none !important}
+.page-section:has(.fhr) .content-wrapper{max-width:none !important;width:100% !important;padding:0 !important;margin:0 !important}
+.page-section:has(.fhr) .content,.page-section:has(.fhr) .sqs-layout{width:100% !important;max-width:none !important}
+.page-section:has(.fhr) .fluid-engine{display:block !important;padding:0 !important;margin:0 !important;width:100% !important}
+.page-section:has(.fhr) .fe-block{width:100% !important;max-width:none !important;margin:0 !important;padding:0 !important}
+.page-section:has(.fhr) .row,.page-section:has(.fhr) .col{width:100% !important;margin:0 !important;padding:0 !important}
+.page-section:has(.fhr) .sqs-layout .sqs-row .sqs-block:has(.fhr),.sqs-block:has(.fhr),.sqs-block:has(.fhr) .sqs-block-content{padding:0 !important;margin:0 !important}
+.page-section:has(.fhr):not(:first-child){padding-top:0 !important}
+
+/* ---------- design tokens (same as the home page) ---------- */
+.fhr{--ink:#1E262E;--cream:#FBF8EF;--card:#FFFDF7;--sand:#F3ECDB;--line:#E6DCC3;--line2:#CDBF9F;--gold:#7A5B1E;--gold-lt:#D9B66E;--body:#3A3934;--muted:#55524B;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;--sans:'Jost','Gill Sans','Trebuchet MS',sans-serif;
+  --pad:clamp(20px,4vw,48px);
+  font-family:var(--sans);font-size:17px;line-height:1.75;color:var(--body);background:var(--cream);
+  width:100%;max-width:100%;min-width:0;box-sizing:border-box;overflow-x:clip;-webkit-font-smoothing:antialiased;text-align:left}
+.fhr *,.fhr *::before,.fhr *::after{box-sizing:border-box}
+.fhr p,.fhr h1,.fhr h2,.fhr ul,.fhr li,.fhr address{margin:0;padding:0}
+.fhr a{color:var(--gold);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;transition:color .2s}
+.fhr a:hover{color:var(--ink)}
+.fhr a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.fhr .fhr-pattern{background-color:#FFFDF4;background-image:url(https://images.squarespace-cdn.com/content/v1/5b9e725896d455c71ef88dda/b6c35055-2aae-451f-8149-be0088a1d9ba/pub_background_full.png);background-repeat:repeat;background-size:2560px 2000px;background-position:0 0}
+
+/* ---------- 1. heading ---------- */
+.fhr .fht-hero{padding:96px var(--pad) 88px;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}
+.fhr .fht-h1{font-family:var(--serif);font-weight:600;font-size:clamp(50px,6.4vw,84px);line-height:1;letter-spacing:-.01em;text-transform:none;color:var(--ink)}
+.fhr .fht-orn{display:flex;align-items:center;gap:16px;width:min(340px,72%);color:var(--gold)}
+.fhr .fht-orn::before,.fhr .fht-orn::after{content:"";flex:1;height:1px;background:var(--line2)}
+.fhr .fht-orn svg{flex:none}
+
+/* ---------- 2. the terms ---------- */
+.fhr .fht-body{background:var(--sand);padding:88px var(--pad) 112px}
+.fhr .fht-card{max-width:860px;margin:0 auto;padding:72px clamp(24px,7vw,84px) 68px;background:var(--card);border:1px solid var(--line);border-radius:4px;box-shadow:0 24px 48px -30px rgba(30,38,46,.28);position:relative}
+.fhr .fht-card::before{content:"";position:absolute;top:0;left:50%;width:72px;height:3px;margin-left:-36px;background:var(--gold-lt);border-radius:0 0 2px 2px}
+.fhr .fht-part + .fht-part{margin-top:52px;padding-top:48px;border-top:1px solid var(--line2)}
+.fhr .fht-intro{font-family:var(--serif);font-size:23px;line-height:1.55;font-weight:500;color:var(--ink)}
+.fhr .fht-intro em{font-style:italic}
+.fhr .fht-office{margin-top:26px;padding:22px 26px;background:var(--sand);border-left:3px solid var(--gold-lt);border-radius:0 3px 3px 0;font-style:normal;font-size:16px;line-height:1.75;color:var(--ink)}
+.fhr .fht-office span:first-child{font-weight:500}
+.fhr .fht-h2{font-family:var(--serif);font-weight:600;font-size:clamp(28px,3vw,36px);line-height:1.15;letter-spacing:0;text-transform:none;color:var(--ink);margin-bottom:24px;text-wrap:balance}
+.fhr .fht-list{list-style:none;display:flex;flex-direction:column;gap:16px}
+.fhr .fht-list li{position:relative;padding:0 0 16px 34px;border-bottom:1px solid var(--line)}
+.fhr .fht-list li:last-child{padding-bottom:0;border-bottom:0}
+.fhr .fht-list li::before{content:"";position:absolute;left:4px;top:.62em;width:9px;height:9px;border:1.5px solid var(--gold);transform:rotate(45deg)}
+.fhr .fht-text{color:var(--body)}
+
+@media (max-width:640px){
+  .fhr{font-size:16px}
+  .fhr .fht-hero{padding:56px var(--pad) 52px}
+  .fhr .fht-h1{font-size:46px}
+  .fhr .fht-body{padding:40px 14px 64px}
+  .fhr .fht-card{padding:44px 22px 40px}
+  .fhr .fht-part + .fht-part{margin-top:40px;padding-top:36px}
+  .fhr .fht-intro{font-size:20px}
+  .fhr .fht-office{padding:18px 18px;font-size:15px}
+  .fhr .fht-h2{margin-bottom:20px}
+  .fhr .fht-list li{padding-left:26px}
+  .fhr .fht-list li::before{left:2px}
+}
+</style>
+
+<div class="fhr">
+
+  <!-- ============ 1. HEADING ============ -->
+  <section class="fhr-pattern fht-hero" aria-labelledby="fht-h1">
+    <h1 class="fht-h1" id="fht-h1">Terms + Conditions</h1>
+    <div class="fht-orn" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 4.5v6.5a5.5 5.5 0 0 0 11 0V4.5"/><path d="M5 4.5h3M16 4.5h3"/><circle cx="7.6" cy="8.5" r=".6" fill="currentColor"/><circle cx="16.4" cy="8.5" r=".6" fill="currentColor"/><circle cx="8.6" cy="13.2" r=".6" fill="currentColor"/><circle cx="15.4" cy="13.2" r=".6" fill="currentColor"/></svg>
+    </div>
+  </section>
+
+  <!-- ============ 2. THE TERMS ============ -->
+  <section class="fht-body">
+    <div class="fht-card">
+
+      <div class="fht-part">
+        <p class="fht-intro">We hope you are enjoying browsing our web site. Although we try our best to ensure that you have the best experience possible, occasionally things happen out of human error or out of our control. In order to protect both parties, any persons using this web site are agreeing to these conditions in conjunction with our Privacy Policy and Copyright Notice. Throughout this document, the terms “you” and “your” refers to the user or viewer of this web site. “<em>Peppercorn Pubs Ltd.</em>”, “us” or “we” refers to the owners of this web site whose registered office is:</p>
+        <address class="fht-office"><span>Peppercorn Pubs Ltd</span><br>T/A The Four Horseshoes<br>13-15 Burrow Hill Green,<br>Chobham,<br>Surrey.<br>GU24 8QP</address>
+      </div>
+
+      <div class="fht-part">
+        <h2 class="fht-h2">Users of this web site are bound by the following conditions of use:</h2>
+        <ul class="fht-list">
+          <li>All content contained within this web site is subject to change without notice.</li>
+          <li>This web site contains content that is either owned by, or licensed for use by Peppercorn Pubs Ltd. Reproduction of this information in any way is prohibited, unless explicitly allowed by our copyright notice – which is contained within this document.</li>
+          <li>You may not link to this web site from other web sites sites or documents unless you have prior written permission from us.</li>
+          <li>Although we aim to make the site available to visitors at all times, due to the nature of the Internet, We cannot guarantee this web sites availability at all times.</li>
+          <li>The content of this web site is for your general information only. We cannot, nor do we guarantee the accuracy, timeliness or suitability of the information contained within this site for any given purpose.</li>
+          <li>By using the site you acknowledge that the information contained within the site may contain inaccuracies or errors. We explicitly state we shall not be liable under the fullest extent of the law for any information, including such errors or inaccuracies, that is acted upon by you the user or any third parties.</li>
+          <li>It is your responsibility to make sure that any information, products or services detailed on this web site are suitable for you and meet your requirements.</li>
+          <li>Unauthorised use of this web site, including attempting to manipulate its content, may lead to us making a legal claim for damages against you. Unauthorised use of this site may also mean you are committing a criminal offence.</li>
+          <li>This web site may contain links to other web sites or sources of information. We take no responsibility for the accuracy or suitability of this information, of which we have no control over. We also take no responsibility for the protection and privacy of any information you provide to the owners of external web sites or sources of information.</li>
+          <li>This web site is subject to UK law. Any misuse of this site may be an offence under the ‘Computer Misuse Act 1990’, and the ‘Criminal Damage Act 1971’ – including any amendments made to those acts since.</li>
+        </ul>
+      </div>
+
+      <div class="fht-part">
+        <h2 class="fht-h2">Copyright Notice</h2>
+        <p class="fht-text">The reproduction and distribution of any of this web sites content without prior written permission from Peppercorn Pubs Ltd. is forbidden. Everything contained within this site is either copyright of Peppercorn Pubs Ltd., or of the organisation who have licensed that information to us. Infringement of copyright is a criminal offence. You may print or download to a local hard disk information contained within this site for your own personal non-commercial use only. You may not without our prior written permission distribute, store, transmit or pass off as your own any information within this web site.</p>
+      </div>
+
+      <div class="fht-part">
+        <h2 class="fht-h2">Privacy Policy</h2>
+        <p class="fht-text">Please&nbsp;<a href="/policies" title="PRIVACY POLICY">click to view</a>&nbsp;our current Privacy Policy, which explains how we will and will not use your data and personal information.</p>
+      </div>
+
+    </div>
+  </section>
+
+</div>

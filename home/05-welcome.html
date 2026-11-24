@@ -1,0 +1,48 @@
+<!-- ==================================================================
+     WELCOME TO THE SHOES
+     Edit the words between the tags. The painting is further down – see the note there.
+     ================================================================== -->
+<style>
+  /* the painting as a Polaroid: thin even border, deep bottom border with the caption, soft watercolour wash behind */
+  .fhr .fhr-welcome__art{position:relative;margin:0;width:100%;max-width:600px;justify-self:center;padding:30px}
+  .fhr .fhr-welcome__art::before{content:"";position:absolute;inset:-6px;z-index:0;pointer-events:none;
+    border-radius:46% 54% 50% 50% / 52% 46% 54% 48%;
+    background:
+      radial-gradient(58% 52% at 74% 20%,rgba(120,172,214,.62),transparent 70%),
+      radial-gradient(52% 48% at 20% 84%,rgba(138,182,104,.5),transparent 72%),
+      radial-gradient(40% 36% at 88% 86%,rgba(160,92,56,.24),transparent 70%);
+    filter:blur(11px)}
+  .fhr .fhr-welcome__mount{position:relative;z-index:1;background:#FFFEFB;padding:5.5% 5.5% 0;border:1px solid #ECE5D3;border-radius:2px;
+    box-shadow:0 2px 4px rgba(30,38,46,.06),0 30px 50px -24px rgba(30,38,46,.38)}
+  .fhr .fhr-welcome__mount img{display:block;width:100%;height:auto;aspect-ratio:4/3;box-shadow:inset 0 0 0 1px rgba(0,0,0,.04)}
+  .fhr .fhr-welcome__cap{margin:0;display:flex;align-items:center;justify-content:center;min-height:0;padding:6.5% 4% 8%;text-align:center;font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.25;color:var(--muted)}
+  @media (max-width:900px){
+    .fhr .fhr-welcome__art{max-width:520px;padding:20px}
+    .fhr .fhr-welcome__cap{font-size:clamp(15px,4.3vw,17px);padding-left:2%;padding-right:2%}
+  }
+</style>
+<div class="fhr">
+  <section class="fhr-sec fhr-welcome fhr-pattern" aria-labelledby="fhr-welcome-h">
+    <div class="fhr-wrap fhr-welcome__grid">
+      <div class="fhr-welcome__copy fhr-reveal">
+        <p class="fhr-eyebrow">Welcome to The Shoes</p>
+        <h2 class="fhr-h2" id="fhr-welcome-h">Your local on Burrow Hill Green</h2>
+        <p class="fhr-lede">The Four Horseshoes – The Shoes to our regulars – sits on Burrow Hill Green at the edge of Chobham Common. It's an independent freehouse with all of its old character intact: a bar for a quick pint, dining rooms for a long lunch, and a heated Stable and terrace for when the sun's out (or isn't).</p>
+        <p class="fhr-lede">Our kitchen cooks seasonal British food from 12 noon every day, from 28-day dry-aged steaks to proper Sunday roasts. Book ahead for the dining room, or just drop in – walk-ins are always welcome in the bar.</p>
+        <div class="fhr-btns" style="margin-top:8px">
+          <a class="fhr-btn fhr-btn--solid" href="/book">Book a table</a>
+          <a class="fhr-btn fhr-btn--line" href="/contact">Contact us</a>
+        </div>
+      </div>
+      <!-- PAINTING: watercolour of the pub, built into the code so nothing needs uploading.
+           To use a different picture, upload it to Squarespace and put its address inside src="…".
+           The words under the painting are in the <figcaption> line. -->
+      <figure class="fhr-welcome__art fhr-reveal">
+        <div class="fhr-welcome__mount">
+          <img src="https://static1.squarespace.com/static/5b9e725896d455c71ef88dda/t/6ad70ceb10a3e67ed5c8b20a/1792478443589/WhatsApp+Image+2026-10-18+at+12.52.49+AM.jpeg" alt="Watercolour painting of The Four Horseshoes on a sunny day: the white pub with its tiled roofs, hanging baskets and pub sign, people at the picnic tables and the green in front" width="800" height="600" loading="lazy">
+          <figcaption class="fhr-welcome__cap">The Four Horseshoes, Burrow Hill Green</figcaption>
+        </div>
+      </figure>
+    </div>
+  </section>
+</div>

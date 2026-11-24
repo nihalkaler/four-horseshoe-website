@@ -1,0 +1,148 @@
+<!-- =====================================================================
+     THE FOUR HORSESHOES – SITE FOOTER (matches the new home page)
+     Lives in: the Footer, as one Code Block (Edit Footer).
+     To change the words, hours or links, edit the text between the tags.
+     Opening hours: one <tr> line per day – Pub, then Kitchen.
+     ===================================================================== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* let the footer run edge to edge */
+.page-section:has(.fhf){padding:0 !important;min-height:0 !important;background:#1E262E !important}
+.page-section:has(.fhf) .section-border,.page-section:has(.fhf) .section-background{display:none !important}
+.page-section:has(.fhf) .content-wrapper{max-width:none !important;width:100% !important;padding:0 !important;margin:0 !important}
+.page-section:has(.fhf) .content,.page-section:has(.fhf) .sqs-layout{width:100% !important;max-width:none !important}
+.page-section:has(.fhf) .fluid-engine{display:block !important;padding:0 !important;margin:0 !important;width:100% !important}
+.page-section:has(.fhf) .fe-block{width:100% !important;max-width:none !important;margin:0 !important;padding:0 !important}
+.page-section:has(.fhf) .row,.page-section:has(.fhf) .col{width:100% !important;margin:0 !important;padding:0 !important}
+.page-section:has(.fhf) .sqs-layout .sqs-row .sqs-block:has(.fhf),.sqs-block:has(.fhf),.sqs-block:has(.fhf) .sqs-block-content{padding:0 !important;margin:0 !important}
+
+.fhf{--ink:#1E262E;--cream:#FBF8EF;--on:#F4EBD3;--on2:#C9C0AC;--gold:#D9B66E;--rule:rgba(244,235,211,.16);
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;--sans:'Jost','Gill Sans','Trebuchet MS',sans-serif;
+  background:var(--ink);color:var(--on);font-family:var(--sans);font-size:15.5px;line-height:1.65;text-align:left;-webkit-font-smoothing:antialiased;box-sizing:border-box;width:100%}
+.fhf *,.fhf *::before,.fhf *::after{box-sizing:border-box}
+.fhf p,.fhf h2,.fhf ul,.fhf li,.fhf table{margin:0;padding:0}
+.fhf ul{list-style:none}
+.fhf li::before{content:none !important}
+.fhf a{color:var(--on) !important;text-decoration:none !important;transition:color .2s}
+.fhf a:hover{color:var(--gold) !important;opacity:1}
+.fhf a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.fhf .fhf__in{max-width:1180px;margin:0 auto;padding:80px clamp(20px,4vw,48px) 0}
+.fhf .fhf__top{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.9fr) minmax(0,.9fr) minmax(0,1.3fr);gap:40px 48px;padding-bottom:56px}
+.fhf .fhf__brand{display:flex;flex-direction:column;gap:26px;align-items:center;text-align:center}
+.fhf .fhf__logo{display:block;width:min(240px,100%)}
+.fhf .fhf__logo-svg{display:block;width:100%;height:auto}
+.fhf .fhf__cta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.fhf .fhf__btn{display:inline-flex;align-items:center;justify-content:center;min-width:190px;min-height:46px;padding:0 20px;border:1px solid var(--cream);border-radius:2px;background:var(--cream);color:var(--ink) !important;font-size:13px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;transition:background .2s,color .2s}
+.fhf .fhf__btn:hover{background:#FFFFFF;color:var(--ink) !important}
+.fhf .fhf__btn--line{background:transparent;color:var(--cream) !important;border-color:rgba(251,248,239,.6)}
+.fhf .fhf__btn--line:hover{background:var(--cream);color:var(--ink) !important}
+.fhf .fhf__h{font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.fhf .fhf__col p{color:var(--on)}
+.fhf .fhf__col p+p,.fhf .fhf__col p+.fhf__more,.fhf .fhf__col p+.fhf__social{margin-top:14px}
+.fhf .fhf__more{display:inline-block;font-weight:500;letter-spacing:.04em;border-bottom:1px solid rgba(217,182,110,.5)}
+.fhf .fhf__social{display:flex;flex-direction:column;gap:6px}
+.fhf .fhf__social a{display:inline-flex;align-items:center;gap:7px}
+.fhf .fhf__social svg{opacity:.7}
+.fhf .fhf__hours{width:100%;border-collapse:collapse;font-size:14.5px}
+.fhf .fhf__hours th{font-size:11.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--on2);text-align:left;padding:0 0 8px;border-bottom:1px solid var(--rule)}
+.fhf .fhf__hours td{padding:7px 10px 7px 0;border-bottom:1px solid var(--rule);color:var(--on);white-space:nowrap;vertical-align:top}
+.fhf .fhf__hours td:first-child{color:var(--on2);width:3.2em}
+/* centred columns (Find us, Get in touch, Opening hours) */
+.fhf .fhf__col--center{text-align:center}
+.fhf .fhf__col--center .fhf__social{align-items:center}
+.fhf .fhf__col--center .fhf__hours th,.fhf .fhf__col--center .fhf__hours td{text-align:center;padding-left:5px;padding-right:5px}
+.fhf .fhf__col--center .fhf__hours th:first-child,.fhf .fhf__col--center .fhf__hours td:first-child{text-align:left;padding-left:0}
+.fhf .fhf__sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.fhf .fhf__bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px 32px;padding:24px 0 30px;border-top:1px solid var(--rule)}
+.fhf .fhf__links{display:flex;flex-wrap:wrap;gap:8px 22px}
+.fhf .fhf__links a{font-size:12.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--on2) !important}
+.fhf .fhf__links a:hover{color:var(--gold) !important}
+.fhf .fhf__copy{font-size:13px;color:var(--on2)}
+
+/* the "Book a table" button that stays in the corner of every page */
+a.t-top{position:fixed;right:24px;bottom:24px;z-index:999;display:inline-flex;align-items:center;min-height:48px;padding:0 22px;background:#1E262E;color:#FBF8EF !important;border:1px solid rgba(251,248,239,.35);border-radius:2px;box-shadow:0 10px 26px rgba(20,24,28,.28);font-family:'Jost','Gill Sans','Trebuchet MS',sans-serif;font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;text-decoration:none !important;line-height:1;transition:background .2s}
+a.t-top:hover{background:#2E3A44;color:#FBF8EF !important}
+
+@media (max-width:1000px){
+  .fhf .fhf__top{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:640px){
+  .fhf{font-size:15px}
+  .fhf .fhf__in{padding-top:56px}
+  .fhf .fhf__top{grid-template-columns:1fr;gap:34px;padding-bottom:40px}
+  .fhf .fhf__logo{width:200px}
+  .fhf .fhf__bar{flex-direction:column;align-items:flex-start;padding-bottom:96px}
+  a.t-top{right:16px;bottom:16px;min-height:44px;padding:0 16px;font-size:11.5px;letter-spacing:.12em}
+}
+</style>
+
+<footer class="fhf">
+  <div class="fhf__in">
+    <div class="fhf__top">
+      <div class="fhf__brand">
+        <a class="fhf__logo" href="/" aria-label="The Four Horseshoes – home"><svg class="fhf__logo-svg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 1500 770"><path fill="#FBF8EF" d="M690.5 49.7h8.6V76h6.6V49.7h8.7v-5.9h-23.9Zm65.8-5.9v12.1h-15.1V43.8h-6.5V76h6.5V61.8h15.1V76h6.6V43.8Zm30.1 0V76h20.4v-5.6h-14.1v-8.8h13.2v-5.4h-13.2v-6.8h14.1v-5.6ZM594.2 60h66v3.2h-66Zm245.6 0h66v3.2h-66ZM155.3 218.9l17.6 70.6 14-3.5-7.6-30.2 25.9-6.4-3-12.1-25.9 6.5-3.9-15.8 26.9-6.7-3.2-12.7Zm87.6 16.3q-1.4-6.8.3-12.7t6.1-10 10.9-5.5 12.4.5q5.6 2 9.5 6.7 3.8 4.7 5.3 11.5 1.4 6.9-.3 12.7-1.6 5.9-6 10-4.3 4.1-10.9 5.6-6.6 1.4-12.3-.6-5.6-2-9.6-6.7-3.9-4.7-5.4-11.5m-15.3 3.2q1.7 8.1 5.9 14.4 4.2 6.2 10.3 10.3 6.2 4 13.7 5.3t15.7-.4q8.2-1.8 14.5-6t10.2-10.4q4-6.2 5.3-13.6 1.3-7.5-.4-15.5-1.7-8.2-5.9-14.3t-10.4-10.1-13.6-5.2-15.6.5q-8 1.7-14.3 5.9-6.3 4.1-10.3 10.2t-5.5 13.4.4 15.5m93.6-56.3 8.3 48.2q1.1 6.3 3.9 10.8 2.9 4.5 7.2 7.1 4.2 2.7 9.5 3.5 5.4.8 11.3-.2 5.8-1 10.6-3.6 4.7-2.5 7.9-6.4t4.4-9.1.1-11.6l-8.2-48.1-14.7 2.5 8.1 47.2q1.1 6.2-1.5 10.5t-9 5.4-10.2-2.1-4.9-9.4l-8.1-47.2Zm84.8-14 9.8 72.2 14.8-2-3.6-26.2 6.4-.9 20.4 23.9 17.5-2.4-23.3-25.2 2.6-1.6q5.6-3.7 8.1-9.3t1.5-12.4q-.9-6.9-4.8-11.7t-10.3-6.7q-6.3-2.1-14.9-1Zm19.4 32.2-2.9-21.6 8.5-1.2q3.9-.5 6.9.4t4.9 3.1 2.4 5.6-.8 6.1-3.9 4.3-6.5 2.2Zm153.1-51 2.2 27.3-33.9 2.7-2.2-27.3-14.8 1.2 5.8 72.6 14.8-1.2-2.5-31.9 33.9-2.7 2.5 31.9 14.8-1.2-5.7-72.5Zm58.9 32.9q-.3-7 2.4-12.5t7.7-8.8 11.7-3.6q6.9-.2 12.1 2.7t8.2 8.2 3.3 12.3-2.4 12.4-7.6 8.9q-5 3.3-11.7 3.5-6.8.3-12-2.6t-8.3-8.2-3.4-12.3m-15.7.6q.3 8.2 3.4 15.1t8.5 11.9 12.5 7.6 15.5 2.3q8.5-.3 15.4-3.5 6.9-3.1 11.8-8.5t7.5-12.5 2.3-15.4-3.4-15.1-8.6-11.7q-5.4-4.8-12.5-7.3t-15.4-2.2-15.1 3.3-11.9 8.4q-5 5.2-7.7 12.3-2.6 7-2.3 15.3M724 143.2l.1 72.8h14.8v-26.4h6.5l17 26.4H780l-19.7-28.2 2.8-1.1q6.1-3 9.3-8.2 3.2-5.3 3.2-12.1 0-7-3.2-12.2t-9.3-8.1-14.7-2.9Zm14.9 34.5v-21.8h8.6q4 0 6.8 1.3 2.9 1.3 4.4 3.7t1.6 5.9-1.5 5.9-4.5 3.7q-2.8 1.3-6.8 1.3Zm69.2 14.5-10.8 7.2q2.2 5.1 6.3 9.6 4.2 4.5 9.9 7.3 5.6 2.7 12.3 2.9 5 .2 9.6-1.2t8.3-4.1 5.9-6.8 2.4-9.4q.1-4.7-1.3-8.3t-3.9-6.4q-2.6-2.7-5.8-4.7t-6.7-3.3q-5.5-2.1-9-4-3.6-2-5.3-4-1.7-2.1-1.6-4.8t2.3-4.7 6.6-1.8q3.4.1 5.9 1.5t4.5 3.6 3.4 4.8l11.8-6.1q-1.7-3.9-5-7.6t-8.2-6.2-12-2.7q-6.7-.2-12.3 2.1-5.5 2.2-8.8 6.6-3.3 4.5-3.5 10.7-.2 5.2 1.7 9t4.7 6.4q3 2.6 6.3 4.3t5.9 2.8q4.8 2 8.2 3.7t4.9 3.9q1.7 2.1 1.6 5.5-.2 4-3 6.2-2.9 2.2-7.4 2-3.8-.1-7.1-1.9t-5.9-4.8q-2.7-3.1-4.9-7.3m72.5-45.5-4.7 72.6 46.2 3 .8-12.5-31.8-2.1 1.3-19.8 29.7 1.9.8-12.3-29.7-2 .9-15.3 31.9 2 .8-12.5Zm77.3 54.1-11.3 6.4q1.9 5.3 5.7 10.1t9.3 7.9 12.1 3.7q5 .5 9.6-.6 4.7-1.1 8.6-3.5 3.9-2.5 6.4-6.5 2.4-3.9 3-9.2.4-4.7-.7-8.4t-3.6-6.6q-2.4-2.9-5.4-5.1t-6.5-3.7q-5.3-2.4-8.8-4.6-3.4-2.2-5-4.3-1.6-2.2-1.3-4.9t2.6-4.5q2.4-1.8 6.8-1.4 3.3.3 5.7 1.9t4.3 3.8 3 5.1l12.2-5.3q-1.5-4-4.5-7.9t-7.8-6.7q-4.8-2.9-11.7-3.5-6.7-.7-12.4 1.2t-9.3 6.1-4.2 10.4q-.5 5.2 1.1 9.1t4.4 6.7 6 4.7 5.7 3.1l7.9 4.3q3.2 1.9 4.7 4.2 1.5 2.2 1.1 5.6-.3 4-3.4 6-3 2-7.4 1.5-3.9-.3-7-2.3-3.2-2-5.6-5.3-2.5-3.2-4.3-7.5m124-34.3-3.6 27.1-33.7-4.5 3.6-27.2-14.8-1.9-9.6 72.1 14.7 2 4.3-31.7 33.7 4.5-4.3 31.7 14.8 2 9.6-72.2Zm50.6 44.5q1.2-6.8 5-11.7t9.4-7 12.2-1q6.8 1.2 11.2 5.1 4.5 4 6.4 9.8 1.8 5.8.6 12.7t-5 11.7-9.3 7-12.2 1-11.2-5.1-6.4-9.8-.7-12.7m-15.5-2.7q-1.4 8.1.2 15.5t5.7 13.4q4.3 6 10.7 10.1t14.7 5.5 15.7-.2 13.4-5.8 10-10.7 5.4-14.5-.1-15.5q-1.7-7.3-5.9-13.2t-10.7-9.9q-6.4-3.9-14.6-5.3t-15.5.1-13.4 5.6-10 10.4-5.6 14.5m108.3-17.1-15.2 71.2 45.2 9.7 2.7-12.3-31.3-6.7 4.2-19.4 29.2 6.2 2.6-12.1-29.2-6.3 3.2-15 31.2 6.7 2.7-12.3Zm68.5 64.8-12.1 4.7q1.1 5.5 4.2 10.8t8.1 9.1 11.4 5.5q4.9 1.2 9.6.8 4.8-.3 9-2.2t7.2-5.5q3-3.5 4.3-8.7 1.2-4.5.6-8.3t-2.6-7.1-4.6-5.8q-2.8-2.6-5.9-4.7-4.9-3.1-8-5.8t-4.3-5-.6-5 3.3-4.1 6.8-.4q3.3.8 5.5 2.7t3.6 4.4q1.5 2.6 2.3 5.5l12.8-3.5q-.9-4.2-3.3-8.5t-6.7-7.7q-4.4-3.5-11.1-5.2-6.6-1.6-12.5-.6-5.9 1.1-10 4.7-4.2 3.6-5.7 9.7-1.3 5-.2 9.1 1 4 3.3 7.2t5.2 5.6 5.2 3.9q4.3 3 7.2 5.4t4 4.8q1.2 2.5.4 5.8-1 3.8-4.2 5.4-3.3 1.5-7.7.4-3.7-.9-6.5-3.3-2.9-2.4-4.8-6t-3.2-8.1M411.6 383.2l-4.7 3.3q1.1 2.3 2.9 4.2 1.9 1.9 4.5 3 2.5 1.2 5.5 1.2 2.2 0 4.2-.7t3.6-1.9q1.6-1.3 2.5-3.1t.9-4.2q0-2.1-.6-3.7t-1.9-2.7q-1.1-1.2-2.6-2-1.4-.9-3-1.4-2.4-.8-4-1.6t-2.4-1.7-.8-2.1.9-2.1 2.9-.9q1.5 0 2.7.5 1.1.6 2 1.6t1.6 2.1l5.1-2.9q-.8-1.7-2.3-3.3t-3.7-2.6-5.4-1q-2.9 0-5.4 1-2.4 1.1-3.8 3.1t-1.4 4.8q0 2.3.9 3.9t2.2 2.8q1.3 1.1 2.8 1.8l2.7 1.1 3.6 1.6q1.5.7 2.3 1.6t.7 2.5-1.2 2.7q-1.2 1-3.2 1-1.7 0-3.2-.7t-2.7-2.1-2.2-3.1m38.4-21.4v21.6q0 2.9.9 5 .9 2.2 2.6 3.7 1.6 1.4 3.9 2.2t4.9.8 4.9-.8 3.9-2.2q1.7-1.5 2.6-3.7 1-2.1 1-5v-21.6h-6.6V383q0 2.8-1.5 4.4-1.4 1.7-4.3 1.7-2.8 0-4.3-1.7-1.4-1.6-1.4-4.4v-21.2Zm45.2 0V394h6.5v-11.7h2.9l7.5 11.7h7.8l-8.7-12.5 1.3-.5q2.6-1.3 4.1-3.6t1.4-5.3q0-3.1-1.4-5.4-1.5-2.3-4.1-3.6-2.7-1.3-6.5-1.3Zm6.5 15.3v-9.7h3.9q1.7 0 3 .6 1.2.6 1.9 1.6.7 1.1.7 2.6 0 1.6-.7 2.6-.7 1.1-1.9 1.7-1.3.6-3 .6Zm35.8-15.3V394h6.6v-11.7h2.8l7.6 11.7h7.7l-8.7-12.5 1.3-.5q2.7-1.3 4.1-3.6t1.4-5.3q0-3.1-1.4-5.4t-4.1-3.6-6.5-1.3Zm6.6 15.3v-9.7h3.8q1.7 0 3 .6t2 1.6q.6 1.1.6 2.6 0 1.6-.6 2.6-.7 1.1-2 1.7t-3 .6Zm35.7-15.3V394h20.5v-5.6h-14.1v-8.8h13.2v-5.4h-13.2v-6.8h14.1v-5.6Zm58.7 0-7 13-6.9-13h-7.5l11.1 18.9V394h6.7v-13.3l11.1-18.9Zm219 0V394H878v-5.6h-14.2v-8.8H877v-5.4h-13.2v-6.8H878v-5.6Zm63.7 0v20l-22.9-21.6V394h6.3v-20l22.9 21.6v-33.8Zm42.7 20.2h9.3q-.4 1.5-1.2 2.8t-1.9 2.2-2.7 1.5q-1.6.5-3.6.5-2.9 0-5.3-1.4t-3.8-3.9q-1.3-2.5-1.3-5.8 0-3.4 1.4-5.8t3.8-3.7q2.3-1.4 5.2-1.4 3.1 0 5.3 1.4t3.3 3.4l5.6-3.3q-1.5-2.2-3.5-3.9-2.1-1.6-4.7-2.5t-6-.9q-3.7 0-6.9 1.2-3.1 1.1-5.5 3.4-2.3 2.2-3.6 5.3t-1.3 6.8 1.2 6.9q1.3 3.1 3.6 5.3 2.3 2.3 5.5 3.5 3.1 1.3 6.9 1.3t7-1.5 5.2-3.9q2.1-2.5 3.1-5.8t.8-6.9h-15.9Zm35.1-20.2V394h19.4v-5.8h-12.8v-26.4Zm55.3 24.9 3.4 7.3h7.5l-16.3-34.1-16.4 34.1h7.4l3.4-7.3Zm-5.4-14.5 4 9.3h-8.1Zm56.5-10.4v20l-22.9-21.6V394h6.3v-20l22.9 21.6v-33.8Zm27.1 0V394h11q5 0 8.8-2t5.9-5.6 2.2-8.5-2.2-8.5q-2.1-3.6-5.9-5.6t-8.8-2Zm6.7 26.2v-20.2h4q2.2 0 4 .6 1.9.5 3.4 1.8 1.4 1.2 2.2 3.1t.8 4.6-.8 4.6-2.2 3.1q-1.5 1.3-3.4 1.8t-4 .6ZM300.6 510.4V558h9.7v-17.3h5.7q5.6 0 9.6-1.8t6.1-5.3 2.1-8q0-4.7-2.1-8.1t-6.1-5.3-9.6-1.8Zm9.7 22.1v-13.9h5.7q3.9 0 6.1 1.8 2.3 1.7 2.3 5.2 0 3.4-2.3 5.1-2.2 1.8-6.1 1.8Zm43.6-22.1v32q0 4.2 1.4 7.4t3.8 5.3q2.5 2.2 5.8 3.3 3.3 1.2 7.3 1.2 3.8 0 7.2-1.2 3.3-1.1 5.8-3.3t3.8-5.3 1.4-7.4v-32h-9.7v31.3q0 4.1-2.2 6.6-2.1 2.5-6.3 2.5-4.3 0-6.4-2.5t-2.1-6.6v-31.3Zm84.2 21.9q3.1-1.3 5-3.7 2-2.6 2-6.2 0-4-2-6.7-2.1-2.6-5.7-4t-8.3-1.3h-15.9V558h16.9q5.3 0 9.3-1.4 4-1.5 6.2-4.4t2.2-7.7q0-3.6-1.4-6.1-1.5-2.5-4-4.1-2-1.3-4.3-2m-15.1 4.2h6.2q1.8 0 3.4.4t2.8 1.2 1.8 2.1.6 3q0 2.5-1.1 4.1t-3.1 2.2-4.4.7H423Zm0-7.1v-11.2h5.2q3.2 0 5.1 1.4t1.8 4.1q0 1.8-.8 3.1t-2.4 2-3.7.6Zm88.6 2.1-3.2 1.5q-2.2 1.2-4.1 2.9t-3.1 3.9q-1.3 2.4-1.3 5.6 0 4.1 2.3 7.1 2.2 3.1 5.9 4.7t8 1.6q4.9 0 9.1-1.7 3.3-1.3 6.3-3.5l3.9 4.4h10.1l-8.4-9.2 2.1-2.3q2.9-3.4 5.3-6.7l-6.1-4.4q-2.2 3.2-4.6 6l-1.6 1.9-9.4-10.3 3.1-2.2q2-1.5 3.5-3.1 1.4-1.5 2.1-3.2t.8-3.9q0-2.9-1.5-5.4t-4.4-4.2-7.1-1.6-7.3 1.5q-3 1.6-4.7 4.2t-1.7 5.7q0 2.5 1.1 4.5t2.7 3.8zm4.6 5.2 10.2 11.4q-1.6 1.1-3.3 1.9-2.9 1.3-5.9 1.3-2.4 0-4.2-.9t-2.8-2.4-1-3.4q0-2.2 1.1-3.7t3-2.6zm2.3-8.5-2.5-2.8q-1.8-2.1-1.8-4.2 0-1.9 1.3-3.3t3.7-1.4q1.6 0 2.7.7t1.7 1.7q.5 1.1.5 2.4 0 2-2 4.1-1.4 1.5-3.6 2.8m79.6-17.8V558h16.2q7.5 0 13.1-2.9t8.7-8.3q3.2-5.3 3.2-12.6t-3.2-12.6-8.7-8.3q-5.6-2.9-13.1-2.9Zm10 38.8v-30h5.9q3.1 0 5.9.9t4.9 2.7 3.3 4.6 1.2 6.8q0 3.9-1.2 6.8-1.2 2.8-3.3 4.6-2.1 1.9-4.9 2.7t-5.9.9Zm51.6-38.8V558h9.9v-47.6Zm66.9 0v29.5L692.8 508v50h9.4v-29.5l33.8 31.9v-50Zm32.7 0V558h9.8v-47.6Zm66.9 0v29.5L792.3 508v50h9.4v-29.5l33.9 31.9v-50Zm55.8 29.9h13.6q-.6 2.2-1.7 4-1.2 1.9-2.9 3.3t-3.9 2.2q-2.4.8-5.3.8-4.4 0-7.9-2.1-3.5-2-5.5-5.7-2.1-3.7-2.1-8.6 0-5 2.1-8.6t5.6-5.5 7.8-1.9q4.6 0 7.7 1.9t5 5.1l8.3-4.9q-2.2-3.3-5.2-5.7-3.1-2.4-7-3.8t-8.8-1.4q-5.5 0-10.2 1.8t-8.1 5-5.4 7.9-2 10.1 1.9 10.1 5.3 8 8.1 5.2q4.6 1.8 10.1 1.8 5.9 0 10.5-2.1t7.6-5.8q3.1-3.7 4.6-8.6t1.2-10.2H882Zm77.6-29.9V558h9.7v-17.3h4.3l11.1 17.3h11.5l-12.9-18.4 1.9-.8q3.9-1.9 6-5.3t2.1-7.9q0-4.6-2.1-8t-6-5.3-9.6-1.9Zm9.7 22.6v-14.3h5.7q2.6 0 4.4.8t2.9 2.5q1 1.6 1 3.8 0 2.3-1 3.9t-2.9 2.4q-1.8.9-4.4.9Zm52.9 1.2q0-4.6 1.9-8.1t5.3-5.6q3.3-2 7.7-2t7.9 2q3.3 2.1 5.1 5.6 1.9 3.5 1.9 8.1t-1.9 8.1-5.2 5.6q-3.3 2-7.8 2t-7.7-2q-3.4-2.1-5.3-5.6t-1.9-8.1m-10.2 0q0 5.4 1.8 10t5.2 8 8 5.2 10.1 1.9 10.1-1.9q4.6-1.8 8-5.2t5.2-8q1.9-4.6 1.9-10t-1.9-10q-1.8-4.5-5.3-7.8-3.4-3.3-8-5.2-4.5-1.8-10-1.8-5.3 0-9.9 1.8t-8 5.2q-3.4 3.3-5.3 7.8t-1.9 10m78.3 0q0-4.6 1.9-8.1t5.2-5.6q3.4-2 7.8-2t7.8 2q3.4 2.1 5.2 5.6t1.8 8.1-1.8 8.1q-1.9 3.5-5.2 5.6t-7.8 2q-4.4 0-7.8-2-3.3-2.1-5.2-5.6t-1.9-8.1m-10.3 0q0 5.4 1.9 10t5.2 8q3.4 3.4 8 5.2t10.1 1.9 10.1-1.9 8-5.2q3.3-3.4 5.2-8t1.9-10-1.9-10q-1.9-4.5-5.3-7.8t-8-5.2-10-1.8-10 1.8q-4.6 1.9-8 5.2t-5.3 7.8-1.9 10m81.3-2.9 13.8 22.3 13.8-22.3 3.1 26.7h10.1l-7.1-50-19.9 30.8-19.9-30.8-7.1 50h10.1Z"/><path fill="#FBF8EF" transform="translate(0 -74)" d="M594 701.9q0-3.2 1.5-5.6 1.4-2.3 3.8-3.6 2.3-1.2 5.1-1.2 2.3 0 4.1.6t3.2 1.6q1.5 1 2.5 2.2v-7.4q-1.9-1.6-4.3-2.5-2.3-.8-5.8-.8-3.7 0-6.9 1.2-3.1 1.1-5.4 3.4t-3.6 5.3-1.3 6.8 1.3 6.8 3.6 5.3 5.4 3.4 6.9 1.2q3.5 0 5.8-.8 2.4-.9 4.3-2.5v-7.4q-1 1.2-2.5 2.2-1.4 1-3.2 1.6t-4.1.6q-2.8 0-5.1-1.2-2.4-1.3-3.8-3.7-1.5-2.3-1.5-5.5m63.1-16.1v12.1h-15v-12.1h-6.6V718h6.6v-14.2h15V718h6.6v-32.2Zm33.4 16.1q0-3.1 1.2-5.5 1.3-2.4 3.6-3.7t5.2-1.4q3.1 0 5.3 1.4 2.3 1.3 3.5 3.7t1.3 5.5-1.3 5.5-3.5 3.7q-2.3 1.4-5.3 1.4t-5.2-1.4q-2.3-1.3-3.6-3.7-1.2-2.4-1.2-5.5m-7 0q0 3.6 1.2 6.7 1.3 3.1 3.6 5.4t5.4 3.6 6.8 1.3 6.9-1.3 5.3-3.6 3.6-5.4q1.2-3.1 1.2-6.7 0-3.7-1.2-6.7-1.3-3.1-3.6-5.4-2.3-2.2-5.4-3.4t-6.8-1.2-6.7 1.2-5.4 3.4-3.6 5.4q-1.3 3-1.3 6.7m70.7-1.3q2.1-.9 3.4-2.5t1.3-4.2q0-2.7-1.3-4.5t-3.9-2.7q-2.4-.9-5.6-.9h-10.7V718h11.4q3.6 0 6.3-1t4.2-3 1.5-5.2q0-2.3-1-4t-2.7-2.9q-1.3-.8-2.9-1.3m-10.2 2.9h4.2q1.2 0 2.3.2t1.8.8q.9.6 1.3 1.5t.4 2q0 1.7-.7 2.7-.8 1.1-2.1 1.6t-3 .5H744Zm0-4.8V691h3.5q2.2 0 3.4 1 1.3 1 1.3 2.8 0 1.2-.6 2.1t-1.6 1.3q-1.1.5-2.5.5Zm58.7-12.9v12.1h-15v-12.1h-6.6V718h6.6v-14.2h15V718h6.6v-32.2Zm46.6 24.9 3.4 7.3h7.5l-16.3-34.1-16.4 34.1h7.4l3.4-7.3Zm-5.4-14.5 4 9.3h-8.1Zm41.6 3.7 9.3 15.1 9.4-15.1 2 18.1h6.9l-4.8-33.8-13.5 20.8-13.4-20.8-4.8 33.8h6.8Zm-362.4 45.5-7.6 38.5 7.5 1.5 3.3-16.4 14.1 2.8 1.3-6.6-14.1-2.8 1.7-8.6 14.7 2.9 1.3-6.9Zm43.3 8.2-6 38.7 7.9 1.3 2.2-14.1 3.4.5 6.9 15.5 9.3 1.5-8.1-16.7 1.6-.3q3.5-1.1 5.6-3.6 2.2-2.5 2.7-6.2t-.7-6.7q-1.3-3.1-4.2-5.1-3-2.1-7.6-2.8Zm5.1 19.6 1.8-11.6 4.6.7q2.1.3 3.5 1.2 1.4 1 2 2.4t.4 3.3q-.3 1.8-1.4 3t-2.6 1.6q-1.7.4-3.8.1Zm43.1-12.6-4.3 38.9 24.7 2.8.8-6.7-17.1-1.9 1.2-10.7 15.9 1.8.8-6.6-16-1.8.9-8.2 17.1 1.9.8-6.7Zm46.6 4.7-2.7 39.1 24.9 1.7.4-6.7-17.1-1.2.7-10.7 16.1 1.1.4-6.6-16-1.1.6-8.3 17.1 1.2.5-6.8Zm104.3 3.4.1 14.8-18.3.1-.1-14.8-8 .1.2 39.2 8-.1-.1-17.2 18.3-.1.1 17.2h8l-.2-39.2Zm37.4 18.5q-.2-3.7 1.2-6.7t4-4.8q2.7-1.9 6.3-2.1 3.7-.2 6.5 1.3 2.9 1.5 4.6 4.4 1.6 2.8 1.9 6.5t-1.2 6.8q-1.4 3-4 4.8-2.7 1.8-6.3 2t-6.5-1.3q-2.8-1.5-4.5-4.3t-2-6.6m-8.4.5q.2 4.4 2 8.1 1.7 3.7 4.6 6.3 3 2.7 6.9 4 3.8 1.3 8.4 1 4.5-.2 8.2-2 3.7-1.7 6.3-4.7 2.6-2.9 3.9-6.8t1.1-8.3q-.3-4.4-2.1-8.1-1.7-3.6-4.7-6.2t-6.8-3.8q-3.8-1.3-8.3-1-4.4.2-8.1 1.9t-6.3 4.6q-2.7 2.9-4 6.7-1.4 3.8-1.1 8.3m59.8-23.7 2.8 26.2q.4 3.4 1.8 5.9t3.6 4.1q2.2 1.5 5 2.2 2.8.6 6.1.2 3.1-.3 5.8-1.5t4.4-3.2q1.9-2 2.7-4.8t.5-6.2l-2.8-26.1-8 .8 2.8 25.7q.3 3.3-1.2 5.6t-5 2.6-5.4-1.5q-2-1.9-2.4-5.2l-2.7-25.7Zm59.1 19.1-5 4.8q1.6 2.5 4.3 4.5t5.9 2.9 6.8.3q2.7-.4 4.9-1.6 2.3-1.1 4-2.9 1.7-1.9 2.5-4.3.8-2.3.3-5.2-.3-2.5-1.4-4.2t-2.8-3-3.5-1.9q-1.9-.8-3.9-1.1-3.1-.6-5.1-1.3-2.1-.6-3.2-1.6t-1.4-2.3q-.2-1.5.8-2.7t3.3-1.7q1.8-.2 3.3.3t2.7 1.4q1.3 1 2.3 2.2l5.7-4.3q-1.4-1.9-3.5-3.6-2-1.6-4.9-2.4-2.9-.9-6.6-.3-3.6.5-6.3 2.3t-4 4.4q-1.4 2.7-.8 6 .4 2.8 1.7 4.6 1.4 1.8 3.2 2.9t3.7 1.7q2 .6 3.4.8 2.8.6 4.7 1.2t3 1.6q1.1.9 1.4 2.8.3 2.1-1 3.5-1.3 1.5-3.7 1.8-2 .3-3.9-.3t-3.6-2-3.3-3.3m39.7-33 7.6 38.5 24.4-4.8-1.3-6.7-16.8 3.4-2.1-10.5 15.8-3.1-1.3-6.6-15.8 3.1-1.6-8.1 16.9-3.3-1.3-6.7Z"/><path fill="#D9B66E" fill-rule="evenodd" d="m807.6 321.8 1.6 3 1.4 3.2 1.2 3.2 1.2 3.3 1 3.3.8 3.4.7 3.4.6 3.5.4 3.4.3 3.5.2 3.5v3.5l-.2 3.6-.3 3.4-.5 3.5-.6 3.4-.7 3.5-.9 3.3-1 3.3-1.2 3.3-1.2 3.2-1.5 3.1-1.5 3-1.7 3-1.8 3-2 2.7-2 2.6-2 2.6-2.3 2.5-2.4 2.3-2.4 2.2-2.5 2-2.7 2-2.6 1.8-2.8 1.6-2.8 1.6-3 1.3-2.9 1.2-3 1-3 1-3 .7-3.1.6-3.1.4-3.2.2-3.1.1h-3.1l-3.2-.3-3-.4-3.2-.6-3-.7-3-1-3-1-3-1.2-2.9-1.4-2.8-1.5-2.7-1.6-2.7-1.8-2.7-2-2.5-2-2.4-2.2-2.4-2.3-2.2-2.5-2.2-2.6-2-2.6-1.9-2.8-1.8-2.9-1.7-3-1.5-3-1.5-3.1-1.2-3.2-1.2-3.3-1-3.3-.9-3.3-.7-3.4-.6-3.5-.5-3.5-.3-3.4-.1-3.6v-7l.4-3.5.4-3.4.6-3.5.7-3.4.8-3.4 1-3.3 1.2-3.3 1.2-3.2 1.4-3.1 1.6-3h28.8l-1.5 1.8-1.4 1.9-1.3 2-1.2 2-1.1 2.2-1 2.2-1 2.3-.8 2.3-.7 2.4-.6 2.4-.5 2.5-.4 2.5-.3 2.5-.2 2.5v5l.2 2.6.3 2.5.3 2.4.5 2.5.6 2.4.8 2.4.8 2.4.9 2.2 1 2.3 1.1 2.1 1.2 2 1.3 2.1 1.4 2 1.5 1.8 1.5 1.7 1.7 1.6 1.7 1.6 1.7 1.4 1.9 1.3 1.8 1.2 2 1.1 2 1 2 .8 2 .8 2.1.5 2.1.5 2.1.3 2.2.2 2.1.1h2.1l2.2-.3 2.1-.3 2.1-.5 2-.6 2.1-.7 2-.8 2-1 2-1 1.8-1.3 1.9-1.3 1.7-1.4 1.7-1.6 1.6-1.6 1.6-1.7 1.5-1.9 1.4-1.9 1.3-2 1.2-2 1-2.2 1.1-2.3 1-2.2.8-2.4.7-2.4.6-2.4.5-2.4.4-2.5.2-2.5.2-2.6v-5l-.2-2.5-.3-2.5-.4-2.5-.5-2.5-.6-2.4-.7-2.4-.8-2.3-1-2.3-1-2.2-1-2.2-1.3-2-1.3-2-1.4-2-1.5-1.8Zm-6.8 37.9-1.5-13.9 6.9-.7 1.5 13.8Zm-100-13.9-1.6 13.9-7-.8 1.6-13.8Zm95.2 38.8 3.9-13.4 6.6 1.9-3.8 13.4Zm-95.9-13.4 3.9 13.4-6.7 1.9-3.8-13.4Zm82 33.7 9-10.8 5.3 4.5-8.9 10.7ZM709 394l9 10.8-5.4 4.4-9-10.7Zm53.2 22.2 12.7-5.7 2.8 6.4-12.7 5.7Zm-36.9-5.7 12.7 5.7-2.8 6.4-12.7-5.7Z"/></svg></a>
+        <div class="fhf__cta">
+          <a class="fhf__btn" href="/book">Book a table</a>
+          <a class="fhf__btn fhf__btn--line" href="https://thefourhorseshoes.giftpro.co.uk/" target="_blank" rel="noopener">Gift vouchers</a>
+        </div>
+      </div>
+
+      <div class="fhf__col fhf__col--center">
+        <h2 class="fhf__h">Find us</h2>
+        <p>13–15 Burrow Hill Green<br> Chobham, Surrey<br> GU24 8QP</p>
+        <a class="fhf__more" href="https://goo.gl/maps/Z359o5D3yRF2" target="_blank" rel="noopener">Get directions →</a>
+      </div>
+
+      <div class="fhf__col fhf__col--center">
+        <h2 class="fhf__h">Get in touch</h2>
+        <p><a href="tel:01276856257">01276 856 257</a><br><a href="mailto:tfscpub@gmail.com">tfscpub@gmail.com</a></p>
+        <ul class="fhf__social">
+          <li><a href="https://www.facebook.com/TheFourHorseshoesChobham" target="_blank" rel="noopener">Facebook <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a></li>
+          <li><a href="http://instagram.com/thefourhorseshoes" target="_blank" rel="noopener">Instagram <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a></li>
+        </ul>
+      </div>
+
+      <div class="fhf__col fhf__col--center">
+        <h2 class="fhf__h">Opening hours</h2>
+        <table class="fhf__hours">
+          <thead><tr><th scope="col"><span class="fhf__sr">Day</span></th><th scope="col">Pub</th><th scope="col">Kitchen</th></tr></thead>
+          <tbody>
+            <tr data-day="1"><td>Mon</td><td>12 noon – 10pm</td><td>12 noon – 8.30pm</td></tr>
+            <tr data-day="2"><td>Tue</td><td>12 noon – 10pm</td><td>12 noon – 8.30pm</td></tr>
+            <tr data-day="3"><td>Wed</td><td>12 noon – 10.30pm</td><td>12 noon – 9pm</td></tr>
+            <tr data-day="4"><td>Thu</td><td>12 noon – 11pm</td><td>12 noon – 9pm</td></tr>
+            <tr data-day="5"><td>Fri</td><td>12 noon – midnight</td><td>12 noon – 9.30pm</td></tr>
+            <tr data-day="6"><td>Sat</td><td>12 noon – midnight</td><td>12 noon – 9.30pm</td></tr>
+            <tr data-day="0"><td>Sun</td><td>12 noon – 8pm</td><td>12 noon – 7pm</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="fhf__bar">
+      <nav class="fhf__links" aria-label="Footer">
+        <a href="/">Home</a>
+        <a href="/party-group-tables">Groups</a>
+        <a href="/festive-season">Christmas</a>
+        <a href="/gallery">Gallery</a>
+        <a href="https://thefourhorseshoes.giftpro.co.uk/" target="_blank" rel="noopener">Vouchers</a>
+        <a href="/contact">Contact</a>
+        <a href="/work-with-us">Work with us</a>
+        <a href="/policies">Policies</a>
+        <a href="/terms-conditions">Terms + Conditions</a>
+      </nav>
+      <p class="fhf__copy">© <span class="fhf__year">2026</span> The Four Horseshoes, Chobham</p>
+    </div>
+  </div>
+</footer>
+
+<a href="/book" class="t-top">Book a table</a>
+
+<script>
+/* this year in the copyright line */
+(function () {
+  var y = document.querySelector('.fhf__year'); if (y) y.textContent = new Date().getFullYear();
+})();
+</script>
